@@ -9,12 +9,15 @@ export const useAutho = () => {
 const AuthorizationContextProvider = ({ children }) => {
     const [signModal, setSignModal] = useState(false);
     const [user, setUser] = useState("");
+    const [logged, setLogged] = useState(false);
 
     const value = {
         signModal,
         setSignModal,
         user,
         setUser,
+        logged,
+        setLogged,
     };
 
     return (

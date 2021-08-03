@@ -12,7 +12,6 @@ const Routes = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/signup" component={SignUp} />
                 </Switch>
             </AuthorizationContext>
         </BrowserRouter>

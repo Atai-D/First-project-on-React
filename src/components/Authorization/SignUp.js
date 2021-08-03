@@ -1,8 +1,11 @@
 import { Button, Modal } from "react-bootstrap";
 import React, { useState } from "react";
+import Input from "@material-ui/core/Input";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+
 const SignUp = () => {
-    const [smShow, setSmShow] = useState(false);
+    // const [smShow, setSmShow] = useState(false);
     const [lgShow, setLgShow] = useState(false);
 
     return (
@@ -33,7 +36,9 @@ const SignUp = () => {
                         Large Modal
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>...</Modal.Body>
+                <Modal.Body>
+                    <Input className="MuiInput-fullWidth" />
+                </Modal.Body>
             </Modal>
         </>
     );

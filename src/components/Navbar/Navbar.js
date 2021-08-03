@@ -1,17 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+export default function Navbar() {
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
-        <div style={{ marginBottom: "100px", display: "flex" }}>
+        <>
             <NavLink exact to="/">
-                <h2>Go home / </h2>
+                <Typography variant="h6" className={classes.title}>
+                    Go home /
+                </Typography>
             </NavLink>
             <NavLink to="/signup">
-                <h2> Sign up</h2>
+                <Typography variant="h6" className={classes.title}>
+                    Sign up
+                </Typography>
             </NavLink>
-        </div>
+        </>
     );
-};
-
-export default Navbar;
+}

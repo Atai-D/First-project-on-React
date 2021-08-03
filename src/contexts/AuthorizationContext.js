@@ -1,15 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
+export const AuthorizationContext = React.createContext();
 
 export const useAutho = () => {
-    return useContextt(AuthorizationContext);
+    return useContext(AuthorizationContext);
 };
 
-const AuthorizationContext = ({ children }) => {
+const AuthorizationContextProvider = ({ children }) => {
+    const [signModal, setSignModal] = useState(false);
+    const [user, setUser] = useState("");
+    const [logged, setLogged] = useState(false);
+
+    const value = {
+        signModal,
+        setSignModal,
+        user,
+        setUser,
+        logged,
+        setLogged,
+    };
+
     return (
-        <AuthorizationContext.Provider>
+        <AuthorizationContext.Provider value={value}>
             {children}
         </AuthorizationContext.Provider>
     );
 };
 
-export default AuthorizationContext;
+export default AuthorizationContextProvider;

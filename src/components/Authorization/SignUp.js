@@ -1,31 +1,19 @@
 import { Button, Modal } from "react-bootstrap";
 import React, { useState } from "react";
+import Input from "@material-ui/core/Input";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useAutho } from "../../contexts/AuthorizationContext";
+
 const SignUp = () => {
-    const [smShow, setSmShow] = useState(false);
-    const [lgShow, setLgShow] = useState(false);
+    const { signModal, setSignModal } = useAutho();
 
     return (
         <>
-            {/* <Button onClick={() => setSmShow(true)}>Small modal</Button> */}
-            <Button onClick={() => setLgShow(true)}>Large modal</Button>
-            {/* <Modal
-                size="sm"
-                show={smShow}
-                onHide={() => setSmShow(false)}
-                aria-labelledby="example-modal-sizes-title-sm"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-sm">
-                        Small Modal
-                    </Modal.Title>xs
-                </Modal.Header>
-                <Modal.Body>...</Modal.Body>
-            </Modal> */}
             <Modal
                 size="lg"
-                show={lgShow}
-                onHide={() => setLgShow(false)}
+                show={signModal}
+                onHide={() => setSignModal(false)}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -33,7 +21,13 @@ const SignUp = () => {
                         Large Modal
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>...</Modal.Body>
+                <Modal.Body>
+                    <form>
+                        <input placeholder="username" />
+                        <input placeholder="password" />
+                        <input placeholder="repeat password" />
+                    </form>
+                </Modal.Body>
             </Modal>
         </>
     );

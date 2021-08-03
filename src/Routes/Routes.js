@@ -3,15 +3,17 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUp from "../components/Authorization/SignUp";
 import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
+import AuthorizationContext from "../contexts/AuthorizationContext";
 
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Navbar />
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/signup" component={SignUp} />
-            </Switch>
+            <AuthorizationContext>
+                <Navbar />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                </Switch>
+            </AuthorizationContext>
         </BrowserRouter>
     );
 };

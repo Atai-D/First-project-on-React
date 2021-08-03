@@ -18,7 +18,7 @@ const SignUp = () => {
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-sm">
                         Small Modal
-                    </Modal.Title>
+                    </Modal.Title>xs
                 </Modal.Header>
                 <Modal.Body>...</Modal.Body>
             </Modal> */}

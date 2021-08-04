@@ -1,4 +1,141 @@
 {
-    "users": [],
-    "blogs": []
+  "users": [
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 1
+    },
+    {
+      "email": "rapaktalas1@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 2
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 3
+    },
+    {
+      "email": "baha4592@mail.ru",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 4
+    },
+    {
+      "email": "asd@gam.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 5
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 6
+    },
+    {
+      "email": "rapaktalas1@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 7
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 8
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 9
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "qwe",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 10
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 11
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 12
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 13
+    },
+    {
+      "email": "rapaktalas1@gmail.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 14
+    },
+    {
+      "email": "123@asd.com",
+      "password": "123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 15
+    }
+  ],
+  "blogs": [],
+  "tickets": []
 }

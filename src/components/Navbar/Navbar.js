@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
 import React from "react";
-import {makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff",
         color: "#bfe0c2",
         marginRight: "5px",
-        border: "none"
+        border: "none",
     },
     // hover: {
     //     color: "red"
@@ -153,10 +153,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar 
-            position="sticky" 
-            style={{backgroundColor: "#bfe0c2"
-        }}>
+            <AppBar position="sticky" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         B B-Blog
@@ -192,10 +189,12 @@ export default function PrimarySearchAppBar() {
                             color="inherit"
                         >
                             {/* <AccountCircle /> */}
+
                             <Button className={classes.btn} onClick={() => setSignModal(true)}>
                                 Sign Up
                             </Button>
                             <Button className={classes.btn} onClick={() => setSignModal(true)}>
+
                                 Log in
                             </Button>
                         </IconButton>

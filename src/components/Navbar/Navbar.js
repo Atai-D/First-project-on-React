@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 // import React, { useState } from "react";
 
@@ -32,7 +32,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -203,7 +202,9 @@ export default function PrimarySearchAppBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Material-UI
+                        <Link exact to="/">
+                            Material-UI
+                        </Link>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

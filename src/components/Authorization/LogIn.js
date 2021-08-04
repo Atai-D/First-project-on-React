@@ -28,7 +28,6 @@ const SignUp = () => {
         setSignPassword,
         signCheckPassword,
         setSignCheckPassword,
-        state,
         dispatch,
         users,
     } = useAutho();

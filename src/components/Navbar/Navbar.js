@@ -159,8 +159,9 @@ export default function PrimarySearchAppBar() {
                         B B-Blog
                     </Typography>
                     <div className={classes.search}>
-                        <div className={classes.searchIcon}></div>
-                    </div>
+                        <div className={classes.searchIcon}>
+                         </div>
+                    </div> 
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton
@@ -188,16 +189,12 @@ export default function PrimarySearchAppBar() {
                             color="inherit"
                         >
                             {/* <AccountCircle /> */}
-                            <Button
-                                className={classes.btn}
-                                onClick={() => setSignModal(true)}
-                            >
+
+                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
                                 Sign Up
                             </Button>
-                            <Button
-                                className={classes.btn}
-                                onClick={() => setSignModal(true)}
-                            >
+                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
+
                                 Log in
                             </Button>
                         </IconButton>

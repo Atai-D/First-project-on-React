@@ -28,7 +28,6 @@ const SignUp = () => {
         setSignPassword,
         signCheckPassword,
         setSignCheckPassword,
-        state,
         dispatch,
         users,
     } = useAutho();
@@ -154,7 +153,7 @@ const SignUp = () => {
                                 </Grid>
                                 <ButtonUI
                                     variant="contained"
-                        
+                                    color="primary"
                                     type="submit"
                                 >
                                     Sign Up

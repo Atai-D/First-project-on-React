@@ -1,6 +1,6 @@
 import { Button, Container, Modal } from "react-bootstrap";
 import React, { useState } from "react";
-// import Input from "@material-ui/core/Input";
+import Input from "@material-ui/core/Input";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
@@ -125,7 +125,7 @@ const SignUp = () => {
                                 </Grid>
                                 <ButtonUI
                                     variant="contained"
-                                    color="primary"
+                        
                                     type="submit"
                                 >
                                     Sign Up

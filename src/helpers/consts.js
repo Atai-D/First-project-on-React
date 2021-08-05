@@ -11,4 +11,5 @@ export const ACTIONS = {
 
 export const BLOG_ACTIONS = {
     ADD_BLOG: "ADD_BLOG",
+    GET_BLOG_DETAILS: "GET_BLOG_DETAILS",
 };

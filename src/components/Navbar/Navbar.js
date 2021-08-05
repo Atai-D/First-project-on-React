@@ -186,6 +186,12 @@ export default function PrimarySearchAppBar() {
                             aria-label="show 11 new notifications"
                             color="inherit"
                         >
+                            <NavLink to="/myblog">My Blogs</NavLink>
+                        </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
                             <NavLink to="/">Home</NavLink>
                             {/* <Badge badgeContent={11} color="secondary"> */}
                             {/* <NotificationsIcon /> */}

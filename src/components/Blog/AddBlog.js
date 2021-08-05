@@ -10,7 +10,12 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { useBlog } from "../../contexts/BlogContext";
-import { BLOG_ACTIONS, CATEGORIES, JSON_API_BLOGS } from "../../helpers/consts";
+import {
+    BLOG_ACTIONS,
+    CATEGORIES,
+    JSON_API_BLOGS,
+    JSON_API_USERS,
+} from "../../helpers/consts";
 
 const AddBlog = () => {
     const {
@@ -26,7 +31,7 @@ const AddBlog = () => {
         setBlogCategory,
     } = useBlog();
 
-    const { logged } = useAutho();
+    const { logged, setLogged } = useAutho();
 
     useEffect(() => {
         let user = JSON.parse(localStorage.getItem("user"));
@@ -35,29 +40,47 @@ const AddBlog = () => {
             alert("Зарегистрируйтесь, чтобы создать блок");
             history.push("/");
         }
-
-        return () => {
-            setBlogTitle("");
-            setBlogImage("");
-            setBlogText("");
-        };
     }, [logged]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const date = new Date();
+        const date1 = date.toUTCString();
         let newBlog = {
             title: blogTitle,
             image: blogImage,
             text: blogText,
             category: blogCategory,
+            author: logged.email,
+            date: date1,
         };
         console.log(newBlog);
         dispatch({
             type: BLOG_ACTIONS.ADD_BLOG,
             payload: newBlog,
         });
+
         const res = await axios.post(JSON_API_BLOGS, newBlog);
-        console.log(res);
+        newBlog.id = res.data.id;
+
+        let userWithBlog = {
+            ...logged,
+            usersBlogs: [...logged.usersBlogs, newBlog],
+        };
+
+        localStorage.setItem("user", JSON.stringify(userWithBlog));
+        setLogged(userWithBlog);
+        console.log(logged.usersBlogs);
+        let { data } = await axios.patch(
+            `${JSON_API_USERS}/${logged.id}`,
+            userWithBlog
+        );
+
+        console.log(data);
+        setBlogTitle("");
+        setBlogImage("");
+        setBlogText("");
+        alert("Ваш блог успешно опубликован");
     };
 
     return (

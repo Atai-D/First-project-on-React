@@ -1,4 +1,4 @@
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
@@ -15,6 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
+import { Link, NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -137,9 +138,10 @@ export default function PrimarySearchAppBar() {
                     aria-label="show 11 new notifications"
                     color="inherit"
                 >
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
+                    <Link to="/addblog">Add Blog</Link>
+                    {/* <Badge badgeContent={11} color="secondary"> */}
+                    {/* <NotificationsIcon /> */}
+                    {/* </Badge> */}
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
@@ -165,7 +167,7 @@ export default function PrimarySearchAppBar() {
             <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        B B-Blog
+                        <NavLink to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}></div>
@@ -181,13 +183,25 @@ export default function PrimarySearchAppBar() {
                             </Badge>
                         </IconButton>
                         <IconButton
-                            aria-label="show 17 new notifications"
+                            aria-label="show 11 new notifications"
                             color="inherit"
                         >
-                            <Badge badgeContent={17} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
+                            <NavLink to="/">Home</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
                         </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
+                            <NavLink to="/addblog">Add Blog</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
+                        </IconButton>
+
+                        {/* {console.log(logged)} */}
                         {logged.isLogged ? (
                             <>
                                 <Button
@@ -254,7 +268,7 @@ export default function PrimarySearchAppBar() {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-            <SignUp />;
+            <SignUp />
             <LogIn />
         </div>
     );

@@ -16,21 +16,11 @@ import { Link } from "react-router-dom";
 
 const LogIn = () => {
     const {
-        signModal,
         setSignModal,
         logModal,
         setLogModal,
-        user,
-        setUser,
-        logged,
         setLogged,
-        signName,
         setSignName,
-        signPassword,
-        setSignPassword,
-        signCheckPassword,
-        setSignCheckPassword,
-        dispatch,
         users,
         logName,
         setLogName,
@@ -75,7 +65,11 @@ const LogIn = () => {
                     authUser.password.toLowerCase() ===
                     logPassword.toString().toLowerCase()
                 ) {
-                    alert("Вы успешно авторизовались");
+                    if (authUser.isAdmin) {
+                        alert("Добро пожаловать, админ!");
+                    } else {
+                        alert(`Добро пожаловать, ${authUser.email}!`);
+                    }
                     setLogName("");
                     setLogPassword("");
                     setLogModal(false);
@@ -122,7 +116,6 @@ const LogIn = () => {
                                         required
                                         label="Email address"
                                         type="text"
-                                        placeholder="email"
                                         value={logName}
                                         onChange={(e) =>
                                             setLogName(e.target.value)
@@ -134,7 +127,6 @@ const LogIn = () => {
                                         required
                                         label="Password"
                                         type="password"
-                                        placeholder="password"
                                         value={logPassword}
                                         onChange={(e) =>
                                             setLogPassword(e.target.value)

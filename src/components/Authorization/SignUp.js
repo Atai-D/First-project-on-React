@@ -88,7 +88,9 @@ const SignUp = () => {
                 setSignModal(false);
                 setIsInUsers(false);
                 newUser.isLogged = true;
+                newUser.id = data.id;
                 setLogged(newUser);
+                localStorage.setItem("user", JSON.stringify(newUser));
             } else if (
                 !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
             ) {
@@ -135,7 +137,6 @@ const SignUp = () => {
                                         required
                                         label="Email address"
                                         type="text"
-                                        placeholder="email"
                                         value={signName}
                                         onChange={(e) =>
                                             setSignName(e.target.value)
@@ -147,7 +148,6 @@ const SignUp = () => {
                                         required
                                         label="Password"
                                         type="password"
-                                        placeholder="password"
                                         value={signPassword}
                                         onChange={(e) =>
                                             setSignPassword(e.target.value)
@@ -158,18 +158,13 @@ const SignUp = () => {
                                         required
                                         label="Password again"
                                         type="password"
-                                        placeholder="repeat password"
                                         value={signCheckPassword}
                                         onChange={(e) =>
                                             setSignCheckPassword(e.target.value)
                                         }
                                     />
                                 </Grid>
-                                <ButtonUI
-                                    variant="contained"
-                        
-                                    type="submit"
-                                >
+                                <ButtonUI variant="contained" type="submit">
                                     Sign Up
                                 </ButtonUI>
                             </Grid>

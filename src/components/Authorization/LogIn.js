@@ -14,22 +14,18 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const LogIn = () => {
     const {
-        signModal,
         setSignModal,
-        user,
-        setUser,
-        isLogged,
-        setIsLogged,
-        signName,
+        logModal,
+        setLogModal,
+        setLogged,
         setSignName,
-        signPassword,
-        setSignPassword,
-        signCheckPassword,
-        setSignCheckPassword,
-        dispatch,
         users,
+        logName,
+        setLogName,
+        logPassword,
+        setLogPassword,
     } = useAutho();
 
     const [isInUsers, setIsInUsers] = useState(false);
@@ -37,52 +33,51 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let perem = false;
+        let flag = false;
 
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email.toLowerCase() === signName.toLowerCase()) {
-                setIsInUsers(true);
-                perem = true;
+        const { data } = await axios(JSON_API_USERS);
+
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].email.toLowerCase() === logName.toLowerCase()) {
+                flag = true;
             }
         }
 
-        if (perem) {
+        if (!flag) {
             console.log(users);
-            perem = false;
+            flag = false;
+            setIsInUsers(true);
             return;
         } else {
-            if (
-                signPassword.toLowerCase() ===
-                    signCheckPassword.toLowerCase() &&
-                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
-            ) {
-                let newUser = {
-                    email: signName,
-                    password: signPassword,
-                    isLogged: true,
-                    isAdmin: false,
-                    usersBlogs: [],
-                    favourites: [],
-                };
-                dispatch({
-                    type: ACTIONS.SET_USER,
-                    payload: newUser,
+            if (flag) {
+                let authUser = "";
+                let arr = await data.map((user) => {
+                    if (user.email.toLowerCase() === logName.toLowerCase()) {
+                        authUser = user;
+                        authUser.isLogged = true;
+                        localStorage.setItem("user", JSON.stringify(authUser));
+                        console.log(user);
+                    }
                 });
-                const { data } = await axios.post(JSON_API_USERS, newUser);
-                alert("Вы успешно зарегистрировались");
-                setSignName("");
-                setSignPassword("");
-                setSignCheckPassword("");
-                setSignModal(false);
-                setIsInUsers(false);
-            } else if (
-                !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
-            ) {
-                alert("Вы неверно ввели свою почту");
-            } else if (
-                signPassword.toLowerCase() !== signCheckPassword.toLowerCase()
-            ) {
-                alert("Вы неверно ввели пароль, пожалуйста, проверьте данные");
+                console.log(authUser);
+                console.log(logPassword);
+                if (
+                    authUser.password.toLowerCase() ===
+                    logPassword.toString().toLowerCase()
+                ) {
+                    if (authUser.isAdmin) {
+                        alert("Добро пожаловать, админ!");
+                    } else {
+                        alert(`Добро пожаловать, ${authUser.email}!`);
+                    }
+                    setLogName("");
+                    setLogPassword("");
+                    setLogModal(false);
+                    setIsInUsers(false);
+                    setLogged(authUser);
+                } else {
+                    alert("Ваши пароли не совпадают");
+                }
             }
         }
     };
@@ -91,16 +86,16 @@ const SignUp = () => {
         <>
             <Modal
                 size="lg"
-                show={signModal}
+                show={logModal}
                 onHide={() => {
-                    setSignModal(false);
+                    setLogModal(false);
                     setIsInUsers(false);
                 }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        Sign Up
+                        Log In
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -112,7 +107,7 @@ const SignUp = () => {
                                     variant="h5"
                                     style={{ marginBottom: "10px" }}
                                 >
-                                    Registration
+                                    Authorization
                                 </Typography>
                                 <Grid>
                                     <TextField
@@ -121,10 +116,9 @@ const SignUp = () => {
                                         required
                                         label="Email address"
                                         type="text"
-                                        placeholder="email"
-                                        value={signName}
+                                        value={logName}
                                         onChange={(e) =>
-                                            setSignName(e.target.value)
+                                            setLogName(e.target.value)
                                         }
                                     />
                                     <TextField
@@ -133,21 +127,9 @@ const SignUp = () => {
                                         required
                                         label="Password"
                                         type="password"
-                                        placeholder="password"
-                                        value={signPassword}
+                                        value={logPassword}
                                         onChange={(e) =>
-                                            setSignPassword(e.target.value)
-                                        }
-                                    />
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        label="Password again"
-                                        type="password"
-                                        placeholder="repeat password"
-                                        value={signCheckPassword}
-                                        onChange={(e) =>
-                                            setSignCheckPassword(e.target.value)
+                                            setLogPassword(e.target.value)
                                         }
                                     />
                                 </Grid>
@@ -156,22 +138,23 @@ const SignUp = () => {
                                     color="primary"
                                     type="submit"
                                 >
-                                    Sign Up
+                                    Log In
                                 </ButtonUI>
                             </Grid>
                         </form>
                         {isInUsers ? (
                             <h5>
-                                Пользователь с таким именем уже существует.
+                                Пользователя с таким именем не существует.
                                 <ButtonUI
                                     onClick={() => {
-                                        setSignModal(false);
-                                        setSignModal(false);
+                                        setSignModal(true);
+                                        setLogModal(false);
+                                        setSignName(logName);
                                     }}
                                 >
-                                    <Link exact to="/">
-                                        Хотите войти?
-                                    </Link>
+                                    {/* <Link exact to="/"> */}
+                                    Хотите зарегистрироваться?
+                                    {/* </Link> */}
                                 </ButtonUI>
                             </h5>
                         ) : (
@@ -184,4 +167,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default LogIn;

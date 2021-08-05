@@ -1,8 +1,8 @@
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,6 +14,8 @@ import Menu from "@material-ui/core/Menu";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import LogIn from "../Authorization/LogIn";
+import { Link, NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -62,7 +64,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const { setSignModal, user } = useAutho();
+    const { setSignModal, logged, setLogged, user, logModal, setLogModal } =
+        useAutho();
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            setLogged(user);
+        }
+    }, []);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -128,9 +138,10 @@ export default function PrimarySearchAppBar() {
                     aria-label="show 11 new notifications"
                     color="inherit"
                 >
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
+                    <Link to="/addblog">Add Blog</Link>
+                    {/* <Badge badgeContent={11} color="secondary"> */}
+                    {/* <NotificationsIcon /> */}
+                    {/* </Badge> */}
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
@@ -144,7 +155,7 @@ export default function PrimarySearchAppBar() {
                 >
                     {/* <AccountCircle /> */}
                     <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-                    <Button onClick={() => setSignModal(true)}>Log in</Button>
+                    <Button onClick={() => setLogModal(true)}>Log in</Button>
                 </IconButton>
                 {/* <p>Profile</p> */}
             </MenuItem>
@@ -153,15 +164,14 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="sticky" style={{ backgroundColor: "#bfe0c2" }}>
+            <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        B B-Blog
+                        <NavLink to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                         </div>
-                    </div> 
+                        <div className={classes.searchIcon}></div>
+                    </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton
@@ -173,31 +183,75 @@ export default function PrimarySearchAppBar() {
                             </Badge>
                         </IconButton>
                         <IconButton
-                            aria-label="show 17 new notifications"
+                            aria-label="show 11 new notifications"
                             color="inherit"
                         >
-                            <Badge badgeContent={17} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
+                            <NavLink to="/">Home</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
                         </IconButton>
                         <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            // onClick={handleProfileMenuOpen}
+                            aria-label="show 11 new notifications"
                             color="inherit"
                         >
-                            {/* <AccountCircle /> */}
-
-                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
-                                Sign Up
-                            </Button>
-                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
-
-                                Log in
-                            </Button>
+                            <NavLink to="/addblog">Add Blog</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
                         </IconButton>
+
+                        {/* {console.log(logged)} */}
+                        {logged.isLogged ? (
+                            <>
+                                <Button
+                                    onClick={() => {
+                                        setLogged({
+                                            ...logged,
+                                            isLogged: false,
+                                        });
+                                        localStorage.removeItem("user");
+                                        alert("Вы вышли из аккаунта");
+                                    }}
+                                >
+                                    Log out
+                                </Button>
+                                <Typography variant="p">
+                                    {logged.email}
+                                </Typography>
+                            </>
+                        ) : (
+                            <div>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setSignModal(true)}
+                                    >
+                                        Sign Up
+                                    </Button>
+                                </IconButton>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setLogModal(true)}
+                                    >
+                                        Log in
+                                    </Button>
+                                </IconButton>
+                            </div>
+                        )}
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
@@ -214,7 +268,8 @@ export default function PrimarySearchAppBar() {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-            <SignUp />;
+            <SignUp />
+            <LogIn />
         </div>
     );
 }

@@ -167,7 +167,7 @@ const SignUp = () => {
                                 </Grid>
                                 <ButtonUI
                                     variant="contained"
-                                    color="primary"
+                        
                                     type="submit"
                                 >
                                     Sign Up

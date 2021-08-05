@@ -16,102 +16,91 @@
       "isAdmin": true,
       "usersBlogs": [],
       "favourites": [],
-      "id": 5
+      "id": 2
     },
     {
       "email": "rapakrapak123@gmail.com",
       "password": "123",
-      "isLogged": false,
+      "isLogged": true,
       "isAdmin": false,
-      "usersBlogs": [],
+      "usersBlogs": [
+        {
+          "title": "Manas",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "HMMM.",
+          "category": "parks",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628187056619,
+          "id": 1
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": 6,
+          "id": 2
+        },
+        {
+          "title": "123123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": "06.08.2021",
+          "id": 3
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": "Thu, 05 Aug 2021 18:20:10 GMT",
+          "id": 4
+        }
+      ],
       "favourites": [],
-      "id": 6
-    },
-    {
-      "email": "rapaktalas2@gmail.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 7
-    },
-    {
-      "email": "asd@amil.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 8
-    },
-    {
-      "email": "awdwadas@dawd.co",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 9
-    },
-    {
-      "email": "awdawdawdwd@adawd.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 10
-    },
-    {
-      "email": "adawdwdawdawdawd@addwad.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 11
-    },
-    {
-      "email": "jczkjcldawji@gmail.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 12
-    },
-    {
-      "email": "dpocpof@gmail.com",
-      "password": "123",
-      "isLogged": false,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 13
+      "id": 3
     }
   ],
   "blogs": [
     {
-      "title": "123",
-      "image": "123",
-      "text": "123adawd",
+      "title": "Manas",
+      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+      "text": "HMMM.",
       "category": "parks",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628187056619,
       "id": 1
     },
     {
       "title": "123",
-      "image": "adw",
+      "image": "123",
       "text": "123",
-      "category": "parks",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": 6,
       "id": 2
     },
     {
-      "title": "123",
-      "image": "adw",
+      "title": "123123",
+      "image": "123",
       "text": "123",
-      "category": "parks",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": "06.08.2021",
       "id": 3
+    },
+    {
+      "title": "123",
+      "image": "123",
+      "text": "123",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": "Thu, 05 Aug 2021 18:20:10 GMT",
+      "id": 4
     }
   ]
 }

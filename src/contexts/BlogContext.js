@@ -1,6 +1,7 @@
+import axios from "axios";
 import React, { createContext, useContext, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { BLOG_ACTIONS, CATEGORIES } from "../helpers/consts";
+import { BLOG_ACTIONS, CATEGORIES, JSON_API_BLOGS } from "../helpers/consts";
 
 const BlogContext = createContext();
 
@@ -19,20 +20,32 @@ const BlogContextProvider = ({ children }) => {
 
     const INIT_STATE = {
         blogs: [],
+        blogDetails: {},
     };
 
     const reduce = (state = INIT_STATE, action) => {
+        console.log(state.blogDetails);
         switch (action.type) {
             case BLOG_ACTIONS.ADD_BLOG:
                 let newBlogs = [...state.blogs];
                 newBlogs.push(action.payload);
                 return { ...state, blogs: newBlogs };
+            case BLOG_ACTIONS.GET_BLOG_DETAILS:
+                return { ...state, blogDetails: action.payload };
             default:
                 return state;
         }
     };
 
     const [state, dispatch] = useReducer(reduce, INIT_STATE);
+
+    const getBlogDetails = async (id) => {
+        const { data } = await axios(`${JSON_API_BLOGS}/${id}`);
+        dispatch({
+            type: BLOG_ACTIONS.GET_BLOG_DETAILS,
+            payload: data,
+        });
+    };
 
     const value = {
         history,
@@ -46,6 +59,8 @@ const BlogContextProvider = ({ children }) => {
         setBlogText,
         blogCategory,
         setBlogCategory,
+        blogDetails: state.blogDetails,
+        getBlogDetails,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

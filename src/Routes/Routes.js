@@ -12,6 +12,7 @@ const Routes = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    {/* <Route exact path="" */}
                 </Switch>
             </AuthorizationContext>
         </BrowserRouter>

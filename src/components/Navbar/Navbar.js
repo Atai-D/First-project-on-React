@@ -11,9 +11,10 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import Link from "@material-ui/core/Link"
+import { Grid } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -24,20 +25,25 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up("sm")]: {
             display: "block",
         },
+    }, 
+    links: {
+        color: "#bfe0c2",
+        marginRight: "5px"
+
     },
-    inputRoot: {
-        color: "inherit",
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create("width"),
-        width: "100%",
-        [theme.breakpoints.up("md")]: {
-            width: "20ch",
-        },
-    },
+    // inputRoot: {
+    //     color: "inherit",
+    // },
+    // inputInput: {
+    //     padding: theme.spacing(1, 1, 1, 0),
+    //     // vertical padding + font size from searchIcon
+    //     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    //     transition: theme.transitions.create("width"),
+    //     width: "100%",
+    //     [theme.breakpoints.up("md")]: {
+    //         width: "20ch",
+    //     },
+    // },
     sectionDesktop: {
         display: "none",
         [theme.breakpoints.up("md")]: {
@@ -56,9 +62,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "5px",
         border: "none",
     },
-    // hover: {
-    //     color: "red"
-    // }
+
+
 }));
 
 export default function PrimarySearchAppBar() {
@@ -115,32 +120,42 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    aria-label="show 11 new notifications"
-                    color="inherit"
+
+        <Link component="button"
+                variant="body2"
+                className={classes.links}
+                style={{ color: "#bfe0c2"}}
+                onClick={() => {
+                console.info("I'm a button.");
+                }}
                 >
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
+                Food and Drinks
+                </Link>
+            <Link component="button"
+                    className={classes.links}
+                    variant="body2"
+                    onClick={() => {
+                    console.info("I'm a button.");
+                    }}
+                        >
+                Art and Culture
+                    </Link>
+
+            <Link component="button"
+                    variant="body2"
+                    className={classes.links}
+                    onClick={() => {
+                    console.info("I'm a button.");
+                    }}>
+            Things to Do
+            </Link>
+
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     aria-label="account of current user"
                     aria-controls="primary-search-account-menu"
                     aria-haspopup="true"
                     color="inherit"
-                    onho
                 >
                     {/* <AccountCircle /> */}
                     <Button onClick={() => setSignModal(true)}>Sign Up</Button>
@@ -153,10 +168,10 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="sticky" style={{ backgroundColor: "#bfe0c2" }}>
+            <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        B B-Blog
+                      Welcome to B B-Blog
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -164,22 +179,35 @@ export default function PrimarySearchAppBar() {
                     </div> 
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton
-                            aria-label="show 4 new mails"
-                            color="inherit"
-                        >
-                            <Badge badgeContent={4} color="secondary">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 17 new notifications"
-                            color="inherit"
-                        >
-                            <Badge badgeContent={17} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
+                        <Link component="button"
+                                // variant="body2"
+                                style={{ color: "#fff", marginRight: "10px"}}
+
+                                onClick={() => {
+                                    console.info("I'm a button.");
+                                }}
+                                >
+                                Food and Drinks
+                        </Link>
+                        <Link component="button"
+                                // variant="body2"
+                                style={{ color: "#fff", marginRight: "10px"}}
+                                onClick={() => {
+                                    console.info("I'm a button.");
+                                }}
+                                >
+                                Art and Culture
+                                </Link>
+
+                        <Link component="button"
+                                // variant="body2"
+                                style={{ color: "#fff", marginRight: "10px"}}
+                                onClick={() => {
+                                    console.info("I'm a button.");
+                                }}
+                                >
+                                Things to Do
+                                </Link>
                         <IconButton
                             edge="end"
                             aria-label="account of current user"
@@ -214,7 +242,7 @@ export default function PrimarySearchAppBar() {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-            <SignUp />;
+            <SignUp />
         </div>
     );
 }

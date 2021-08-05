@@ -18,10 +18,12 @@ const SignUp = () => {
     const {
         signModal,
         setSignModal,
+        logModal,
+        setLogModal,
         user,
         setUser,
-        isLogged,
-        setIsLogged,
+        logged,
+        setLogged,
         signName,
         setSignName,
         signPassword,
@@ -31,6 +33,7 @@ const SignUp = () => {
         state,
         dispatch,
         users,
+        setLogName,
     } = useAutho();
 
     const [isInUsers, setIsInUsers] = useState(false);
@@ -38,18 +41,21 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let perem = false;
+        let flag = false;
 
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email.toLowerCase() === signName.toLowerCase()) {
+        const { data } = await axios(JSON_API_USERS);
+
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].email.toLowerCase() === signName.toLowerCase()) {
                 setIsInUsers(true);
-                perem = true;
+                flag = true;
             }
         }
 
-        if (perem) {
+        if (flag) {
             console.log(users);
-            perem = false;
+            flag = false;
             return;
         } else {
             if (
@@ -60,11 +66,16 @@ const SignUp = () => {
                 let newUser = {
                     email: signName,
                     password: signPassword,
-                    isLogged: true,
+                    isLogged: false,
                     isAdmin: false,
                     usersBlogs: [],
                     favourites: [],
                 };
+                if (
+                    newUser.email.toLowerCase() === "ataydjirgalbaev@gmail.com"
+                ) {
+                    newUser.isAdmin = true;
+                }
                 dispatch({
                     type: ACTIONS.SET_USER,
                     payload: newUser,
@@ -76,6 +87,8 @@ const SignUp = () => {
                 setSignCheckPassword("");
                 setSignModal(false);
                 setIsInUsers(false);
+                newUser.isLogged = true;
+                setLogged(newUser);
             } else if (
                 !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
             ) {
@@ -167,12 +180,16 @@ const SignUp = () => {
                                 <ButtonUI
                                     onClick={() => {
                                         setSignModal(false);
-                                        setSignModal(false);
+                                        setLogModal(true);
+                                        setLogName(signName);
+                                        setSignName("");
+                                        setSignPassword("");
+                                        setSignCheckPassword("");
                                     }}
                                 >
-                                    <Link exact to="/">
-                                        Хотите войти?
-                                    </Link>
+                                    {/* <Link exact to="/"> */}
+                                    Хотите войти?
+                                    {/* </Link> */}
                                 </ButtonUI>
                             </h5>
                         ) : (

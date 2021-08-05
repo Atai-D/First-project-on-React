@@ -2,7 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,6 +14,7 @@ import Menu from "@material-ui/core/Menu";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import LogIn from "../Authorization/LogIn";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -62,7 +63,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const { setSignModal, user } = useAutho();
+    const { setSignModal, logged, setLogged, user, logModal, setLogModal } =
+        useAutho();
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            setLogged(user);
+        }
+    }, []);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -144,7 +153,7 @@ export default function PrimarySearchAppBar() {
                 >
                     {/* <AccountCircle /> */}
                     <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-                    <Button onClick={() => setSignModal(true)}>Log in</Button>
+                    <Button onClick={() => setLogModal(true)}>Log in</Button>
                 </IconButton>
                 {/* <p>Profile</p> */}
             </MenuItem>
@@ -153,7 +162,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="sticky" style={{ backgroundColor: "#bfe0c2" }}>
+            <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         B B-Blog
@@ -179,28 +188,56 @@ export default function PrimarySearchAppBar() {
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            // onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            {/* <AccountCircle /> */}
-                            <Button
-                                className={classes.btn}
-                                onClick={() => setSignModal(true)}
-                            >
-                                Sign Up
-                            </Button>
-                            <Button
-                                className={classes.btn}
-                                onClick={() => setSignModal(true)}
-                            >
-                                Log in
-                            </Button>
-                        </IconButton>
+                        {logged.isLogged ? (
+                            <>
+                                <Button
+                                    onClick={() => {
+                                        setLogged({
+                                            ...logged,
+                                            isLogged: false,
+                                        });
+                                        localStorage.removeItem("user");
+                                        alert("Вы вышли из аккаунта");
+                                    }}
+                                >
+                                    Log out
+                                </Button>
+                                <Typography variant="p">
+                                    {logged.email}
+                                </Typography>
+                            </>
+                        ) : (
+                            <div>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setSignModal(true)}
+                                    >
+                                        Sign Up
+                                    </Button>
+                                </IconButton>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setLogModal(true)}
+                                    >
+                                        Log in
+                                    </Button>
+                                </IconButton>
+                            </div>
+                        )}
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
@@ -218,6 +255,7 @@ export default function PrimarySearchAppBar() {
             {renderMobileMenu}
             {renderMenu}
             <SignUp />;
+            <LogIn />
         </div>
     );
 }

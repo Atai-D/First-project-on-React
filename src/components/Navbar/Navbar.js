@@ -1,4 +1,3 @@
-import { Button, Modal, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
@@ -11,15 +10,17 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import {Button as ButtonUI, Button} from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
-import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
  
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
+        display:'flex',
+        alignItems:'center',
+        flexDirection:'row'
     },
     title: {
         display: "none",
@@ -57,9 +58,18 @@ const useStyles = makeStyles((theme) => ({
         color: "#bfe0c2",
         marginRight: "5px",
         border: "none",
+        '&:hover': {
+            backgroundColor: '#d8f0df',
+            color: '#4a825b',
+        }
     },
-   title: {
+    title: {
        color: "#fff"
+   },
+   mbMenu: {
+       display: "flex",
+       alignItems: "center",
+       flexDirection: "column"
    }
 }));
  
@@ -119,8 +129,8 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
         </Menu>
     );
  
@@ -136,46 +146,35 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu" 
-                    aria-haspopup="true"
-                    color="inherit"
-                    onho
-                >
-                    <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-                    <Button onClick={() => setLogModal(true)}>Log in</Button>
-                </IconButton>
+            
+            <MenuItem className={classes.mbMenu} onClick={handleProfileMenuOpen}>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/bloglist">All blogs</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/myblog">My Blogs</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/">Cotegories</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/addblog">Add Blog</NavLink> 
+                            <Button style={{backgroundColor: "#bfe0c2", color:"#fff", marginBottom: "5px"}} onClick={() => setSignModal(true)}>Sign Up</Button>
+                            <Button style={{backgroundColor: "#bfe0c2", color:"#fff", marginBottom: "5px"}} onClick={() => setLogModal(true)}>Log in</Button>
             </MenuItem>
         </Menu>
     );
  
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ backgroundColor: "#bfe0c2"}}>
+            <AppBar style={{ backgroundColor: "#bfe0c2", position: "static"}}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        <NavLink style={{color: "#fff"}} to="/">B B-Blog</NavLink>
+                        <NavLink style={{color: "#fff", fontSize: "1.5rem"}} to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}></div>
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton>
-                            <NavLink style={{color: "#fff"}} to="/bloglist">All blogs</NavLink>
-                        </IconButton>
-                        <IconButton>
-                            <NavLink style={{color: "#fff"}} to="/myblog">My Blogs</NavLink>
-                        </IconButton>
-                        <IconButton>
-                            <NavLink style={{color: "#fff"}} to="/">Cotegories</NavLink>
-                        </IconButton>
-                        <IconButton
-                        >
-                            <NavLink style={{color: "#fff"}} to="/addblog">Add Blog</NavLink> 
-                        </IconButton>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/bloglist">All blogs</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/myblog">My Blogs</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/">Cotegories</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/addblog">Add Blog</NavLink> 
+                    
             {logged.isLogged ? (
                 <>
                     <Button
@@ -196,47 +195,32 @@ export default function PrimarySearchAppBar() {
                 </>
             ) : (
                 <div>
-                    <IconButton
-                        edge="end"
-                        aria-label="account of current user"
-                        // aria-controls={menuId}
-                        aria-haspopup="true"
-                        color="inherit"
-                    >
-                        <Button
+                        <ButtonUI
                             className={classes.btn}
                             onClick={() => setSignModal(true)}
                         >
                             Sign Up
-                        </Button>
-                    </IconButton>
-                    <IconButton
-                        edge="end"
-                        aria-label="account of current user"
-                        // aria-controls={menuId}
-                        aria-haspopup="true"
+                        </ButtonUI>
+                        <ButtonUI
                         color="inherit"
-                    >
-                        <Button
+                        focusVisible={false}
                             className={classes.btn}
                             onClick={() => setLogModal(true)}
                         >
                             Log in
-                        </Button>
-                    </IconButton>
+                        </ButtonUI>
                 </div>
             )}
             </div>
             <div className={classes.sectionMobile}>
-            <IconButton
+                <IconButton
                 aria-label="show more"
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
-            >
+                color="inherit" >
                 <MoreIcon />
-            </IconButton>
+                </IconButton>
             </div>
             </Toolbar>
             </AppBar>
@@ -247,3 +231,11 @@ export default function PrimarySearchAppBar() {
             </div>
             );
             } 
+                        
+            
+                    
+                        
+                    
+                        
+                        
+                       

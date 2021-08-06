@@ -91,6 +91,7 @@ const LogIn = () => {
                     setLogModal(false);
                     setIsInUsers(false);
                 }}
+                style={{color: "#bfe0c2", zIndex: "10000"}}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -105,7 +106,7 @@ const LogIn = () => {
                                 <Typography
                                     component="h1"
                                     variant="h5"
-                                    style={{ marginBottom: "10px" }}
+                                    style={{ marginLeft: "-15px", marginRight: "15px"}}
                                 >
                                     Authorization
                                 </Typography>
@@ -137,6 +138,7 @@ const LogIn = () => {
                                     variant="contained"
                                     color="primary"
                                     type="submit"
+                                    style={{backgroundColor: "#bfe0c2", color: "#fff", marginRight: "-15"}}
                                 >
                                     Log In
                                 </ButtonUI>

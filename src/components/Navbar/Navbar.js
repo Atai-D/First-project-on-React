@@ -11,10 +11,12 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
-import { Link, NavLink } from "react-router-dom";
-
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+ 
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -24,25 +26,20 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up("sm")]: {
             display: "block",
         },
-    }, 
-    links: {
-        color: "#bfe0c2",
-        marginRight: "5px"
-
     },
-    // inputRoot: {
-    //     color: "inherit",
-    // },
-    // inputInput: {
-    //     padding: theme.spacing(1, 1, 1, 0),
-    //     // vertical padding + font size from searchIcon
-    //     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    //     transition: theme.transitions.create("width"),
-    //     width: "100%",
-    //     [theme.breakpoints.up("md")]: {
-    //         width: "20ch",
-    //     },
-    // },
+    inputRoot: {
+        color: "inherit",
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("md")]: {
+            width: "20ch",
+        },
+    },
     sectionDesktop: {
         display: "none",
         [theme.breakpoints.up("md")]: {
@@ -61,218 +58,192 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "5px",
         border: "none",
     },
-
-
+   title: {
+       color: "#fff"
+   }
 }));
-
+ 
 export default function PrimarySearchAppBar() {
-    const { setSignModal, logged, setLogged, user, logModal, setLogModal } =
-        useAutho();
-
+    const location = useLocation();
+    const history = useHistory();
+ 
+    const {
+        setSignModal,
+        logged,
+        logModal,
+        setLogModal,
+        changeLoggedUser,
+    } = useAutho();
+ 
+    const { from } = location.state || { from: { pathname: "/" } };
+ 
     useEffect(() => {
-        let user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-            setLogged(user);
+        if (logged) {
+            history.replace(from);
         }
-    }, []);
-
+ 
+    }, [logged]);
+ 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+ 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+ 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
+ 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-
+ 
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
-
+ 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+ 
+    const menuId = "primary-search-account-menu";
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+        >
+            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        </Menu>
+    );
+ 
+    const mobileMenuId ="primary-search-account-menu-mobile"
 
-    // const menuId = "primary-search-account-menu";
-    // const renderMenu = (
-    //     <Menu
-    //         anchorEl={anchorEl}
-    //         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-    //         id={menuId}
-    //         keepMounted
-    //         transformOrigin={{ vertical: "top", horizontal: "right" }}
-    //         open={isMenuOpen}
-    //         onClose={handleMenuClose}
-    //     >
-    //         <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-    //         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    //     </Menu>
-    // );
-
-    // const mobileMenuId = "primary-search-account-menu-mobile";
-    // const renderMobileMenu = (
-    //     <Menu
-    //         anchorEl={mobileMoreAnchorEl}
-    //         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-    //         id={mobileMenuId}
-    //         keepMounted
-    //         transformOrigin={{ vertical: "top", horizontal: "right" }}
-    //         open={isMobileMenuOpen}
-    //         onClose={handleMobileMenuClose}
-    //     >
-
-    //     <Link component="button"
-    //             variant="body2"
-    //             className={classes.links}
-    //             style={{ color: "#bfe0c2"}}
-    //             onClick={() => {
-    //             console.info("I'm a button.");
-    //             }}
-    //             >
-    //                 <Link to="/addblog">Add Blog</Link>
-    //                 {/* <Badge badgeContent={11} color="secondary"> */}
-    //                 {/* <NotificationsIcon /> */}
-    //                 {/* </Badge> */}
-    //             </IconButton>
-    //             <p>Notifications</p>
-    //         </MenuItem>
-    //         <MenuItem onClick={handleProfileMenuOpen}>
-    //             <IconButton
-    //                 aria-label="account of current user"
-    //                 aria-controls="primary-search-account-menu"
-    //                 aria-haspopup="true"
-    //                 color="inherit"
-    //             >
-    //                 {/* <AccountCircle /> */}
-    //                 <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-    //                 <Button onClick={() => setLogModal(true)}>Log in</Button>
-    //             </IconButton>
-    //             {/* <p>Profile</p> */}
-    //         </MenuItem>
-    //     </Menu>
-    // );
-
+    const renderMobileMenu = (
+        <Menu
+            anchorEl={mobileMoreAnchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            id={mobileMenuId}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={isMobileMenuOpen}
+            onClose={handleMobileMenuClose}
+        >
+            <MenuItem onClick={handleProfileMenuOpen}>
+                <IconButton
+                    aria-label="account of current user"
+                    aria-controls="primary-search-account-menu" 
+                    aria-haspopup="true"
+                    color="inherit"
+                    onho
+                >
+                    <Button onClick={() => setSignModal(true)}>Sign Up</Button>
+                    <Button onClick={() => setLogModal(true)}>Log in</Button>
+                </IconButton>
+            </MenuItem>
+        </Menu>
+    );
+ 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
+            <AppBar position="static" style={{ backgroundColor: "#bfe0c2"}}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        <NavLink to="/">B B-Blog</NavLink>
+                        <NavLink style={{color: "#fff"}} to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}></div>
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton
-                            aria-label="show 4 new mails"
-                            color="inherit"
-                        >
-                            <Badge badgeContent={4} color="secondary">
-                                <MailIcon />
-                            </Badge>
+                        <IconButton>
+                            <NavLink style={{color: "#fff"}} to="/bloglist">All blogs</NavLink>
+                        </IconButton>
+                        <IconButton>
+                            <NavLink style={{color: "#fff"}} to="/myblog">My Blogs</NavLink>
+                        </IconButton>
+                        <IconButton>
+                            <NavLink style={{color: "#fff"}} to="/">Cotegories</NavLink>
                         </IconButton>
                         <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
                         >
-                            <NavLink to="/myblog">My Blogs</NavLink>
+                            <NavLink style={{color: "#fff"}} to="/addblog">Add Blog</NavLink> 
                         </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
+            {logged.isLogged ? (
+                <>
+                    <Button
+                        onClick={() => {
+                            changeLoggedUser({
+                                ...logged,
+                                isLogged: false,
+                            });
+                            localStorage.removeItem("user");
+                            alert("Вы вышли из аккаунта");
+                        }}
+                    >
+                        Log out
+                    </Button>
+                    <Typography variant="p">
+                        {logged.email}
+                    </Typography>
+                </>
+            ) : (
+                <div>
+                    <IconButton
+                        edge="end"
+                        aria-label="account of current user"
+                        // aria-controls={menuId}
+                        aria-haspopup="true"
+                        color="inherit"
+                    >
+                        <Button
+                            className={classes.btn}
+                            onClick={() => setSignModal(true)}
                         >
-                            <NavLink to="/">Home</NavLink>
-                            {/* <Badge badgeContent={11} color="secondary"> */}
-                            {/* <NotificationsIcon /> */}
-                            {/* </Badge> */}
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
+                            Sign Up
+                        </Button>
+                    </IconButton>
+                    <IconButton
+                        edge="end"
+                        aria-label="account of current user"
+                        // aria-controls={menuId}
+                        aria-haspopup="true"
+                        color="inherit"
+                    >
+                        <Button
+                            className={classes.btn}
+                            onClick={() => setLogModal(true)}
                         >
-                            <NavLink to="/addblog">Add Blog</NavLink>
-                            {/* <Badge badgeContent={11} color="secondary"> */}
-                            {/* <NotificationsIcon /> */}
-                            {/* </Badge> */}
-                        </IconButton>
-
-                        {/* {console.log(logged)} */}
-                        {logged.isLogged ? (
-                            <>
-                                <Button
-                                    onClick={() => {
-                                        setLogged({
-                                            ...logged,
-                                            isLogged: false,
-                                        });
-                                        localStorage.removeItem("user");
-                                        alert("Вы вышли из аккаунта");
-                                    }}
-                                >
-                                    Log out
-                                </Button>
-                                <Typography variant="p">
-                                    {logged.email}
-                                </Typography>
-                            </>
-                        ) : (
-                            <div>
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    // aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                >
-                                    <Button
-                                        className={classes.btn}
-                                        onClick={() => setSignModal(true)}
-                                    >
-                                        Sign Up
-                                    </Button>
-                                </IconButton>
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    // aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                >
-                                    <Button
-                                        className={classes.btn}
-                                        onClick={() => setLogModal(true)}
-                                    >
-                                        Log in
-                                    </Button>
-                                </IconButton>
-                            </div>
-                        )}
-                    </div>
-                    <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
-                        >
-                            <MoreIcon />
-                        </IconButton>
-                    </div>
-                </Toolbar>
+                            Log in
+                        </Button>
+                    </IconButton>
+                </div>
+            )}
+            </div>
+            <div className={classes.sectionMobile}>
+            <IconButton
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+            >
+                <MoreIcon />
+            </IconButton>
+            </div>
+            </Toolbar>
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
             <SignUp />
             <LogIn />
-        </div>
-    );
-}
+            </div>
+            );
+            } 

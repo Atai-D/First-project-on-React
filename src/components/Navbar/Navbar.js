@@ -13,8 +13,10 @@ import Menu from "@material-ui/core/Menu";
 import {Button as ButtonUI, Button} from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
- 
+
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+
+
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -76,24 +78,28 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar() {
     const location = useLocation();
     const history = useHistory();
+
  
     const {
         setSignModal,
         logged,
+
         logModal,
         setLogModal,
         changeLoggedUser,
     } = useAutho();
+
  
     const { from } = location.state || { from: { pathname: "/" } };
  
+
     useEffect(() => {
         if (logged) {
             history.replace(from);
         }
- 
     }, [logged]);
  
+
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -170,6 +176,7 @@ export default function PrimarySearchAppBar() {
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
+
                             <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/bloglist">All blogs</NavLink>
                             <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/myblog">My Blogs</NavLink>
                             <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/">Cotegories</NavLink>
@@ -206,6 +213,7 @@ export default function PrimarySearchAppBar() {
                         focusVisible={false}
                             className={classes.btn}
                             onClick={() => setLogModal(true)}
+
                         >
                             Log in
                         </ButtonUI>

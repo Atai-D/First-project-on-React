@@ -73,6 +73,20 @@ export default function RecipeReviewCard() {
                         >
                             {blogDetails.text}
                         </Typography>
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            Category: {blogDetails.category}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            <em>Автор: {blogDetails.author} </em>
+                        </Typography>
                     </CardContent>
                 </Card>
             ) : (

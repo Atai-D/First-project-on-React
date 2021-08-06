@@ -1,6 +1,6 @@
 import { Button, Container, Modal } from "react-bootstrap";
 import React, { useState } from "react";
-import Input from "@material-ui/core/Input";
+// import Input from "@material-ui/core/Input";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
@@ -12,7 +12,7 @@ import {
     Button as ButtonUI,
 } from "@material-ui/core";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const SignUp = () => {
     const {
@@ -112,6 +112,7 @@ const SignUp = () => {
                     setSignModal(false);
                     setIsInUsers(false);
                 }}
+                style={{color: "#bfe0c2", zIndex: "10000"}}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -119,14 +120,14 @@ const SignUp = () => {
                         Sign Up
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body boxSizing="none">
                     <Container commponent="main" maxWidth="xs">
                         <form action="" onSubmit={handleSubmit}>
                             <Grid container>
                                 <Typography
                                     component="h1"
                                     variant="h5"
-                                    style={{ marginBottom: "10px" }}
+                                    style={{ marginLeft: "-15px", marginRight: "15px"}}
                                 >
                                     Registration
                                 </Typography>
@@ -141,6 +142,7 @@ const SignUp = () => {
                                         onChange={(e) =>
                                             setSignName(e.target.value)
                                         }
+                
                                     />
                                     <TextField
                                         name="password"
@@ -164,7 +166,8 @@ const SignUp = () => {
                                         }
                                     />
                                 </Grid>
-                                <ButtonUI variant="contained" type="submit">
+                                <ButtonUI variant="contained" type="submit"
+                                        style={{backgroundColor: "#bfe0c2", color: "#fff"}}>
                                     Sign Up
                                 </ButtonUI>
                             </Grid>

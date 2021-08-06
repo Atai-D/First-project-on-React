@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "email": "rapakrapak123@gmail.com",
+      "email": "rapaktalas1@gmail.com",
       "password": "123",
-      "isLogged": true,
+      "isLogged": false,
       "isAdmin": false,
       "usersBlogs": [],
       "favourites": [],
       "id": 1
     },
     {
-      "email": "rapaktalas1@gmail.com",
+      "email": "ataydjirgalbaev@gmail.com",
       "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
+      "isLogged": false,
+      "isAdmin": true,
       "usersBlogs": [],
       "favourites": [],
       "id": 2
@@ -23,119 +23,84 @@
       "password": "123",
       "isLogged": true,
       "isAdmin": false,
-      "usersBlogs": [],
+      "usersBlogs": [
+        {
+          "title": "Manas",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "HMMM.",
+          "category": "parks",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628187056619,
+          "id": 1
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": 6,
+          "id": 2
+        },
+        {
+          "title": "123123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": "06.08.2021",
+          "id": 3
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": "Thu, 05 Aug 2021 18:20:10 GMT",
+          "id": 4
+        }
+      ],
       "favourites": [],
+      "id": 3
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Manas",
+      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+      "text": "HMMM.",
+      "category": "parks",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628187056619,
+      "id": 1
+    },
+    {
+      "title": "123",
+      "image": "123",
+      "text": "123",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": 6,
+      "id": 2
+    },
+    {
+      "title": "123123",
+      "image": "123",
+      "text": "123",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": "06.08.2021",
       "id": 3
     },
     {
-      "email": "baha4592@mail.ru",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
+      "title": "123",
+      "image": "123",
+      "text": "123",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": "Thu, 05 Aug 2021 18:20:10 GMT",
       "id": 4
-    },
-    {
-      "email": "asd@gam.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 5
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 6
-    },
-    {
-      "email": "rapaktalas1@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 7
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 8
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 9
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "qwe",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 10
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 11
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 12
-    },
-    {
-      "email": "rapakrapak123@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 13
-    },
-    {
-      "email": "rapaktalas1@gmail.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 14
-    },
-    {
-      "email": "123@asd.com",
-      "password": "123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
-      "favourites": [],
-      "id": 15
     }
-  ],
-  "blogs": [],
-  "tickets": []
+  ]
 }

@@ -1,8 +1,8 @@
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -12,9 +12,8 @@ import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import Link from "@material-ui/core/Link"
-import { Grid } from "@material-ui/core";
-
+import LogIn from "../Authorization/LogIn";
+import { Link, NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -67,7 +66,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const { setSignModal, user } = useAutho();
+    const { setSignModal, logged, setLogged, user, logModal, setLogModal } =
+        useAutho();
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            setLogged(user);
+        }
+    }, []);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -93,139 +100,161 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    const menuId = "primary-search-account-menu";
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
+    // const menuId = "primary-search-account-menu";
+    // const renderMenu = (
+    //     <Menu
+    //         anchorEl={anchorEl}
+    //         anchorOrigin={{ vertical: "top", horizontal: "right" }}
+    //         id={menuId}
+    //         keepMounted
+    //         transformOrigin={{ vertical: "top", horizontal: "right" }}
+    //         open={isMenuOpen}
+    //         onClose={handleMenuClose}
+    //     >
+    //         <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+    //         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    //     </Menu>
+    // );
 
-    const mobileMenuId = "primary-search-account-menu-mobile";
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        >
+    // const mobileMenuId = "primary-search-account-menu-mobile";
+    // const renderMobileMenu = (
+    //     <Menu
+    //         anchorEl={mobileMoreAnchorEl}
+    //         anchorOrigin={{ vertical: "top", horizontal: "right" }}
+    //         id={mobileMenuId}
+    //         keepMounted
+    //         transformOrigin={{ vertical: "top", horizontal: "right" }}
+    //         open={isMobileMenuOpen}
+    //         onClose={handleMobileMenuClose}
+    //     >
 
-        <Link component="button"
-                variant="body2"
-                className={classes.links}
-                style={{ color: "#bfe0c2"}}
-                onClick={() => {
-                console.info("I'm a button.");
-                }}
-                >
-                Food and Drinks
-                </Link>
-            <Link component="button"
-                    className={classes.links}
-                    variant="body2"
-                    onClick={() => {
-                    console.info("I'm a button.");
-                    }}
-                        >
-                Art and Culture
-                    </Link>
-
-            <Link component="button"
-                    variant="body2"
-                    className={classes.links}
-                    onClick={() => {
-                    console.info("I'm a button.");
-                    }}>
-            Things to Do
-            </Link>
-
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    {/* <AccountCircle /> */}
-                    <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-                    <Button onClick={() => setSignModal(true)}>Log in</Button>
-                </IconButton>
-                {/* <p>Profile</p> */}
-            </MenuItem>
-        </Menu>
-    );
+    //     <Link component="button"
+    //             variant="body2"
+    //             className={classes.links}
+    //             style={{ color: "#bfe0c2"}}
+    //             onClick={() => {
+    //             console.info("I'm a button.");
+    //             }}
+    //             >
+    //                 <Link to="/addblog">Add Blog</Link>
+    //                 {/* <Badge badgeContent={11} color="secondary"> */}
+    //                 {/* <NotificationsIcon /> */}
+    //                 {/* </Badge> */}
+    //             </IconButton>
+    //             <p>Notifications</p>
+    //         </MenuItem>
+    //         <MenuItem onClick={handleProfileMenuOpen}>
+    //             <IconButton
+    //                 aria-label="account of current user"
+    //                 aria-controls="primary-search-account-menu"
+    //                 aria-haspopup="true"
+    //                 color="inherit"
+    //             >
+    //                 {/* <AccountCircle /> */}
+    //                 <Button onClick={() => setSignModal(true)}>Sign Up</Button>
+    //                 <Button onClick={() => setLogModal(true)}>Log in</Button>
+    //             </IconButton>
+    //             {/* <p>Profile</p> */}
+    //         </MenuItem>
+    //     </Menu>
+    // );
 
     return (
         <div className={classes.grow}>
             <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                      Welcome to B B-Blog
+                        <NavLink to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                         </div>
-                    </div> 
+                        <div className={classes.searchIcon}></div>
+                    </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <Link component="button"
-                                // variant="body2"
-                                style={{ color: "#fff", marginRight: "10px"}}
-
-                                onClick={() => {
-                                    console.info("I'm a button.");
-                                }}
-                                >
-                                Food and Drinks
-                        </Link>
-                        <Link component="button"
-                                // variant="body2"
-                                style={{ color: "#fff", marginRight: "10px"}}
-                                onClick={() => {
-                                    console.info("I'm a button.");
-                                }}
-                                >
-                                Art and Culture
-                                </Link>
-
-                        <Link component="button"
-                                // variant="body2"
-                                style={{ color: "#fff", marginRight: "10px"}}
-                                onClick={() => {
-                                    console.info("I'm a button.");
-                                }}
-                                >
-                                Things to Do
-                                </Link>
                         <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            // onClick={handleProfileMenuOpen}
+                            aria-label="show 4 new mails"
                             color="inherit"
                         >
-                            {/* <AccountCircle /> */}
-
-                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
-                                Sign Up
-                            </Button>
-                            <Button className={classes.btn} onClick={() => setSignModal(true)}>
-
-                                Log in
-                            </Button>
+                            <Badge badgeContent={4} color="secondary">
+                                <MailIcon />
+                            </Badge>
                         </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
+                            <NavLink to="/myblog">My Blogs</NavLink>
+                        </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
+                            <NavLink to="/">Home</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
+                        </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
+                            <NavLink to="/addblog">Add Blog</NavLink>
+                            {/* <Badge badgeContent={11} color="secondary"> */}
+                            {/* <NotificationsIcon /> */}
+                            {/* </Badge> */}
+                        </IconButton>
+
+                        {/* {console.log(logged)} */}
+                        {logged.isLogged ? (
+                            <>
+                                <Button
+                                    onClick={() => {
+                                        setLogged({
+                                            ...logged,
+                                            isLogged: false,
+                                        });
+                                        localStorage.removeItem("user");
+                                        alert("Вы вышли из аккаунта");
+                                    }}
+                                >
+                                    Log out
+                                </Button>
+                                <Typography variant="p">
+                                    {logged.email}
+                                </Typography>
+                            </>
+                        ) : (
+                            <div>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setSignModal(true)}
+                                    >
+                                        Sign Up
+                                    </Button>
+                                </IconButton>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    // aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={() => setLogModal(true)}
+                                    >
+                                        Log in
+                                    </Button>
+                                </IconButton>
+                            </div>
+                        )}
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
@@ -243,6 +272,7 @@ export default function PrimarySearchAppBar() {
             {renderMobileMenu}
             {renderMenu}
             <SignUp />
+            <LogIn />
         </div>
     );
 }

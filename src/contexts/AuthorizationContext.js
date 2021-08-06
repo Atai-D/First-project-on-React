@@ -9,14 +9,18 @@ export const useAutho = () => {
 
 const AuthorizationContextProvider = ({ children }) => {
     const [signModal, setSignModal] = useState(false);
+    const [logModal, setLogModal] = useState(false);
     const [user, setUser] = useState("");
-    const [logged, setLogged] = useState(false);
+    const [logged, setLogged] = useState({
+        isLogged: false,
+        email: "",
+        id: "",
+    });
     const [signName, setSignName] = useState("");
     const [signPassword, setSignPassword] = useState("");
     const [signCheckPassword, setSignCheckPassword] = useState("");
     const [logName, setLogName] = useState("");
     const [logPassword, setLogPassword] = useState("");
-    const [logCheckPassword, setLogCheckPassword] = useState("");
 
     const INIT_STATE = {
         users: [],
@@ -38,6 +42,8 @@ const AuthorizationContextProvider = ({ children }) => {
     const value = {
         signModal,
         setSignModal,
+        logModal,
+        setLogModal,
         user,
         setUser,
         logged,
@@ -51,6 +57,10 @@ const AuthorizationContextProvider = ({ children }) => {
         state,
         dispatch,
         users: state.users,
+        logName,
+        setLogName,
+        logPassword,
+        setLogPassword,
     };
 
     return (

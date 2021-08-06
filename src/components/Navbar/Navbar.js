@@ -1,4 +1,3 @@
-import { Button, Modal, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import SignUp from "../Authorization/SignUp";
@@ -11,15 +10,19 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import {Button as ButtonUI, Button} from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
+
 import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
+        display:'flex',
+        alignItems:'center',
+        flexDirection:'row'
     },
     title: {
         display: "none",
@@ -57,68 +60,70 @@ const useStyles = makeStyles((theme) => ({
         color: "#bfe0c2",
         marginRight: "5px",
         border: "none",
+        '&:hover': {
+            backgroundColor: '#d8f0df',
+            color: '#4a825b',
+        }
     },
-    // hover: {
-    //     color: "red"
-    // }
+    title: {
+       color: "#fff"
+   },
+   mbMenu: {
+       display: "flex",
+       alignItems: "center",
+       flexDirection: "column"
+   }
 }));
-
+ 
 export default function PrimarySearchAppBar() {
     const location = useLocation();
     const history = useHistory();
 
+ 
     const {
         setSignModal,
         logged,
-        // setLogged,
+
         logModal,
         setLogModal,
         changeLoggedUser,
     } = useAutho();
 
+ 
     const { from } = location.state || { from: { pathname: "/" } };
-
-    // useEffect(() => {
-    //     let user = JSON.parse(localStorage.getItem("user"));
-    //     if (user) {
-    //         setLogged(user);
-    //     }
-    // }, []);
+ 
 
     useEffect(() => {
         if (logged) {
             history.replace(from);
         }
-
-        // return () => {
-        //     clearState
-        // }
     }, [logged]);
+ 
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+ 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+ 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
+ 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-
+ 
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
-
+ 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
-
+ 
     const menuId = "primary-search-account-menu";
     const renderMenu = (
         <Menu
@@ -130,12 +135,13 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
         </Menu>
     );
+ 
+    const mobileMenuId ="primary-search-account-menu-mobile"
 
-    const mobileMenuId = "primary-search-account-menu-mobile";
     const renderMobileMenu = (
         <Menu
             anchorEl={mobileMoreAnchorEl}
@@ -146,172 +152,98 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    aria-label="show 11 new notifications"
-                    color="inherit"
-                >
-                    <Link to="/addblog">Add Blog</Link>
-                    {/* <Badge badgeContent={11} color="secondary"> */}
-                    {/* <NotificationsIcon /> */}
-                    {/* </Badge> */}
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                    onho
-                >
-                    {/* <AccountCircle /> */}
-                    <Button onClick={() => setSignModal(true)}>Sign Up</Button>
-                    <Button onClick={() => setLogModal(true)}>Log in</Button>
-                </IconButton>
-                {/* <p>Profile</p> */}
+            
+            <MenuItem className={classes.mbMenu} onClick={handleProfileMenuOpen}>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/bloglist">All blogs</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/myblog">My Blogs</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/">Cotegories</NavLink>
+                            <NavLink style={{color: "#bfe0c2", fontSize: "1.10rem", marginBottom: "5px"}} to="/addblog">Add Blog</NavLink> 
+                            <Button style={{backgroundColor: "#bfe0c2", color:"#fff", marginBottom: "5px"}} onClick={() => setSignModal(true)}>Sign Up</Button>
+                            <Button style={{backgroundColor: "#bfe0c2", color:"#fff", marginBottom: "5px"}} onClick={() => setLogModal(true)}>Log in</Button>
             </MenuItem>
         </Menu>
     );
-
+ 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ backgroundColor: "#bfe0c2" }}>
+            <AppBar style={{ backgroundColor: "#bfe0c2", position: "static"}}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        <NavLink to="/">B B-Blog</NavLink>
+                        <NavLink style={{color: "#fff", fontSize: "1.5rem"}} to="/">B B-Blog</NavLink>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}></div>
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton
-                            aria-label="show 4 new mails"
-                            color="inherit"
-                        >
-                            <Badge badgeContent={4} color="secondary">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
-                        >
-                            <NavLink to="/bloglist">All blogs</NavLink>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
-                        >
-                            <NavLink to="/myblog">My Blogs</NavLink>
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
-                        >
-                            <NavLink to="/">Home</NavLink>
-                            {/* <Badge badgeContent={11} color="secondary"> */}
-                            {/* <NotificationsIcon /> */}
-                            {/* </Badge> */}
-                        </IconButton>
-                        <IconButton
-                            aria-label="show 11 new notifications"
-                            color="inherit"
-                        >
-                            <NavLink to="/addblog">Add Blog</NavLink>
-                            {/* <Badge badgeContent={11} color="secondary"> */}
-                            {/* <NotificationsIcon /> */}
-                            {/* </Badge> */}
-                        </IconButton>
 
-                        {/* {console.log(logged)} */}
-                        {logged.isLogged ? (
-                            <>
-                                <Button
-                                    onClick={() => {
-                                        changeLoggedUser({
-                                            ...logged,
-                                            isLogged: false,
-                                        });
-                                        localStorage.removeItem("user");
-                                        alert("Вы вышли из аккаунта");
-                                    }}
-                                >
-                                    Log out
-                                </Button>
-                                <Typography
-                                    variant="p"
-                                    style={{ textAlign: "right" }}
-                                >
-                                    {logged.email}
-                                    <br />
-                                    {logged.isAdmin ? (
-                                        <em style={{ color: "red" }}>ADMIN</em>
-                                    ) : (
-                                        ""
-                                    )}
-                                </Typography>
-                            </>
-                        ) : (
-                            <div>
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    // aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                >
-                                    <Button
-                                        className={classes.btn}
-                                        onClick={() => setSignModal(true)}
-                                    >
-                                        Sign Up
-                                    </Button>
-                                </IconButton>
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    // aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                >
-                                    <Button
-                                        className={classes.btn}
-                                        onClick={() => setLogModal(true)}
-                                    >
-                                        Log in
-                                    </Button>
-                                </IconButton>
-                            </div>
-                        )}
-                    </div>
-                    <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/bloglist">All blogs</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/myblog">My Blogs</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/">Cotegories</NavLink>
+                            <NavLink style={{color: "#fff", fontSize: "1.25rem", marginRight: "15px"}} to="/addblog">Add Blog</NavLink> 
+                    
+            {logged.isLogged ? (
+                <>
+                    <Button
+                        onClick={() => {
+                            changeLoggedUser({
+                                ...logged,
+                                isLogged: false,
+                            });
+                            localStorage.removeItem("user");
+                            alert("Вы вышли из аккаунта");
+                        }}
+                    >
+                        Log out
+                    </Button>
+                    <Typography variant="p">
+                        {logged.email}
+                    </Typography>
+                </>
+            ) : (
+                <div>
+                        <ButtonUI
+                            className={classes.btn}
+                            onClick={() => setSignModal(true)}
                         >
-                            <MoreIcon />
-                        </IconButton>
-                    </div>
-                </Toolbar>
+                            Sign Up
+                        </ButtonUI>
+                        <ButtonUI
+                        color="inherit"
+                        focusVisible={false}
+                            className={classes.btn}
+                            onClick={() => setLogModal(true)}
+
+                        >
+                            Log in
+                        </ButtonUI>
+                </div>
+            )}
+            </div>
+            <div className={classes.sectionMobile}>
+                <IconButton
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit" >
+                <MoreIcon />
+                </IconButton>
+            </div>
+            </Toolbar>
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
             <SignUp />
             <LogIn />
-        </div>
-    );
-}
+            </div>
+            );
+            } 
+                        
+            
+                    
+                        
+                    
+                        
+                        
+                       

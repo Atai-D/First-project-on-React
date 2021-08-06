@@ -15,7 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import LogIn from "../Authorization/LogIn";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -64,15 +64,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const { setSignModal, logged, setLogged, user, logModal, setLogModal } =
-        useAutho();
+    const location = useLocation();
+    const history = useHistory();
+
+    const {
+        setSignModal,
+        logged,
+        // setLogged,
+        logModal,
+        setLogModal,
+        changeLoggedUser,
+    } = useAutho();
+
+    const { from } = location.state || { from: { pathname: "/" } };
+
+    // useEffect(() => {
+    //     let user = JSON.parse(localStorage.getItem("user"));
+    //     if (user) {
+    //         setLogged(user);
+    //     }
+    // }, []);
 
     useEffect(() => {
-        let user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-            setLogged(user);
+        if (logged) {
+            history.replace(from);
         }
-    }, []);
+
+        // return () => {
+        //     clearState
+        // }
+    }, [logged]);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -186,6 +207,12 @@ export default function PrimarySearchAppBar() {
                             aria-label="show 11 new notifications"
                             color="inherit"
                         >
+                            <NavLink to="/bloglist">All blogs</NavLink>
+                        </IconButton>
+                        <IconButton
+                            aria-label="show 11 new notifications"
+                            color="inherit"
+                        >
                             <NavLink to="/myblog">My Blogs</NavLink>
                         </IconButton>
                         <IconButton
@@ -212,7 +239,7 @@ export default function PrimarySearchAppBar() {
                             <>
                                 <Button
                                     onClick={() => {
-                                        setLogged({
+                                        changeLoggedUser({
                                             ...logged,
                                             isLogged: false,
                                         });
@@ -222,8 +249,17 @@ export default function PrimarySearchAppBar() {
                                 >
                                     Log out
                                 </Button>
-                                <Typography variant="p">
+                                <Typography
+                                    variant="p"
+                                    style={{ textAlign: "right" }}
+                                >
                                     {logged.email}
+                                    <br />
+                                    {logged.isAdmin ? (
+                                        <em style={{ color: "red" }}>ADMIN</em>
+                                    ) : (
+                                        ""
+                                    )}
                                 </Typography>
                             </>
                         ) : (

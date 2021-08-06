@@ -19,7 +19,8 @@ const LogIn = () => {
         setSignModal,
         logModal,
         setLogModal,
-        setLogged,
+        // setLogged,
+        changeLoggedUser,
         setSignName,
         users,
         logName,
@@ -74,7 +75,7 @@ const LogIn = () => {
                     setLogPassword("");
                     setLogModal(false);
                     setIsInUsers(false);
-                    setLogged(authUser);
+                    changeLoggedUser(authUser);
                 } else {
                     alert("Ваши пароли не совпадают");
                 }

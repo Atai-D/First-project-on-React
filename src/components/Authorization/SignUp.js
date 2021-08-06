@@ -23,7 +23,8 @@ const SignUp = () => {
         user,
         setUser,
         logged,
-        setLogged,
+        // setLogged,
+        changeLoggedUser,
         signName,
         setSignName,
         signPassword,
@@ -89,7 +90,7 @@ const SignUp = () => {
                 setIsInUsers(false);
                 newUser.isLogged = true;
                 newUser.id = data.id;
-                setLogged(newUser);
+                changeLoggedUser(newUser);
                 localStorage.setItem("user", JSON.stringify(newUser));
             } else if (
                 !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)

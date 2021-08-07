@@ -12,6 +12,8 @@ import { useHistory } from "react-router-dom";
 import { JSON_API_BLOGS, JSON_API_USERS } from "../../helpers/consts";
 import axios from "axios";
 import { useBlog } from "../../contexts/BlogContext";
+import { useAutho } from "../../contexts/AuthorizationContext";
+import EditBlog from "./EditBlog";
 
 const useStyles = makeStyles({
     root: {
@@ -25,17 +27,30 @@ export default function BlogCard({ blog }) {
 
     const history = useHistory();
 
-    const { deleteBlog, getBlogsData } = useBlog();
+    const {
+        deleteBlog,
+        getBlogsData,
+        setEditModal,
+        edittingId,
+        setEdittingId,
+    } = useBlog();
+
+    const { logged } = useAutho();
 
     // let { user } = JSON.parse(localStorage.getItem("user"));
-    const findAdminAuthor = async () => {
-        const { data } = await axios(JSON_API_BLOGS);
-        console.log(data);
-    };
+    // const findAdminAuthor = async () => {
+    //     const { data } = await axios(JSON_API_BLOGS);
+    //     console.log(data);
+    // };
 
     const handleDeleteBtn = (id, authorsId) => {
         console.log(authorsId);
         deleteBlog(id, authorsId);
+    };
+
+    const handleEditBtn = (id) => {
+        setEditModal(true);
+        setEdittingId(id);
     };
 
     return (
@@ -44,7 +59,7 @@ export default function BlogCard({ blog }) {
                 id={blog.id}
                 onClick={() => {
                     history.push(`/blog/${blog.id}`);
-                    findAdminAuthor();
+                    // findAdminAuthor();
                 }}
             >
                 <CardMedia
@@ -75,16 +90,29 @@ export default function BlogCard({ blog }) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button
-                    size="small"
-                    color="primary"
-                    onClick={() => handleDeleteBtn(blog.id, blog.authorsId)}
-                >
-                    Delete
-                </Button>
-                <Button size="small" color="primary">
-                    Edit
-                </Button>
+                {logged.email === blog.author || logged.isAdmin ? (
+                    <>
+                        <Button
+                            size="small"
+                            color="primary"
+                            onClick={() =>
+                                handleDeleteBtn(blog.id, blog.authorsId)
+                            }
+                        >
+                            Delete
+                        </Button>
+                        <Button
+                            size="small"
+                            color="primary"
+                            onClick={() => handleEditBtn(blog.id)}
+                        >
+                            Edit
+                        </Button>
+                    </>
+                ) : (
+                    ""
+                )}
+
                 <Typography variant="body2" color="textSecondary" component="p">
                     {blog.isAdminWrote ? (
                         <em style={{ color: "red" }}>

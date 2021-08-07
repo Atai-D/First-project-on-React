@@ -27,7 +27,10 @@ const AuthorizationContextProvider = ({ children }) => {
     const INIT_STATE = {
         users: [],
         blogs: [],
-        logged: { isLogged: false, email: "", id: "" },
+        logged: JSON.parse(localStorage.getItem("user")) || {
+            isLogged: false,
+            email: "",
+        },
         // loading: true,
     };
 

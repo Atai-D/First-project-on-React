@@ -4,7 +4,6 @@ import { useAutho } from "../contexts/AuthorizationContext";
 
 const ProdectedRoute = ({ component: Component, ...rest }) => {
     const { logged, setLogModal } = useAutho();
-    console.log(logged);
     // const [flag, setFlag] = useState(logged.isLogged);
 
     // useEffect(() => {

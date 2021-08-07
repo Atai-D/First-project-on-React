@@ -18,15 +18,18 @@ const MyBlog = () => {
     // }, [logged]);
 
     let user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
     return (
         <>
             {user ? (
-                <div>
-                    {user?.usersBlogs.map((blog) => (
-                        <BlogCard blog={blog} />
-                    ))}
-                </div>
+                user.usersBlogs.length > 0 ? (
+                    <div>
+                        {user?.usersBlogs.map((blog) => (
+                            <BlogCard blog={blog} />
+                        ))}
+                    </div>
+                ) : (
+                    "Похоже у вас нет блогов"
+                )
             ) : (
                 ""
             )}

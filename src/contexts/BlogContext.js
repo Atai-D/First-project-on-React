@@ -24,7 +24,11 @@ const BlogContextProvider = ({ children }) => {
     const [blogCategory, setBlogCategory] = useState(CATEGORIES[0].value);
     // const [newBlog, setNewBlog] = useState({});
 
+    const [editModal, setEditModal] = useState(false);
+
     const history = useHistory();
+
+    const [edittingId, setEdittingId] = useState("");
 
     const INIT_STATE = {
         blogs: [],
@@ -41,6 +45,8 @@ const BlogContextProvider = ({ children }) => {
                 return { ...state, blogs: newBlogs };
             case BLOG_ACTIONS.GET_BLOG_DETAILS:
                 return { ...state, blogDetails: action.payload };
+            case BLOG_ACTIONS.ISEDITTING_USER:
+                return { ...state, isEdittingUser: action.payload };
             default:
                 return state;
         }
@@ -88,6 +94,48 @@ const BlogContextProvider = ({ children }) => {
         getBlogsData();
     };
 
+    const deleteBlogDetails = () => {
+        const data = {};
+        dispatch({
+            type: BLOG_ACTIONS.GET_BLOG_DETAILS,
+            payload: data,
+        });
+        history.goBack();
+    };
+
+    const saveEditBlog = async (editedBlog) => {
+        const { data } = await axios.patch(
+            `${JSON_API_BLOGS}/${editedBlog.id}`,
+            editedBlog
+        );
+        const blogs = await axios(`${JSON_API_USERS}/${editedBlog.authorsId}`);
+        let editedBlogs = blogs.data.usersBlogs.map((blog) => {
+            if (editedBlog.id === blog.id) {
+                return editedBlog;
+            } else {
+                return blog;
+            }
+        });
+        const array = await axios.patch(
+            `${JSON_API_USERS}/${editedBlog.authorsId}`,
+            editedBlogs
+        );
+        if (editedBlog.authorsId == logged.id) {
+            let arr = logged.usersBlogs.map((blog) => {
+                if (editedBlog.id === blog.id) {
+                    return editedBlog;
+                } else {
+                    return blog;
+                }
+            });
+            let user = { ...logged, usersBlogs: arr };
+            localStorage.setItem("user", JSON.stringify(user));
+        }
+        getBlogsData();
+    };
+
+    // const changeEdittingUser = async (id, authorsId) => {};
+
     // const deleteBlogData = () => {
     //     const
     // }
@@ -108,6 +156,12 @@ const BlogContextProvider = ({ children }) => {
         getBlogDetails,
         getBlogsData,
         deleteBlog,
+        deleteBlogDetails,
+        editModal,
+        setEditModal,
+        edittingId,
+        setEdittingId,
+        saveEditBlog,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

@@ -8,6 +8,7 @@ import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
 import AuthorizationContextProvider from "../contexts/AuthorizationContext";
 import BlogContextProvider from "../contexts/BlogContext";
+// import Footer from "../components/Footer/Footer"
 
 const Routes = () => {
     return (

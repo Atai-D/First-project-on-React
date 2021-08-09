@@ -63,6 +63,15 @@
       ],
       "favourites": [],
       "id": 3
+    },
+    {
+      "email": "gera010393@gmail.com",
+      "password": "12345",
+      "isLogged": false,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 4
     }
   ],
   "blogs": [

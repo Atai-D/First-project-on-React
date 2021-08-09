@@ -17,6 +17,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useParams } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
+import { useAutho } from "../../contexts/AuthorizationContext";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,15 +43,29 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RecipeReviewCard() {
+export default function BlogDetails() {
     const { id } = useParams();
     const classes = useStyles();
 
-    const { blogDetails, getBlogDetails } = useBlog();
+    const {
+        blogDetails,
+        getBlogDetails,
+        deleteBlog,
+        getBlogsData,
+        deleteBlogDetails,
+    } = useBlog();
+
+    const { logged } = useAutho();
 
     useEffect(() => {
         getBlogDetails(id);
     }, []);
+
+    const handleDeleteBtn = (id, authorsId) => {
+        console.log(authorsId);
+        deleteBlog(id, authorsId);
+        deleteBlogDetails();
+    };
 
     console.log(blogDetails);
     return (
@@ -65,6 +81,30 @@ export default function RecipeReviewCard() {
                         image={blogDetails.image}
                         title="Paella dish"
                     />
+                    <CardActions>
+                        {logged.email === blogDetails.author ||
+                        logged.isAdmin ? (
+                            <>
+                                <Button
+                                    size="small"
+                                    color="primary"
+                                    onClick={() =>
+                                        handleDeleteBtn(
+                                            blogDetails.id,
+                                            blogDetails.authorsId
+                                        )
+                                    }
+                                >
+                                    Delete
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Edit
+                                </Button>
+                            </>
+                        ) : (
+                            ""
+                        )}
+                    </CardActions>
                     <CardContent>
                         <Typography
                             variant="body2"
@@ -72,6 +112,20 @@ export default function RecipeReviewCard() {
                             component="p"
                         >
                             {blogDetails.text}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            Category: {blogDetails.category}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            <em>Автор: {blogDetails.author} </em>
                         </Typography>
                     </CardContent>
                 </Card>

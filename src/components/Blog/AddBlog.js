@@ -7,7 +7,7 @@ import {
     MenuItem,
 } from "@material-ui/core";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { useBlog } from "../../contexts/BlogContext";
 import {
@@ -29,18 +29,20 @@ const AddBlog = () => {
         setBlogText,
         blogCategory,
         setBlogCategory,
+        blogPrice,
+        setBlogPrice,
     } = useBlog();
 
-    const { logged, setLogged } = useAutho();
+    const { logged, changeLoggedUser } = useAutho();
 
-    useEffect(() => {
-        let user = JSON.parse(localStorage.getItem("user"));
-        console.log(logged);
-        if (!logged.isLogged) {
-            alert("Зарегистрируйтесь, чтобы создать блок");
-            history.push("/");
-        }
-    }, [logged]);
+    // useEffect(() => {
+    //     let user = JSON.parse(localStorage.getItem("user"));
+    //     console.log(logged);
+    //     if (!user) {
+    //         alert("Зарегистрируйтесь, чтобы создать блок");
+    //         history.push("/");
+    //     }
+    // }, [logged]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,8 +55,10 @@ const AddBlog = () => {
             category: blogCategory,
             author: logged.email,
             date: date1,
+            price: blogPrice,
+            isAdminWrote: logged.isAdmin,
+            authorsId: logged.id,
         };
-        console.log(newBlog);
         dispatch({
             type: BLOG_ACTIONS.ADD_BLOG,
             payload: newBlog,
@@ -69,7 +73,7 @@ const AddBlog = () => {
         };
 
         localStorage.setItem("user", JSON.stringify(userWithBlog));
-        setLogged(userWithBlog);
+        changeLoggedUser(userWithBlog);
         console.log(logged.usersBlogs);
         let { data } = await axios.patch(
             `${JSON_API_USERS}/${logged.id}`,
@@ -80,6 +84,7 @@ const AddBlog = () => {
         setBlogTitle("");
         setBlogImage("");
         setBlogText("");
+        setBlogPrice("");
         alert("Ваш блог успешно опубликован");
     };
 
@@ -112,6 +117,15 @@ const AddBlog = () => {
                             type="text"
                             value={blogImage}
                             onChange={(e) => setBlogImage(e.target.value)}
+                        />
+                        <TextField
+                            name="price"
+                            variant="outlined"
+                            required
+                            label="Average Price"
+                            type="text"
+                            value={blogPrice}
+                            onChange={(e) => setBlogPrice(e.target.value)}
                         />
                         <TextField
                             name="text"

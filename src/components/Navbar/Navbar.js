@@ -134,7 +134,7 @@ export default function PrimarySearchAppBar() {
                 style={{
                     color: "#d8f0df",
                 }}
-                to={`/bloglist?category=entertainment`}
+                to={`/bloglist?category=arts&_limit${BLOG_LIMIT}`}
             >
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             </NavLink>

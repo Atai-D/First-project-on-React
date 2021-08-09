@@ -115,9 +115,7 @@ export default function BlogCard({ blog }) {
 
                 <Typography variant="body2" color="textSecondary" component="p">
                     {blog.isAdminWrote ? (
-                        <em style={{ color: "red" }}>
-                            Автор:{blog.author}(RECOMENDEN BY BBBLOG)
-                        </em>
+                        <em style={{ color: "red" }}>RECOMENDED BY B-BBLOG</em>
                     ) : (
                         <em> Автор:{blog.author}</em>
                     )}

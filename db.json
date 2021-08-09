@@ -142,13 +142,16 @@
       "id": 3
     },
     {
-      "email": "asd@gmail.com",
-      "password": "123",
+      "email": "gera010393@gmail.com",
+      "password": "12345",
+
       "isLogged": false,
       "isAdmin": false,
       "usersBlogs": [],
       "favourites": [],
       "id": 4
+
+
     },
     {
       "email": "czczsc@gamail.com",
@@ -176,6 +179,7 @@
       "usersBlogs": [],
       "favourites": [],
       "id": 7
+
     }
   ],
   "blogs": [

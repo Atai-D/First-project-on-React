@@ -24,7 +24,7 @@ const MyBlog = () => {
                 user.usersBlogs.length > 0 ? (
                     <div>
                         {user?.usersBlogs.map((blog) => (
-                            <BlogCard blog={blog} />
+                            <BlogCard blog={blog} showAuthor={false} />
                         ))}
                     </div>
                 ) : (

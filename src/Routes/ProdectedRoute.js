@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Route, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react" 
+import { Route, Redirect } from "react-router-dom"; 
 import { useAutho } from "../contexts/AuthorizationContext";
 
 const ProdectedRoute = ({ component: Component, ...rest }) => {
@@ -33,5 +33,6 @@ const ProdectedRoute = ({ component: Component, ...rest }) => {
         />
     );
 };
+
 
 export default ProdectedRoute;

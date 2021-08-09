@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function BlogCard({ blog }) {
+export default function BlogCard({ blog, showAuthor }) {
     const classes = useStyles();
 
     const history = useHistory();
@@ -53,6 +53,19 @@ export default function BlogCard({ blog }) {
         setEdittingId(id);
     };
 
+    function checkImage(url) {
+        var image = new Image();
+        image.onload = function () {
+            if (this.width > 0) {
+                console.log("image exists");
+            }
+        };
+        image.onerror = function () {
+            console.log("image doesn't exist");
+        };
+        image.src = url;
+    }
+
     return (
         <Card className={classes.root}>
             <CardActionArea
@@ -64,14 +77,21 @@ export default function BlogCard({ blog }) {
             >
                 <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
+                    alt="asd"
                     height="140"
                     image={blog.image}
-                    title="Contemplative Reptile"
+                    title="Show more about this blog"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {blog.title}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                    >
+                        Price: {blog.price} KG
                     </Typography>
                     <Typography
                         variant="body2"
@@ -114,13 +134,31 @@ export default function BlogCard({ blog }) {
                 )}
 
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {blog.isAdminWrote ? (
-                        <em style={{ color: "red" }}>
-                            Автор:{blog.author}(RECOMENDEN BY BBBLOG)
-                        </em>
-                    ) : (
-                        <em> Автор:{blog.author}</em>
-                    )}
+                    {
+                        <>
+                            {showAuthor ? (
+                                blog.priority == 2 ? (
+                                    <em style={{ color: "red" }}>
+                                        RECOMENDED BY B-BBLOG
+                                    </em>
+                                ) : blog.priority == 3 ? (
+                                    <>
+                                        <em style={{ color: "red" }}>
+                                            Автор:{blog.author}
+                                        </em>
+                                        <br />
+                                        <em style={{ color: "red" }}>
+                                            RECOMENDED BY B-BBLOG
+                                        </em>
+                                    </>
+                                ) : (
+                                    <em> Автор:{blog.author}</em>
+                                )
+                            ) : (
+                                ""
+                            )}
+                        </>
+                    }
                 </Typography>
             </CardActions>
         </Card>

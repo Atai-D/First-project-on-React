@@ -5,6 +5,8 @@ import {
     Typography,
     Button as ButtonUI,
     MenuItem,
+    FormControlLabel,
+    Checkbox,
 } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -31,6 +33,11 @@ const AddBlog = () => {
         setBlogCategory,
         blogPrice,
         setBlogPrice,
+        addBlog,
+        promoted,
+        setPromoted,
+        isPromoted,
+        setIsPromoted,
     } = useBlog();
 
     const { logged, changeLoggedUser } = useAutho();
@@ -46,46 +53,24 @@ const AddBlog = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const date = new Date();
-        const date1 = date.toUTCString();
-        let newBlog = {
-            title: blogTitle,
-            image: blogImage,
-            text: blogText,
-            category: blogCategory,
-            author: logged.email,
-            date: date1,
-            price: blogPrice,
-            isAdminWrote: logged.isAdmin,
-            authorsId: logged.id,
-        };
-        dispatch({
-            type: BLOG_ACTIONS.ADD_BLOG,
-            payload: newBlog,
-        });
-
-        const res = await axios.post(JSON_API_BLOGS, newBlog);
-        newBlog.id = res.data.id;
-
-        let userWithBlog = {
-            ...logged,
-            usersBlogs: [...logged.usersBlogs, newBlog],
-        };
-
-        localStorage.setItem("user", JSON.stringify(userWithBlog));
-        changeLoggedUser(userWithBlog);
-        console.log(logged.usersBlogs);
-        let { data } = await axios.patch(
-            `${JSON_API_USERS}/${logged.id}`,
-            userWithBlog
-        );
-
-        console.log(data);
-        setBlogTitle("");
-        setBlogImage("");
-        setBlogText("");
-        setBlogPrice("");
-        alert("Ваш блог успешно опубликован");
+        if (isPromoted && !promoted) {
+            alert("Заполните продвижение");
+        } else {
+            alert("Ваш блог успешно опубликован");
+            addBlog(
+                blogTitle,
+                blogImage,
+                blogText,
+                blogPrice,
+                blogCategory,
+                isPromoted,
+                promoted
+            );
+            setBlogTitle("");
+            setBlogImage("");
+            setBlogText("");
+            setBlogPrice("");
+        }
     };
 
     return (
@@ -122,11 +107,12 @@ const AddBlog = () => {
                             name="price"
                             variant="outlined"
                             required
-                            label="Average Price"
-                            type="text"
+                            label="Average Price (KG)"
+                            type="price"
                             value={blogPrice}
                             onChange={(e) => setBlogPrice(e.target.value)}
                         />
+
                         <TextField
                             name="text"
                             label="Your text"
@@ -157,6 +143,31 @@ const AddBlog = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={isPromoted}
+                                    onChange={(e) =>
+                                        setIsPromoted(e.target.checked)
+                                    }
+                                    name="ispromoted"
+                                    color="primary"
+                                />
+                            }
+                            label="Promote"
+                        />
+                        {isPromoted ? (
+                            <TextField
+                                name="promote"
+                                variant="outlined"
+                                label="Promote"
+                                type="text"
+                                value={promoted}
+                                onChange={(e) => setPromoted(e.target.value)}
+                            />
+                        ) : (
+                            ""
+                        )}
                     </Grid>
                     <ButtonUI variant="contained" type="submit">
                         Add

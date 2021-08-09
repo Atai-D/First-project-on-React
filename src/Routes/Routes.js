@@ -7,11 +7,11 @@ import BlogList from "../components/Blog/BlogList";
 import MyBlog from "../components/Blog/MyBlog";
 import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
+// import Payment from "../components/Payment/Payment";
 import AuthorizationContextProvider from "../contexts/AuthorizationContext";
 import BlogContextProvider from "../contexts/BlogContext";
 
 import ProdectedRoute from "./ProdectedRoute";
-
 
 const Routes = () => {
     return (
@@ -24,6 +24,7 @@ const Routes = () => {
                     <ProdectedRoute path="/addblog" component={AddBlog} />
                     <ProdectedRoute path="/myblog" component={MyBlog} />
                     <Route path="/blog/:id" component={BlogDetails} />
+                    {/* <Route path="/payment" component={Payment} /> */}
                 </Switch>
             </BlogContextProvider>
         </BrowserRouter>

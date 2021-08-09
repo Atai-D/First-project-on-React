@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         flexDirection: "column",
         backgroundColor: "#d8f0df",
+        textDecoration: "none"
     },
 }));
 
@@ -134,7 +135,7 @@ export default function PrimarySearchAppBar() {
                 style={{
                     color: "#d8f0df",
                 }}
-                to={`/bloglist?category=entertainment`}
+                to={`/bloglist?category=art&culture&_limit${BLOG_LIMIT}`}
             >
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             </NavLink>
@@ -170,8 +171,9 @@ export default function PrimarySearchAppBar() {
                         color: "#bfe0c2",
                         fontSize: "1.10rem",
                         marginBottom: "5px",
+                        textDecoration: "none"
                     }}
-                    to="/bloglist"
+                    to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                 >
                     All blogs
                 </NavLink>
@@ -252,7 +254,7 @@ export default function PrimarySearchAppBar() {
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
                             }}
-                            to="/bloglist"
+                            to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                         >
                             All blogs
                         </NavLink>

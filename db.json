@@ -50,6 +50,56 @@
       "id": 1
     },
     {
+      "0": {
+        "title": "123123123123",
+        "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+        "text": "afgaawew fasefaefeaf awefaef ",
+        "category": "thingsToDo",
+        "author": "ataydjirgalbaev@gmail.com",
+        "date": "Mon, 09 Aug 2021 11:09:00 GMT",
+        "price": "12312151",
+        "isAdminWrote": true,
+        "authorsId": 2,
+        "id": 2
+      },
+      "1": {
+        "title": "Кинотеатр \"Манас\"",
+        "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+        "text": "tqfaaw 2weafawe 3432wf2e2 4r df sesr r",
+        "category": "thingsToDo",
+        "author": "ataydjirgalbaev@gmail.com",
+        "date": "Mon, 09 Aug 2021 11:11:33 GMT",
+        "price": "123123123142352",
+        "isAdminWrote": true,
+        "authorsId": 2,
+        "id": 3
+      },
+      "2": {
+        "title": "123123",
+        "image": "123",
+        "text": "ae we wda wd awda wda wdfae ",
+        "category": "thingsToDo",
+        "author": "ataydjirgalbaev@gmail.com",
+        "date": "Mon, 09 Aug 2021 11:13:56 GMT",
+        "price": "123123",
+        "isAdminWrote": true,
+        "authorsId": 2,
+        "priority": 2,
+        "id": 6
+      },
+      "3": {
+        "title": "Кинотеатр \"Манас\"",
+        "image": "123123123a dawd a",
+        "text": "123 adawdaweev1 d awd awdwad awda hsr wefea wew f23ec ",
+        "category": "food&drinks",
+        "author": "ataydjirgalbaev@gmail.com",
+        "date": "Mon, 09 Aug 2021 11:59:42 GMT",
+        "price": "awdawdrwee123 ",
+        "priority": 3,
+        "isAdminWrote": true,
+        "authorsId": 2,
+        "id": 7
+      },
       "email": "ataydjirgalbaev@gmail.com",
       "password": "123123",
       "isLogged": true,
@@ -176,7 +226,7 @@
       "id": 5
     },
     {
-      "title": "123",
+      "title": "123123",
       "image": "123",
       "text": "ae we wda wd awda wda wdfae ",
       "category": "thingsToDo",

@@ -4,9 +4,9 @@ export const JSON_API_BLOGS = "http://localhost:8000/blogs";
 export const BLOG_LIMIT = 3;
 
 export const CATEGORIES = [
-    { value: "arts", label: "arts" },
-    { value: "parks", label: "parks" },
-    { value: "entertainment", label: "entertainment" },
+    { value: "art&culture", label: "Art & Culture" },
+    { value: "thingsToDo", label: "Things To Do" },
+    { value: "food&drinks", label: "Food & Dinks" },
 ];
 
 export const ACTIONS = {

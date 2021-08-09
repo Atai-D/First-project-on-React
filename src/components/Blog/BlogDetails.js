@@ -114,6 +114,13 @@ export default function BlogDetails() {
                             {blogDetails.text}
                         </Typography>
                         <Typography
+                            variant="body2"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            Price: {blogDetails.price} KG
+                        </Typography>
+                        <Typography
                             variant="body1"
                             color="textSecondary"
                             component="p"
@@ -125,7 +132,23 @@ export default function BlogDetails() {
                             color="textSecondary"
                             component="p"
                         >
-                            <em>Автор: {blogDetails.author} </em>
+                            {blogDetails.priority == 2 ? (
+                                <em style={{ color: "red" }}>
+                                    RECOMENDED BY B-BBLOG
+                                </em>
+                            ) : blogDetails.priority == 3 ? (
+                                <>
+                                    <em style={{ color: "red" }}>
+                                        Автор:{blogDetails.author}
+                                    </em>
+                                    <br />
+                                    <em style={{ color: "red" }}>
+                                        RECOMENDED BY B-BBLOG
+                                    </em>
+                                </>
+                            ) : (
+                                <em> Автор:{blogDetails.author}</em>
+                            )}
                         </Typography>
                     </CardContent>
                 </Card>

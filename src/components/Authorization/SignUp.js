@@ -1,7 +1,7 @@
 import { Button, Container, Modal } from "react-bootstrap";
 import React, { useState } from "react";
 // import Input from "@material-ui/core/Input";
-
+import MuiAlert from "@material-ui/lab/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { ACTIONS, JSON_API_USERS } from "../../helpers/consts";
@@ -10,6 +10,7 @@ import {
     Typography,
     TextField,
     Button as ButtonUI,
+    Snackbar,
 } from "@material-ui/core";
 import axios from "axios";
 // import { Link } from "react-router-dom";
@@ -39,6 +40,24 @@ const SignUp = () => {
 
     const [isInUsers, setIsInUsers] = useState(false);
 
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -60,6 +79,7 @@ const SignUp = () => {
             return;
         } else {
             if (
+                signPassword.length >= 6 &&
                 signPassword.toLowerCase() ===
                     signCheckPassword.toLowerCase() &&
                 /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
@@ -82,7 +102,7 @@ const SignUp = () => {
                     payload: newUser,
                 });
                 const { data } = await axios.post(JSON_API_USERS, newUser);
-                alert("Вы успешно зарегистрировались");
+                setOpen(true);
                 setSignName("");
                 setSignPassword("");
                 setSignCheckPassword("");
@@ -96,6 +116,8 @@ const SignUp = () => {
                 !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(signName)
             ) {
                 alert("Вы неверно ввели свою почту");
+            } else if (signPassword.length < 6) {
+                alert("Ваш пароль должен быть больше шести символов");
             } else if (
                 signPassword.toLowerCase() !== signCheckPassword.toLowerCase()
             ) {
@@ -106,6 +128,11 @@ const SignUp = () => {
 
     return (
         <>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Вы успешно авторизовались
+                </Alert>
+            </Snackbar>
             <Modal
                 size="lg"
                 show={signModal}
@@ -113,7 +140,7 @@ const SignUp = () => {
                     setSignModal(false);
                     setIsInUsers(false);
                 }}
-                style={{color: "#bfe0c2", zIndex: "10000"}}
+                style={{ color: "#bfe0c2", zIndex: "10000" }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -128,7 +155,10 @@ const SignUp = () => {
                                 <Typography
                                     component="h1"
                                     variant="h5"
-                                    style={{ marginLeft: "-15px", marginRight: "15px"}}
+                                    style={{
+                                        marginLeft: "-15px",
+                                        marginRight: "15px",
+                                    }}
                                 >
                                     Registration
                                 </Typography>
@@ -143,7 +173,6 @@ const SignUp = () => {
                                         onChange={(e) =>
                                             setSignName(e.target.value)
                                         }
-                
                                     />
                                     <TextField
                                         name="password"
@@ -167,8 +196,14 @@ const SignUp = () => {
                                         }
                                     />
                                 </Grid>
-                                <ButtonUI variant="contained" type="submit"
-                                        style={{backgroundColor: "#bfe0c2", color: "#fff"}}>
+                                <ButtonUI
+                                    variant="contained"
+                                    type="submit"
+                                    style={{
+                                        backgroundColor: "#bfe0c2",
+                                        color: "#fff",
+                                    }}
+                                >
                                     Sign Up
                                 </ButtonUI>
                             </Grid>

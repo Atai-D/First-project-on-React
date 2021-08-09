@@ -24,6 +24,8 @@ const BlogContextProvider = ({ children }) => {
     const [blogText, setBlogText] = useState("");
     const [blogPrice, setBlogPrice] = useState("");
     const [blogCategory, setBlogCategory] = useState(CATEGORIES[0].value);
+    const [promoted, setPromoted] = useState("");
+    const [isPromoted, setIsPromoted] = useState(false);
     // const [newBlog, setNewBlog] = useState({});
 
     const [editModal, setEditModal] = useState(false);
@@ -74,12 +76,61 @@ const BlogContextProvider = ({ children }) => {
     const getBlogsData = async () => {
         const search = new URLSearchParams(history.location.search);
         search.set("_limit", BLOG_LIMIT);
+        search.set("_sort", "priority");
+        search.set("_order", "desc");
         history.push(`${history.location.pathname}?${search.toString()}`);
         const res = await axios(`${JSON_API_BLOGS}/${window.location.search}`);
         dispatch({
             type: BLOG_ACTIONS.GET_BLOGS_DATA,
             payload: res,
         });
+    };
+
+    const addBlog = async (
+        title,
+        image,
+        text,
+        price,
+        category,
+        isPromoted,
+        promoted
+    ) => {
+        const date = new Date();
+        const date1 = date.toUTCString();
+        let newBlog = {
+            title: title,
+            image: image,
+            text: text,
+            category: category,
+            author: logged.email,
+            date: date1,
+            price: price,
+            priority: isPromoted ? 3 : logged.isAdmin ? 2 : 1,
+            isAdminWrote: logged.isAdmin,
+            authorsId: logged.id,
+        };
+        dispatch({
+            type: BLOG_ACTIONS.ADD_BLOG,
+            payload: newBlog,
+        });
+
+        const res = await axios.post(JSON_API_BLOGS, newBlog);
+        newBlog.id = res.data.id;
+
+        let userWithBlog = {
+            ...logged,
+            usersBlogs: [...logged.usersBlogs, newBlog],
+        };
+
+        localStorage.setItem("user", JSON.stringify(userWithBlog));
+        changeLoggedUser(userWithBlog);
+        console.log(logged.usersBlogs);
+        let { data } = await axios.patch(
+            `${JSON_API_USERS}/${logged.id}`,
+            userWithBlog
+        );
+
+        console.log(data);
     };
 
     const deleteBlog = async (id, authorsId) => {
@@ -177,6 +228,11 @@ const BlogContextProvider = ({ children }) => {
         pages: state.pages,
         blogPrice,
         setBlogPrice,
+        addBlog,
+        promoted,
+        setPromoted,
+        isPromoted,
+        setIsPromoted,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

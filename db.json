@@ -37,7 +37,52 @@
       "password": "123",
       "isLogged": true,
       "isAdmin": true,
-      "usersBlogs": [],
+      "usersBlogs": [
+        {
+          "title": "123",
+          "image": "123123",
+          "text": "123",
+          "category": "arts",
+          "author": "ataydjirgalbaev@gmail.com",
+          "date": "Sat, 07 Aug 2021 20:30:31 GMT",
+          "isAdminWrote": true,
+          "authorsId": 2,
+          "id": 4
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123",
+          "category": "arts",
+          "author": "ataydjirgalbaev@gmail.com",
+          "date": "Sat, 07 Aug 2021 20:30:40 GMT",
+          "isAdminWrote": true,
+          "authorsId": 2,
+          "id": 5
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123123",
+          "category": "arts",
+          "author": "ataydjirgalbaev@gmail.com",
+          "date": "Sat, 07 Aug 2021 20:30:58 GMT",
+          "isAdminWrote": true,
+          "authorsId": 2,
+          "id": 6
+        },
+        {
+          "title": "123",
+          "image": "123",
+          "text": "123123",
+          "category": "arts",
+          "author": "ataydjirgalbaev@gmail.com",
+          "date": "Sat, 07 Aug 2021 20:31:02 GMT",
+          "isAdminWrote": true,
+          "authorsId": 2,
+          "id": 7
+        }
+      ],
       "favourites": [],
       "id": 2
     },
@@ -57,7 +102,42 @@
       "password": "123",
       "isLogged": true,
       "isAdmin": false,
-      "usersBlogs": [],
+      "usersBlogs": [
+        {
+          "title": "ТЦ Космопарк",
+          "image": "https://sputnik.kg/images/103148/70/1031487070.jpg",
+          "text": "Хороший развлекательный комплекс, ходили туда в кино, всё чисто и четко!",
+          "category": "entertainment",
+          "author": "rapakrapak123@gmail.com",
+          "date": "Sat, 07 Aug 2021 19:07:23 GMT",
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 3
+        },
+        {
+          "title": "asd",
+          "image": "1233123",
+          "text": "12313eadawdawd12 123 adaef srg 3sef 1",
+          "category": "arts",
+          "author": "rapakrapak123@gmail.com",
+          "date": "Sat, 07 Aug 2021 20:38:07 GMT",
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 8
+        },
+        {
+          "title": "Бишкек парк",
+          "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
+          "text": "Сегодня ходил в Бишкек парк с друзьями. Сходили в боулинг и купили пиццы. Потратил не так уж и много денег, примерно 500 сом. Было очень весело, всем советую",
+          "category": "entertainment",
+          "author": "rapakrapak123@gmail.com",
+          "date": "Mon, 09 Aug 2021 04:38:05 GMT",
+          "price": "500",
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 9
+        }
+      ],
       "favourites": [],
       "id": 3
     },
@@ -109,6 +189,84 @@
       "isAdminWrote": false,
       "authorsId": 1,
       "id": 2
+    },
+    {
+      "title": "ТЦ Космопарк",
+      "image": "https://sputnik.kg/images/103148/70/1031487070.jpg",
+      "text": "Хороший развлекательный комплекс, ходили туда в кино, всё чисто и четко!",
+      "category": "entertainment",
+      "author": "rapakrapak123@gmail.com",
+      "date": "Sat, 07 Aug 2021 19:07:23 GMT",
+      "isAdminWrote": false,
+      "authorsId": 3,
+      "id": 3
+    },
+    {
+      "title": "123",
+      "image": "123123",
+      "text": "123",
+      "category": "arts",
+      "author": "ataydjirgalbaev@gmail.com",
+      "date": "Sat, 07 Aug 2021 20:30:31 GMT",
+      "isAdminWrote": true,
+      "authorsId": 2,
+      "id": 4
+    },
+    {
+      "title": "123",
+      "image": "123",
+      "text": "123",
+      "category": "arts",
+      "author": "ataydjirgalbaev@gmail.com",
+      "date": "Sat, 07 Aug 2021 20:30:40 GMT",
+      "isAdminWrote": true,
+      "authorsId": 2,
+      "id": 5
+    },
+    {
+      "title": "123",
+      "image": "123",
+      "text": "123123",
+      "category": "arts",
+      "author": "ataydjirgalbaev@gmail.com",
+      "date": "Sat, 07 Aug 2021 20:30:58 GMT",
+      "isAdminWrote": true,
+      "authorsId": 2,
+      "id": 6
+    },
+    {
+      "title": "123",
+      "image": "123",
+      "text": "123123",
+      "category": "arts",
+      "author": "ataydjirgalbaev@gmail.com",
+      "date": "Sat, 07 Aug 2021 20:31:02 GMT",
+      "isAdminWrote": true,
+      "authorsId": 2,
+      "id": 7
+    },
+    {
+      "title": "asd",
+      "image": "1233123",
+      "text": "12313eadawdawd12 123 adaef srg 3sef 1",
+      "category": "arts",
+      "author": "rapakrapak123@gmail.com",
+      "date": "Sat, 07 Aug 2021 20:38:07 GMT",
+      "isAdminWrote": false,
+      "authorsId": 3,
+      "id": 8
+    },
+    {
+      "title": "Бишкек парк",
+      "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
+      "text": "Сегодня ходил в Бишкек парк с друзьями. Сходили в боулинг и купили пиццы. Потратил не так уж и много денег, примерно 500 сом. Было очень весело, всем советую",
+      "category": "entertainment",
+      "author": "rapakrapak123@gmail.com",
+      "date": "Mon, 09 Aug 2021 04:38:05 GMT",
+      "price": "500",
+      "isAdminWrote": false,
+      "authorsId": 3,
+      "id": 9
     }
   ]
 }

@@ -10,7 +10,9 @@ import {
     Typography,
     TextField,
     Button as ButtonUI,
+    Snackbar,
 } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -30,6 +32,27 @@ const LogIn = () => {
     } = useAutho();
 
     const [isInUsers, setIsInUsers] = useState(false);
+
+    // const [open, setOpen] = useState({
+    //     open: false,
+    //     message: "",
+    // });
+
+    // const handleClick = () => {
+    //     setOpen({ ...open, open: true });
+    // };
+
+    // const handleClose = (event, reason) => {
+    //     if (reason === "clickaway") {
+    //         return;
+    //     }
+
+    //     setOpen({ ...open, open: false });
+    // };
+
+    // function Alert(props) {
+    //     return <MuiAlert elevation={6} variant="filled" {...props} />;
+    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -67,9 +90,18 @@ const LogIn = () => {
                     logPassword.toString().toLowerCase()
                 ) {
                     if (authUser.isAdmin) {
-                        alert("Добро пожаловать, админ!");
+                        // setOpen({
+                        //     ...open,
+                        //     message: "Добро пожаловать, админ",
+                        // });
+                        alert("Добро пожаловать, админ");
                     } else {
-                        alert(`Добро пожаловать, ${authUser.email}!`);
+                        // setOpen({
+                        //     ...open,
+                        //     message: `Добро пожаловать, ${authUser.email}`,
+                        // });
+                        // console.log(open.message);
+                        alert(`Добро пожаловать, ${authUser.email}`);
                     }
                     setLogName("");
                     setLogPassword("");
@@ -85,6 +117,15 @@ const LogIn = () => {
 
     return (
         <>
+            {/* <Snackbar
+                open={open.open}
+                autoHideDuration={2000}
+                onClose={handleClose}
+            >
+                <Alert onClose={handleClose} severity="success">
+                    {open.message}
+                </Alert>
+            </Snackbar> */}
             <Modal
                 size="lg"
                 show={logModal}
@@ -92,7 +133,7 @@ const LogIn = () => {
                     setLogModal(false);
                     setIsInUsers(false);
                 }}
-                style={{color: "#bfe0c2", zIndex: "10000"}}
+                style={{ color: "#bfe0c2", zIndex: "10000" }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -107,7 +148,10 @@ const LogIn = () => {
                                 <Typography
                                     component="h1"
                                     variant="h5"
-                                    style={{ marginLeft: "-15px", marginRight: "15px"}}
+                                    style={{
+                                        marginLeft: "-15px",
+                                        marginRight: "15px",
+                                    }}
                                 >
                                     Authorization
                                 </Typography>
@@ -139,7 +183,11 @@ const LogIn = () => {
                                     variant="contained"
                                     color="primary"
                                     type="submit"
-                                    style={{backgroundColor: "#bfe0c2", color: "#fff", marginRight: "-15"}}
+                                    style={{
+                                        backgroundColor: "#bfe0c2",
+                                        color: "#fff",
+                                        marginRight: "-15",
+                                    }}
                                 >
                                     Log In
                                 </ButtonUI>

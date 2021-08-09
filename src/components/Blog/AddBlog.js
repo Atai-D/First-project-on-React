@@ -29,6 +29,8 @@ const AddBlog = () => {
         setBlogText,
         blogCategory,
         setBlogCategory,
+        blogPrice,
+        setBlogPrice,
     } = useBlog();
 
     const { logged, changeLoggedUser } = useAutho();
@@ -53,10 +55,10 @@ const AddBlog = () => {
             category: blogCategory,
             author: logged.email,
             date: date1,
+            price: blogPrice,
             isAdminWrote: logged.isAdmin,
             authorsId: logged.id,
         };
-        console.log(newBlog);
         dispatch({
             type: BLOG_ACTIONS.ADD_BLOG,
             payload: newBlog,
@@ -82,6 +84,7 @@ const AddBlog = () => {
         setBlogTitle("");
         setBlogImage("");
         setBlogText("");
+        setBlogPrice("");
         alert("Ваш блог успешно опубликован");
     };
 
@@ -114,6 +117,15 @@ const AddBlog = () => {
                             type="text"
                             value={blogImage}
                             onChange={(e) => setBlogImage(e.target.value)}
+                        />
+                        <TextField
+                            name="price"
+                            variant="outlined"
+                            required
+                            label="Average Price"
+                            type="text"
+                            value={blogPrice}
+                            onChange={(e) => setBlogPrice(e.target.value)}
                         />
                         <TextField
                             name="text"

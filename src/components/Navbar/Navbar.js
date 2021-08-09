@@ -16,6 +16,8 @@ import LogIn from "../Authorization/LogIn";
 
 import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
+import { AccountCircle } from "@material-ui/icons";
+import { BLOG_LIMIT } from "../../helpers/consts";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -72,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
+        backgroundColor: "#d8f0df",
     },
 }));
 
@@ -127,8 +130,22 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
+            <NavLink
+                style={{
+                    color: "#d8f0df",
+                }}
+                to={`/bloglist?category=entertainment`}
+            >
+                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            </NavLink>
+            <NavLink
+                style={{
+                    color: "#d8f0df",
+                }}
+                to="/"
+            >
+                <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            </NavLink>
         </Menu>
     );
 
@@ -176,7 +193,7 @@ export default function PrimarySearchAppBar() {
                     }}
                     to="/"
                 >
-                    Cotegories
+                    Categories
                 </NavLink>
                 <NavLink
                     style={{
@@ -249,15 +266,20 @@ export default function PrimarySearchAppBar() {
                         >
                             My Blogs
                         </NavLink>
+
                         <NavLink
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            onClick={handleProfileMenuOpen}
                             style={{
                                 color: "#fff",
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
                             }}
-                            to="/"
+                            to={history}
                         >
-                            Cotegories
+                            Categories
                         </NavLink>
                         <NavLink
                             style={{

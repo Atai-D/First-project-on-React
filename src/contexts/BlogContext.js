@@ -6,6 +6,7 @@ import {
     CATEGORIES,
     JSON_API_BLOGS,
     JSON_API_USERS,
+    BLOG_LIMIT,
 } from "../helpers/consts";
 import { useAutho } from "./AuthorizationContext";
 
@@ -21,6 +22,7 @@ const BlogContextProvider = ({ children }) => {
     const [blogTitle, setBlogTitle] = useState("");
     const [blogImage, setBlogImage] = useState("");
     const [blogText, setBlogText] = useState("");
+    const [blogPrice, setBlogPrice] = useState("");
     const [blogCategory, setBlogCategory] = useState(CATEGORIES[0].value);
     // const [newBlog, setNewBlog] = useState({});
 
@@ -33,12 +35,19 @@ const BlogContextProvider = ({ children }) => {
     const INIT_STATE = {
         blogs: [],
         blogDetails: {},
+        pages: 1,
     };
 
     const reduce = (state = INIT_STATE, action) => {
         switch (action.type) {
             case BLOG_ACTIONS.GET_BLOGS_DATA:
-                return { ...state, blogs: action.payload };
+                return {
+                    ...state,
+                    blogs: action.payload.data,
+                    pages: Math.ceil(
+                        action.payload.headers["x-total-count"] / BLOG_LIMIT
+                    ),
+                };
             case BLOG_ACTIONS.ADD_BLOG:
                 let newBlogs = [...state.blogs];
                 newBlogs.push(action.payload);
@@ -63,10 +72,13 @@ const BlogContextProvider = ({ children }) => {
     };
 
     const getBlogsData = async () => {
-        const { data } = await axios(JSON_API_BLOGS);
+        const search = new URLSearchParams(history.location.search);
+        search.set("_limit", BLOG_LIMIT);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        const res = await axios(`${JSON_API_BLOGS}/${window.location.search}`);
         dispatch({
             type: BLOG_ACTIONS.GET_BLOGS_DATA,
-            payload: data,
+            payload: res,
         });
     };
 
@@ -162,6 +174,9 @@ const BlogContextProvider = ({ children }) => {
         edittingId,
         setEdittingId,
         saveEditBlog,
+        pages: state.pages,
+        blogPrice,
+        setBlogPrice,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

@@ -1,0 +1,13 @@
+.main-footer {
+    color: #fff;
+    background-color: #bfe0c2;
+    padding-top: 3cm;
+    position: relative;
+    bottom:0;
+    width: 100%;
+}
+
+a {
+ color: #4a825b;
+ text-decoration: none;
+}

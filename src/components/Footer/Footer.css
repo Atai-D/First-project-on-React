@@ -6,8 +6,13 @@
     bottom:0;
     width: 100%;
 }
+.link{
+    /* text-decoration: none; */
+    color: #fff;
+}
 
-a {
- color: #4a825b;
- text-decoration: none;
+.icons {
+    list-style: none;
+    font-size: 3rem;
+    color: #fff;
 }

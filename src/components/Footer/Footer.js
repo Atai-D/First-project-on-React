@@ -1,6 +1,7 @@
 import React from 'react';
 // import "./src/components/Footer/footer.css"
 import { NavLink } from 'react-router-dom';
+import {AiFillInstagram, AiOutlineTwitter, AiFillFacebook } from "react-icons/ai"
 
 const Footer = () => {
     return (
@@ -22,10 +23,10 @@ const Footer = () => {
                             CONTACT US
                         </h4>
                         <ul className="list-unstyled">
-                            <li>
-                                <a href="https://www.instagram.com/akashkarbek/">Visit our Insta</a>
-                            </li>
-                            <li><a href="mailto:b-bblog@gmail.com">Send Email</a></li>
+                            <li>Logvinenko 12</li>
+                            <li>Bishkek, Kyrgyzstan</li>
+                            <li>PO Box 72000</li>
+                            <li><a className="link" href="mailto:b-bblog@gmail.com">Send Email</a></li>
                             <li>+996555776612</li>
 
                         </ul>
@@ -34,11 +35,19 @@ const Footer = () => {
                     {/* column3 */}
                     <div className="col">
                     <h4>
-                            B-BB COUPONS
+                            FOLLOW US
                         </h4>
-                        <ul className="list-unstyled">
-                            <li>Food and Drinks</li>
-                            <li>Art and Culture</li>
+                        <ul className="icons">
+                            <li>
+                                <a href="https://www.instagram.com/akashkarbek/">
+                                   < AiFillInstagram style={{ color:"#fff"}}/> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/home?lang=en">
+                                   < AiOutlineTwitter style={{ color:"#fff"}} /> 
+                                </a>
+                            </li>
                             </ul>
                     </div>
                 </div>
@@ -52,6 +61,7 @@ const Footer = () => {
         </div>
     );
 };
+                                
 
 
 

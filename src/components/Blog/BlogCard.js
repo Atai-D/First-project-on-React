@@ -33,6 +33,7 @@ export default function BlogCard({ blog, showAuthor }) {
         setEditModal,
         edittingId,
         setEdittingId,
+        addBlogToCart,
     } = useBlog();
 
     const { logged } = useAutho();
@@ -53,18 +54,9 @@ export default function BlogCard({ blog, showAuthor }) {
         setEdittingId(id);
     };
 
-    function checkImage(url) {
-        var image = new Image();
-        image.onload = function () {
-            if (this.width > 0) {
-                console.log("image exists");
-            }
-        };
-        image.onerror = function () {
-            console.log("image doesn't exist");
-        };
-        image.src = url;
-    }
+    const handlePromotionBtn = (blog, authorId) => {
+        addBlogToCart(blog);
+    };
 
     return (
         <Card className={classes.root}>
@@ -72,7 +64,6 @@ export default function BlogCard({ blog, showAuthor }) {
                 id={blog.id}
                 onClick={() => {
                     history.push(`/blog/${blog.id}`);
-                    // findAdminAuthor();
                 }}
             >
                 <CardMedia
@@ -127,6 +118,15 @@ export default function BlogCard({ blog, showAuthor }) {
                             onClick={() => handleEditBtn(blog.id)}
                         >
                             Edit
+                        </Button>
+                        <Button
+                            size="small"
+                            color="primary"
+                            onClick={() =>
+                                handlePromotionBtn(blog, blog.authorsId)
+                            }
+                        >
+                            Add To Promotion
                         </Button>
                     </>
                 ) : (

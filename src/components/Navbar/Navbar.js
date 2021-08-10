@@ -85,7 +85,11 @@ export default function PrimarySearchAppBar() {
     const { setSignModal, logged, logModal, setLogModal, changeLoggedUser } =
         useAutho();
 
-    const { getBlogsData } = useBlog();
+    const { getBlogsData, getCart, deleteCart } = useBlog();
+
+    useEffect(() => {
+        getCart();
+    }, []);
 
     // const { from } = location.state || { from: { pathname: "/" } };
 
@@ -246,6 +250,32 @@ export default function PrimarySearchAppBar() {
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
+                        {logged.isLogged ? (
+                            <>
+                                <NavLink
+                                    style={{
+                                        color: "#fff",
+                                        fontSize: "1.25rem",
+                                        marginRight: "15px",
+                                    }}
+                                    to="/promotion"
+                                >
+                                    Promotion
+                                </NavLink>
+                                <NavLink
+                                    style={{
+                                        color: "#fff",
+                                        fontSize: "1.25rem",
+                                        marginRight: "15px",
+                                    }}
+                                    to="/mypromotions"
+                                >
+                                    My Promotions
+                                </NavLink>
+                            </>
+                        ) : (
+                            ""
+                        )}
                         <NavLink
                             style={{
                                 color: "#fff",
@@ -301,6 +331,7 @@ export default function PrimarySearchAppBar() {
                                             isLogged: false,
                                         });
                                         localStorage.removeItem("user");
+                                        deleteCart();
                                         alert("Вы вышли из аккаунта");
                                         getBlogsData();
                                     }}

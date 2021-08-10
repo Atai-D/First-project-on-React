@@ -56,7 +56,6 @@ const AddBlog = () => {
         if (isPromoted && !promoted) {
             alert("Заполните продвижение");
         } else {
-            alert("Ваш блог успешно опубликован");
             addBlog(
                 blogTitle,
                 blogImage,
@@ -108,7 +107,7 @@ const AddBlog = () => {
                             variant="outlined"
                             required
                             label="Average Price (KG)"
-                            type="price"
+                            type="number"
                             value={blogPrice}
                             onChange={(e) => setBlogPrice(e.target.value)}
                         />

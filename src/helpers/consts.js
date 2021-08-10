@@ -20,4 +20,18 @@ export const BLOG_ACTIONS = {
     GET_BLOGS_DATA: "GET_BLOGS_DATA",
     DELETE_BLOG_DETAILS: "DELETE_BLOG_DETAILS",
     ISEDITTING_USER: "ISEDITTING_USER",
+    ADD_PROMOTION_BLOG: "ADD_PROMOTION_BLOG",
+    GET_CART: "GET_CART",
+    GET_PAYING_BLOGS: "GET_PAYING_BLOGS",
+    GET_PROMOTIONS_DATA: "GET_PROMOTIONS_DATA",
+};
+
+export const calcSubPrice = (blog) => {
+    return +blog.days * +blog.promPrice;
+};
+
+export const calcTotalPrice = (blogs) => {
+    return blogs.reduce((ac, cur) => {
+        return (ac += cur.subPrice);
+    }, 0);
 };

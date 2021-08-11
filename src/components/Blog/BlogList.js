@@ -155,7 +155,8 @@ const BlogList = () => {
     };
 
     return (
-        <>
+        <>  
+         {/* <Grid item xs={3}> */}
             <FormControl component="fieldset">
                 <FormLabel component="legend">Category</FormLabel>
                 <RadioGroup value={type} onChange={handleChangeType}>
@@ -173,6 +174,7 @@ const BlogList = () => {
                     />
                 </RadioGroup>
             </FormControl>
+            {/* </Grid> */}
             <div className={classes.search}>
                 <div className={classes.searchIcon}>
                     <SearchIcon />

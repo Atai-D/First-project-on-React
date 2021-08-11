@@ -74,7 +74,7 @@ export default function BlogDetails() {
                 <Card className={classes.root}>
                     <CardHeader
                         title={blogDetails.title}
-                        subheader={blogDetails?.date}
+                        subheader={new Date(blogDetails?.date).toUTCString()}
                     />
                     <CardMedia
                         className={classes.media}

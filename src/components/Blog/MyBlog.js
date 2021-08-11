@@ -27,8 +27,10 @@ const MyBlog = () => {
                             <BlogCard blog={blog} showAuthor={false} />
                         ))}
                     </div>
-                ) : (
-                    "Похоже у вас нет блогов"
+                ) : ( <h1 style={{color: "#caedc5", fontFamily:"nunito"}}>  
+
+                    Похоже у вас нет блогов
+                </h1>
                 )
             ) : (
                 ""

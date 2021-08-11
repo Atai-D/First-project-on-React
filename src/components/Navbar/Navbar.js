@@ -58,9 +58,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff",
         color: "#bfe0c2",
         marginRight: "5px",
-        border: "none",
+        // border: "none",
         fontFamily: "nunito",
+        // borderColor: "gold",
+
         // fontFamily:"nunito",
+        
         "&:hover": {
             backgroundColor: "#d8f0df",
             color: "#4a825b",
@@ -77,6 +80,11 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         
     },
+    navLogoutBtn:{
+        borderWidth: "4px",
+        borderColor: "gold",
+        // color: "gold"
+    }
 }));
 
 export default function PrimarySearchAppBar() {
@@ -86,7 +94,11 @@ export default function PrimarySearchAppBar() {
     const { setSignModal, logged, logModal, setLogModal, changeLoggedUser } =
         useAutho();
 
-    const { getBlogsData } = useBlog();
+    const { getBlogsData, getCart, deleteCart } = useBlog();
+
+    useEffect(() => {
+        getCart();
+    }, []);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -226,7 +238,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar style={{ backgroundColor: "#caedc5", position: "static" }}>
+            <AppBar style={{ backgroundColor: "#8ab584", position: "static" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         <NavLink
@@ -248,6 +260,34 @@ export default function PrimarySearchAppBar() {
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
+                        {logged.isLogged ? (
+                            <>
+                                <NavLink
+                                    style={{
+                                        color: "#fff",
+                                        fontSize: "1.25rem",
+                                        marginRight: "15px",
+                                        paddingTop: "4px"
+                                    }}
+                                    to="/promotion"
+                                >
+                                    Promotion
+                                </NavLink>
+                                <NavLink
+                                    style={{
+                                        color: "#fff",
+                                        fontSize: "1.25rem",
+                                        marginRight: "15px",
+                                        paddingTop: "4px"
+                                    }}
+                                    to="/mypromotions"
+                                >
+                                    My Promotions
+                                </NavLink>
+                            </>
+                        ) : (
+                            ""
+                        )}
                         <NavLink
                             style={{
                                 color: "#fff",
@@ -317,12 +357,14 @@ export default function PrimarySearchAppBar() {
                         {logged.isLogged ? (
                             <>
                                 <Button
+                                className={classes.navLogoutBtn}
                                     onClick={() => {
                                         changeLoggedUser({
                                             ...logged,
                                             isLogged: false,
                                         });
                                         localStorage.removeItem("user");
+                                        deleteCart();
                                         alert("Вы вышли из аккаунта");
                                         getBlogsData();
                                     }}

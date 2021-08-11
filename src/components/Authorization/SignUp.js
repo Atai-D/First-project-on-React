@@ -91,6 +91,7 @@ const SignUp = () => {
                     isAdmin: false,
                     usersBlogs: [],
                     favourites: [],
+                    promotionBlogs: [],
                 };
                 if (
                     newUser.email.toLowerCase() === "ataydjirgalbaev@gmail.com"

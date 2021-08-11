@@ -1,7 +1,11 @@
-import React from 'react';
+import React from "react";
 // import "./src/components/Footer/footer.css"
-import { NavLink } from 'react-router-dom';
-import {AiFillInstagram, AiOutlineTwitter, AiFillFacebook } from "react-icons/ai"
+import { NavLink } from "react-router-dom";
+import {
+    AiFillInstagram,
+    AiOutlineTwitter,
+    AiFillFacebook,
+} from "react-icons/ai";
 
 const Footer = () => {
     return (
@@ -20,56 +24,53 @@ const Footer = () => {
                     </div>
                     {/* column2 */}
                     <div className="col">
-                    <h4>
-                            CONTACT US
-                        </h4>
+                        <h4>CONTACT US</h4>
                         <ul className="list-unstyled">
                             <li>Logvinenko 12</li>
                             <li>Bishkek, Kyrgyzstan</li>
                             <li>PO Box 72000</li>
-                            <li><a className="link" href="mailto:b-bblog@gmail.com">Send Email</a></li>
+                            <li>
+                                <a
+                                    className="link"
+                                    href="mailto:b-bblog@gmail.com"
+                                >
+                                    Send Email
+                                </a>
+                            </li>
                             <li>+996555776612</li>
-
                         </ul>
-
                     </div>
                     {/* column3 */}
                     <div className="col">
-                    <h4>
-                            FOLLOW US
-                        </h4>
+                        <h4>FOLLOW US</h4>
                         <ul className="icons">
                             <li>
                                 <a href="https://www.instagram.com/akashkarbek/">
-                                   < AiFillInstagram style={{ color:"#fff"}}/> 
+                                    <AiFillInstagram
+                                        style={{ color: "#fff" }}
+                                    />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://twitter.com/home?lang=en">
-                                   < AiOutlineTwitter style={{ color:"#fff"}} /> 
+                                    <AiOutlineTwitter
+                                        style={{ color: "#fff" }}
+                                    />
                                 </a>
                             </li>
-                            </ul>
+                        </ul>
                     </div>
                 </div>
                 <br />
-                    <div className="row">
-                        <p className="col-sm">
-                            &copy;{new Date().getFullYear()} Best Bishkek Blog | All rights reserved 
-                        </p>
-                    </div>
+                <div className="row">
+                    <p className="col-sm">
+                        &copy;{new Date().getFullYear()} Best Bishkek Blog | All
+                        rights reserved
+                    </p>
+                </div>
             </div>
         </div>
     );
 };
-                                
-
-
-
-
-
 
 export default Footer;
-
-
-

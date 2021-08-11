@@ -11,22 +11,23 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 545,
+    // maxWidth: 545,
+    width: "45vw",
     background: "rgb(0,0,0,0.2)",
     // flexDirection: "row"
   },
   media: {
-    height: 340,
+    height: "25vw",
   },
   title1: {
       fontFamily: "Nunito",
       fontWeight: "bold",
-      fontSize: "2rem",
+      fontSize: "2vw",
       color: "#fff"
   },
   description: {
     fontFamily: "Nunito",
-    fontSize: "1rem",
+    fontSize: "1.2vw",
     color: "#fff",
     fontWeight: "bold",
   }

@@ -22,7 +22,7 @@ const MyBlog = () => {
         <>
             {user ? (
                 user.usersBlogs.length > 0 ? (
-                    <div>
+                    <div style={{display: "flex", flexWrap: "wrap"}}>
                         {user?.usersBlogs.map((blog) => (
                             <BlogCard blog={blog} showAuthor={false} />
                         ))}

@@ -9,7 +9,9 @@ import {
 
 const Footer = () => {
     return (
-        <div className="main-footer">
+        <div 
+        // style={{position: "fixed", left: 0, bottom: 0}} 
+        className="main-footer">
             <div className="container">
                 <div className="row">
                     {/* column1 */}

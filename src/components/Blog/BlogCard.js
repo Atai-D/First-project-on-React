@@ -17,9 +17,38 @@ import EditBlog from "./EditBlog";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 380,
+        maxWidth: 350,
         margin: 15,
+        backgroundColor: "#8ab584",
+        color: "white"
     },
+    blogBtn: {
+        // backgroundColor: "#8ab584",
+        color: "white"
+    }, 
+    blogCardAuthor:{
+        backgroundColor:"rgb(0,0,0,0.1)",
+        borderRadius: "5px",
+        // display: "flex",
+        // flexDirection: "column",
+        width: "100%"
+    },
+    blogCardBtn: {
+        // backgroundColor:""
+        width: "100%"
+        
+    },
+    blogBtn:{
+backgroundColor: "rgb(0,0,0,0.1)",
+color: "white", 
+margin: "3px",
+// minWidth: "100px",
+width: "100%"
+    },
+    blogCardInf:{
+        display:"flex",
+        justifyContent: "row"
+    }
 });
 
 export default function BlogCard({ blog, showAuthor }) {
@@ -100,10 +129,12 @@ export default function BlogCard({ blog, showAuthor }) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions className={classes.blogCardInf} >
+                {/* <div className={classes.blogCardInf} > */}
                 {logged.email === blog.author || logged.isAdmin ? (
-                    <>
+                    <div >
                         <Button
+                        className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() =>
@@ -113,6 +144,7 @@ export default function BlogCard({ blog, showAuthor }) {
                             Delete
                         </Button>
                         <Button
+                        className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() => handleEditBtn(blog.id)}
@@ -120,46 +152,51 @@ export default function BlogCard({ blog, showAuthor }) {
                             Edit
                         </Button>
                         <Button
+                        className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() =>
                                 handlePromotionBtn(blog, blog.authorsId)
                             }
                         >
-                            Add To Promotion
+                            Promote
                         </Button>
-                    </>
+                    </div>
                 ) : (
                     ""
                 )}
 
                 <Typography variant="body2" color="textSecondary" component="p">
                     {
-                        <>
+                        <div className={classes.blogCardAuthor} >
+                    
                             {showAuthor ? (
                                 blog.priority == 2 ? (
-                                    <em style={{ color: "red" }}>
+                                    <em style={{ color: "white" }}>
                                         RECOMENDED BY B-BBLOG
                                     </em>
                                 ) : blog.priority == 3 ? (
                                     <>
-                                        <em style={{ color: "red" }}>
-                                            Автор:{blog.author}
+                                        <em style={{ color: "white" }}>
+                                            Author:{blog.author}
                                         </em>
                                         <br />
-                                        <em style={{ color: "red" }}>
+                                        <em style={{ color: "white" }}>
                                             RECOMENDED BY B-BBLOG
                                         </em>
                                     </>
                                 ) : (
-                                    <em> Автор:{blog.author}</em>
+                                    <em style={{ color: "white" }}>  Author: {blog.author}</em>
                                 )
                             ) : (
                                 ""
                             )}
-                        </>
+                        </div>
                     }
                 </Typography>
+
+
+                {/* </div> */}
             </CardActions>
         </Card>
     );

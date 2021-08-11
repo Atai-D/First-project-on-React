@@ -157,6 +157,15 @@
       ],
       "favourites": [],
       "id": 2
+    },
+    {
+      "email": "kag@mail.ru",
+      "password": "123456",
+      "isLogged": false,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "id": 3
     }
   ],
   "blogs": [

@@ -13,8 +13,9 @@ const Footer = () => {
                         <h4>
                             ABOUT US
                         </h4>
-                        <p>
-                        This blog puts together everyone's exploration of Bishkek, capital of Kyrgyzstan. 
+                        <p className="list-unstyled">
+                        This blog puts together everyone's <br /> exploration of Bishkek, <br/> capital of Kyrgyzstan. 
+                        <br />
                         Keep yourself up to date with us! </p>
                     </div>
                     {/* column2 */}

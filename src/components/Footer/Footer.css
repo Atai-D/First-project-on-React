@@ -1,10 +1,12 @@
 .main-footer {
     color: #fff;
-    background-color: #bfe0c2;
+    background-color: #caedc5;
     padding-top: 3cm;
     position: relative;
     bottom:0;
     width: 100%;
+    font-family: Nunito;
+    /* font-size: ; */
 }
 .link{
     /* text-decoration: none; */
@@ -16,3 +18,11 @@
     font-size: 3rem;
     color: #fff;
 }
+.list-unstyled {
+    font-size: 20px;
+
+}
+h4 {
+    font-weight: bold;
+}
+

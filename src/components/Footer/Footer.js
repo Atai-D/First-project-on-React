@@ -9,16 +9,20 @@ import {
 
 const Footer = () => {
     return (
-        <div className="main-footer">
+        <div 
+        // style={{position: "fixed", left: 0, bottom: 0}} 
+        className="main-footer">
             <div className="container">
                 <div className="row">
                     {/* column1 */}
                     <div className="col">
-                        <h4>ABOUT US</h4>
-                        <p>
-                            lorem svhvjbjbmmhhgyghbnmbnvhvgfnhv bn nvhjjbm nghjm
-                            nvgfcb bnbh
-                        </p>
+                        <h4>
+                            ABOUT US
+                        </h4>
+                        <p className="list-unstyled">
+                        This blog puts together everyone's <br /> exploration of Bishkek, <br/> capital of Kyrgyzstan. 
+                        <br />
+                        Keep yourself up to date with us! </p>
                     </div>
                     {/* column2 */}
                     <div className="col">

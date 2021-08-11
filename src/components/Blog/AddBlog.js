@@ -79,7 +79,7 @@ const AddBlog = () => {
                     <Typography
                         component="h1"
                         variant="h5"
-                        style={{ marginBottom: "10px" }}
+                        style={{ marginBottom: "10px", color: "#8ab584", fontFamily: "nunito" }}
                     >
                         Add Blog
                     </Typography>
@@ -92,6 +92,7 @@ const AddBlog = () => {
                             type="text"
                             value={blogTitle}
                             onChange={(e) => setBlogTitle(e.target.value)}
+                            style={{color: "#8ab584", fontFamily: "nunito"}}
                         />
                         <TextField
                             name="image"
@@ -101,6 +102,7 @@ const AddBlog = () => {
                             type="text"
                             value={blogImage}
                             onChange={(e) => setBlogImage(e.target.value)}
+                            style={{color: "#8ab584", fontFamily: "nunito"}}
                         />
                         <TextField
                             name="price"
@@ -110,6 +112,7 @@ const AddBlog = () => {
                             type="number"
                             value={blogPrice}
                             onChange={(e) => setBlogPrice(e.target.value)}
+                            style={{color: "#8ab584", fontFamily: "nunito"}}
                         />
 
                         <TextField
@@ -121,6 +124,7 @@ const AddBlog = () => {
                             variant="outlined"
                             value={blogText}
                             onChange={(e) => setBlogText(e.target.value)}
+                            style={{color: "#8ab584", fontFamily: "nunito"}}
                         />
                         <TextField
                             name="category"
@@ -132,6 +136,7 @@ const AddBlog = () => {
                             onChange={(e) => setBlogCategory(e.target.value)}
                             helperText="Please select your currency"
                             variant="outlined"
+                            style={{color: "#8ab584", fontFamily: "nunito"}}
                         >
                             {CATEGORIES.map((option) => (
                                 <MenuItem
@@ -150,7 +155,8 @@ const AddBlog = () => {
                                         setIsPromoted(e.target.checked)
                                     }
                                     name="ispromoted"
-                                    color="primary"
+                                    // color="primary"
+                                    style={{color: "#8ab584", fontFamily: "nunito"}}
                                 />
                             }
                             label="Promote"
@@ -163,12 +169,13 @@ const AddBlog = () => {
                                 type="text"
                                 value={promoted}
                                 onChange={(e) => setPromoted(e.target.value)}
+                                style={{color: "#8ab584", fontFamily: "nunito"}}
                             />
                         ) : (
                             ""
                         )}
                     </Grid>
-                    <ButtonUI variant="contained" type="submit">
+                    <ButtonUI variant="contained" type="submit" style={{color: "#8ab584", fontFamily: "nunito"}}>
                         Add
                     </ButtonUI>
                 </Grid>

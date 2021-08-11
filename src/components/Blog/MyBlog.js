@@ -21,19 +21,17 @@ const MyBlog = () => {
     let user = JSON.parse(localStorage.getItem("user"));
     return (
         <>
-            {logged ? (
-                logged.usersBlogs.length > 0 ? (
-                    <>
-                        <div>
-                            {logged?.usersBlogs.map((blog) => (
-                                <BlogCard blog={blog} showAuthor={false} />
-                            ))}
-                        </div>
-
-                        <EditBlog />
-                    </>
+            {user ? (
+                user.usersBlogs.length > 0 ? (
+                    <div style={{ display: "flex", flexWrap: "wrap" }}>
+                        {user?.usersBlogs.map((blog) => (
+                            <BlogCard blog={blog} showAuthor={false} />
+                        ))}
+                    </div>
                 ) : (
-                    "Похоже у вас нет блогов"
+                    <h1 style={{ color: "#caedc5", fontFamily: "nunito" }}>
+                        Похоже у вас нет блогов
+                    </h1>
                 )
             ) : (
                 ""

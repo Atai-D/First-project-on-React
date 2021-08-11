@@ -103,7 +103,7 @@ const Promotion = () => {
                     <Button onClick={handlePayBtn}>Оплатить</Button>
                 </TableContainer>
             ) : (
-                <h1>Похоже здесь нет блогов</h1>
+                <h1 style={{color: "#caedc5", fontFamily: "nunito"}}>Похоже здесь нет блогов</h1>
             )}
         </>
     );

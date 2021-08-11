@@ -22,9 +22,6 @@ import { BLOG_LIMIT } from "../../helpers/consts";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "row",
     },
     title: {
         display: "none",
@@ -61,7 +58,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff",
         color: "#bfe0c2",
         marginRight: "5px",
-        border: "none",
+        // border: "none",
+        fontFamily: "nunito",
+        // borderColor: "gold",
+
+        // fontFamily:"nunito",
+        
         "&:hover": {
             backgroundColor: "#d8f0df",
             color: "#4a825b",
@@ -74,8 +76,15 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-        backgroundColor: "#d8f0df",
+        backgroundColor: "#bfe0c2",
+        textDecoration: "none",
+        
     },
+    navLogoutBtn:{
+        borderWidth: "4px",
+        borderColor: "gold",
+        // color: "gold"
+    }
 }));
 
 export default function PrimarySearchAppBar() {
@@ -90,14 +99,6 @@ export default function PrimarySearchAppBar() {
     useEffect(() => {
         getCart();
     }, []);
-
-    // const { from } = location.state || { from: { pathname: "/" } };
-
-    // useEffect(() => {
-    //     if (logged) {
-    //         history.replace(from);
-    //     }
-    // }, [logged]);
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -174,6 +175,8 @@ export default function PrimarySearchAppBar() {
                         color: "#bfe0c2",
                         fontSize: "1.10rem",
                         marginBottom: "5px",
+                        textDecoration: "none",
+                        
                     }}
                     to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                 >
@@ -235,11 +238,18 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar style={{ backgroundColor: "#bfe0c2", position: "static" }}>
+            <AppBar style={{ backgroundColor: "#8ab584", position: "static" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         <NavLink
-                            style={{ color: "#fff", fontSize: "1.5rem" }}
+                            style={{ color: "#fff", 
+                            fontSize: "1.5rem", 
+                            fontFamily: "nunito", 
+                            display: "flex",
+                            alignItems: "center",
+                            flexDirection: "row",
+                            textDecoration: "none"
+                            }}
                             to="/"
                         >
                             B B-Blog
@@ -257,6 +267,7 @@ export default function PrimarySearchAppBar() {
                                         color: "#fff",
                                         fontSize: "1.25rem",
                                         marginRight: "15px",
+                                        paddingTop: "4px"
                                     }}
                                     to="/promotion"
                                 >
@@ -267,6 +278,7 @@ export default function PrimarySearchAppBar() {
                                         color: "#fff",
                                         fontSize: "1.25rem",
                                         marginRight: "15px",
+                                        paddingTop: "4px"
                                     }}
                                     to="/mypromotions"
                                 >
@@ -281,6 +293,11 @@ export default function PrimarySearchAppBar() {
                                 color: "#fff",
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none"
                             }}
                             to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                         >
@@ -291,6 +308,11 @@ export default function PrimarySearchAppBar() {
                                 color: "#fff",
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none"
                             }}
                             to="/myblog"
                         >
@@ -306,6 +328,11 @@ export default function PrimarySearchAppBar() {
                                 color: "#fff",
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none"
                             }}
                             to={history}
                         >
@@ -316,6 +343,11 @@ export default function PrimarySearchAppBar() {
                                 color: "#fff",
                                 fontSize: "1.25rem",
                                 marginRight: "15px",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none"
                             }}
                             to="/addblog"
                         >
@@ -325,6 +357,7 @@ export default function PrimarySearchAppBar() {
                         {logged.isLogged ? (
                             <>
                                 <Button
+                                className={classes.navLogoutBtn}
                                     onClick={() => {
                                         changeLoggedUser({
                                             ...logged,

@@ -43,6 +43,20 @@
           "days": 11,
           "promPrice": 20,
           "subPrice": 220
+        },
+        {
+          "title": "test",
+          "image": "1",
+          "text": "adawd awd awda wdawd ",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628716071091,
+          "price": 123123,
+          "usersLikes": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 8
         }
       ],
       "favourites": [],
@@ -267,6 +281,85 @@
       "days": 11,
       "promPrice": 20,
       "subPrice": 220
+    },
+    {
+      "title": "fbdhjbv",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "emnvenvlenvlenvlefvnvfvfev",
+      "category": "art&culture",
+      "author": "gera010393@gmail.com",
+      "date": 1628686864964,
+      "price": "7",
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 4,
+      "id": 3
+    },
+    {
+      "title": "kfmnlemfe",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "vf jkf vej vf vlmv mf,v lv",
+      "category": "art&culture",
+      "author": "gera010393@gmail.com",
+      "date": 1628686875500,
+      "price": "43",
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 4,
+      "id": 4
+    },
+    {
+      "title": "evnlekrnvlke nlv",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "v kvkjfne jvnfkjvfn v",
+      "category": "art&culture",
+      "author": "gera010393@gmail.com",
+      "date": 1628686889366,
+      "price": "10",
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 4,
+      "id": 5
+    },
+    {
+      "title": "wfnerngklrnlgkenlknlg",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "ern kjgngjknergnlerkngler",
+      "category": "art&culture",
+      "author": "gera010393@gmail.com",
+      "date": 1628686899867,
+      "price": "1",
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 4,
+      "id": 6
+    },
+    {
+      "title": "nfjkrnflnfklwenflkwe",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "wjfn lnlknlkwf",
+      "category": "art&culture",
+      "author": "gera010393@gmail.com",
+      "date": 1628686908615,
+      "price": "4",
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 4,
+      "id": 7
+    },
+    {
+      "title": "test",
+      "image": "1",
+      "text": "adawd awd awda wdawd ",
+      "category": "art&culture",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628716071091,
+      "price": 123123,
+      "usersLikes": [],
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 1,
+      "id": 8
     }
   ]
 }

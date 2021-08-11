@@ -5,6 +5,7 @@ import AddBlog from "../components/Blog/AddBlog";
 import BlogDetails from "../components/Blog/BlogDetails";
 import BlogList from "../components/Blog/BlogList";
 import MyBlog from "../components/Blog/MyBlog";
+import Footer from "../components/Footer/Footer";
 import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
 import Payment from "../components/Payment/Payment";
@@ -38,6 +39,7 @@ const Routes = () => {
                         component={MyPromotions}
                     />
                 </Switch>
+                <Footer/>
             </BlogContextProvider>
         </BrowserRouter>
     );

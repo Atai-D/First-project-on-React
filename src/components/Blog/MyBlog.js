@@ -22,13 +22,15 @@ const MyBlog = () => {
         <>
             {user ? (
                 user.usersBlogs.length > 0 ? (
-                    <div>
+                    <div style={{display: "flex", flexWrap: "wrap"}}>
                         {user?.usersBlogs.map((blog) => (
                             <BlogCard blog={blog} showAuthor={false} />
                         ))}
                     </div>
-                ) : (
-                    "Похоже у вас нет блогов"
+                ) : ( <h1 style={{color: "#caedc5", fontFamily:"nunito"}}>  
+
+                    Похоже у вас нет блогов
+                </h1>
                 )
             ) : (
                 ""

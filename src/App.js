@@ -4,6 +4,7 @@ import { useAutho } from "./contexts/AuthorizationContext";
 import Routes from "./Routes/Routes";
 import Footer from "./components/Footer/Footer"
 import "./components/Footer/Footer.css"
+import History from "./components/History/History"
 
 function App() {
     const {
@@ -29,8 +30,11 @@ function App() {
         <div className="page-container">
             <div className="content-wrap">
             <Routes />
+            {/* <History /> */}
             </div>
-            <Footer />
+            
+            
+            {/* <Footer /> */}
 
 
         </div>

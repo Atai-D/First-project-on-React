@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { Button } from "@material-ui/core";
+import EditBlog from "./EditBlog";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,6 +54,8 @@ export default function BlogDetails() {
         deleteBlog,
         getBlogsData,
         deleteBlogDetails,
+        setEditModal,
+        setEdittingId,
     } = useBlog();
 
     const { logged } = useAutho();
@@ -65,6 +68,11 @@ export default function BlogDetails() {
         console.log(authorsId);
         deleteBlog(id, authorsId);
         deleteBlogDetails();
+    };
+
+    const handleEditBtn = (id) => {
+        setEditModal(true);
+        setEdittingId(id);
     };
 
     console.log(blogDetails);
@@ -97,9 +105,18 @@ export default function BlogDetails() {
                                 >
                                     Delete
                                 </Button>
-                                <Button size="small" color="primary">
+                                <Button
+                                    size="small"
+                                    color="primary"
+                                    onClick={() =>
+                                        handleEditBtn(blogDetails.id)
+                                    }
+                                >
                                     Edit
                                 </Button>
+                                <div>
+                                    <EditBlog />
+                                </div>
                             </>
                         ) : (
                             ""

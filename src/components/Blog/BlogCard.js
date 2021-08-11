@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -57,6 +57,10 @@ export default function BlogCard({ blog, showAuthor }) {
     const handlePromotionBtn = (blog, authorId) => {
         addBlogToCart(blog);
     };
+
+    useEffect(() => {
+        console.log(blog);
+    }, []);
 
     return (
         <Card className={classes.root}>
@@ -119,15 +123,19 @@ export default function BlogCard({ blog, showAuthor }) {
                         >
                             Edit
                         </Button>
-                        <Button
-                            size="small"
-                            color="primary"
-                            onClick={() =>
-                                handlePromotionBtn(blog, blog.authorsId)
-                            }
-                        >
-                            Add To Promotion
-                        </Button>
+                        {blog.priority !== 3 ? (
+                            <Button
+                                size="small"
+                                color="primary"
+                                onClick={() =>
+                                    handlePromotionBtn(blog, blog.authorsId)
+                                }
+                            >
+                                Add To Promotion
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                     </>
                 ) : (
                     ""

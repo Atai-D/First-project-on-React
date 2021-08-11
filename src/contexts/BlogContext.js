@@ -120,7 +120,7 @@ const BlogContextProvider = ({ children }) => {
                 category: category,
                 author: logged.email,
                 date: date,
-                price: price,
+                price: +price,
                 priority: isPromoted ? 3 : logged.isAdmin ? 2 : 1,
                 isAdminWrote: logged.isAdmin,
                 authorsId: logged.id,
@@ -198,10 +198,12 @@ const BlogContextProvider = ({ children }) => {
                 return blog;
             }
         });
+        let editedUser = { ...logged, usersBlogs: editedBlogs };
         const array = await axios.patch(
             `${JSON_API_USERS}/${editedBlog.authorsId}`,
-            editedBlogs
+            editedUser
         );
+        changeLoggedUser(editedUser);
         if (editedBlog.authorsId == logged.id) {
             let arr = logged.usersBlogs.map((blog) => {
                 if (editedBlog.id === blog.id) {
@@ -273,20 +275,15 @@ const BlogContextProvider = ({ children }) => {
                 totalPrice: 0,
             };
         }
-        let newblog = {
-            item: blog,
-            days: 15,
-            promPrice: 20,
-            subPrice: 15 * 20,
-        };
+        let newblog = { ...blog, days: 15, promPrice: 20, subPrice: 15 * 20 };
 
         console.log(newblog);
 
-        let blogToFind = cart.blogs.filter((item) => item.item.id === blog.id);
+        let blogToFind = cart.blogs.filter((item) => item.id === blog.id);
         if (blogToFind.length == 0) {
             cart.blogs.push(newblog);
         } else {
-            cart.blogs = cart.blogs.filter((item) => item.item.id !== blog.id);
+            cart.blogs = cart.blogs.filter((item) => item.id !== blog.id);
         }
         cart.totalPrice = calcTotalPrice(cart.blogs);
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -299,7 +296,7 @@ const BlogContextProvider = ({ children }) => {
     const changeBlogCount = (days, id) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.blogs = cart.blogs.map((blog) => {
-            if (blog.item.id === id) {
+            if (blog.id === id) {
                 blog.days = days;
                 blog.subPrice = calcSubPrice(blog);
             }
@@ -316,7 +313,7 @@ const BlogContextProvider = ({ children }) => {
     const changeBlogPrice = (promPrice, id) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.blogs = cart.blogs.map((blog) => {
-            if (blog.item.id === id) {
+            if (blog.id === id) {
                 blog.promPrice = promPrice;
                 blog.subPrice = calcSubPrice(blog);
             }
@@ -350,18 +347,20 @@ const BlogContextProvider = ({ children }) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
 
         const newBlogs = blogs?.map((blog) => {
-            return { ...blog, date: Date.now() };
+            console.log(blog);
+            return { ...blog, promotionDate: Date.now() };
         });
+        let tempBlogs = newBlogs.concat(state.promotionBlogs);
         dispatch({
             type: BLOG_ACTIONS.ADD_PROMOTION_BLOG,
-            payload: newBlogs,
+            payload: tempBlogs,
         });
-        const newLoggedUser = { ...logged, promotionBlogs: newBlogs };
+        const newLoggedUser = { ...logged, promotionBlogs: tempBlogs };
         changeLoggedUser(newLoggedUser);
         localStorage.setItem("user", JSON.stringify(newLoggedUser));
 
         const author = await axios.patch(
-            `${JSON_API_USERS}/${blogs[0].item.authorsId}`,
+            `${JSON_API_USERS}/${blogs[0].authorsId}`,
             newLoggedUser
         );
         console.log(author);
@@ -370,23 +369,23 @@ const BlogContextProvider = ({ children }) => {
             const changedBlog = { ...blog, priority: 3 };
 
             const { data } = await axios.patch(
-                `${JSON_API_BLOGS}/${blog.item.id}`,
+                `${JSON_API_BLOGS}/${blog.id}`,
                 changedBlog
             );
-            const res = await axios(`${JSON_API_USERS}/${blog.item.authorsId}`);
+            const res = await axios(`${JSON_API_USERS}/${blog.authorsId}`);
 
             const array = res.data.usersBlogs.map((usersBlog) => {
-                if (blog.item.id === usersBlog.id) {
+                if (blog.id === usersBlog.id) {
                     return changedBlog;
                 } else {
                     return usersBlog;
                 }
             });
-
+            console.log(array);
             const changedUser = { ...res.data, usersBlogs: array };
 
             const a = await axios.patch(
-                `${JSON_API_USERS}/${blog.item.authorsId}`,
+                `${JSON_API_USERS}/${blog.authorsId}`,
                 changedUser
             );
         });

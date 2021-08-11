@@ -124,6 +124,8 @@ const BlogList = () => {
         const search = new URLSearchParams(history.location.search);
         search.set("price_lte", value);
         console.log(search);
+        search.set("_page", "1");
+        setPage(1);
         history.push(`${history.location.pathname}?${search.toString()}`);
         getBlogsData();
         setPrice(value);

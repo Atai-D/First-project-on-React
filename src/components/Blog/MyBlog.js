@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { useBlog } from "../../contexts/BlogContext";
 import BlogCard from "./BlogCard";
+import EditBlog from "./EditBlog";
 
 const MyBlog = () => {
     const { logged, setLogged } = useAutho();
@@ -20,13 +21,17 @@ const MyBlog = () => {
     let user = JSON.parse(localStorage.getItem("user"));
     return (
         <>
-            {user ? (
-                user.usersBlogs.length > 0 ? (
-                    <div>
-                        {user?.usersBlogs.map((blog) => (
-                            <BlogCard blog={blog} showAuthor={false} />
-                        ))}
-                    </div>
+            {logged ? (
+                logged.usersBlogs.length > 0 ? (
+                    <>
+                        <div>
+                            {logged?.usersBlogs.map((blog) => (
+                                <BlogCard blog={blog} showAuthor={false} />
+                            ))}
+                        </div>
+
+                        <EditBlog />
+                    </>
                 ) : (
                     "Похоже у вас нет блогов"
                 )

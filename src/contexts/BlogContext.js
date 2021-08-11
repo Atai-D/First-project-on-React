@@ -121,6 +121,7 @@ const BlogContextProvider = ({ children }) => {
                 author: logged.email,
                 date: date,
                 price: +price,
+                usersLikes: [],
                 priority: isPromoted ? 3 : logged.isAdmin ? 2 : 1,
                 isAdminWrote: logged.isAdmin,
                 authorsId: logged.id,
@@ -216,6 +217,7 @@ const BlogContextProvider = ({ children }) => {
             localStorage.setItem("user", JSON.stringify(user));
         }
         getBlogsData();
+        getBlogDetails(editedBlog.id);
     };
 
     // const addPromotionBlog = async (usersID, blog) => {
@@ -406,6 +408,68 @@ const BlogContextProvider = ({ children }) => {
         });
     };
 
+    const addLike = async (blog) => {
+        const { data } = await axios(`${JSON_API_BLOGS}/${blog.id}`);
+
+        const idToFind = data.usersLikes.filter((like) => like === logged.id);
+        console.log(idToFind.length);
+        let likes = [...data.usersLikes];
+        if (idToFind.length === 0) {
+            likes.push(logged.id);
+        } else {
+            likes = likes.filter((usersId) => usersId !== logged.id);
+        }
+
+        const newBlog = { ...data, usersLikes: likes };
+        const arr = await axios.patch(`${JSON_API_BLOGS}/${blog.id}`, newBlog);
+
+        // if (logged.id === blog.authorsId) {
+        //     console.log("asdasd");
+        //     const idToFind = logged.usersBlogs.filter(
+        //         (usersBlog) => usersBlog.id === logged.id
+        //     );
+        //     console.log(idToFind);
+        //     if (idToFind.length === 0) {
+        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
+        //             if (usersBlog.id === blog.id) {
+        //                 let likes = [...usersBlog.usersLikes];
+        //                 likes.push(logged.id);
+
+        //                 let newBlog = { ...usersBlog, usersLikes: likes };
+
+        //                 return newBlog;
+        //             } else {
+        //                 return usersBlog;
+        //             }
+        //         });
+
+        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
+        //         localStorage.setItem(
+        //             "user",
+        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
+        //         );
+        //     } else {
+        //         likes = likes.filter((usersId) => usersId !== logged.id);
+        //     }
+
+        // let newUser = { ...logged, usersLikes: likes };
+        // changeLoggedUser(newUser.usersBlogs);
+        // console.log(newUser);
+        // localStorage.setItem("user", JSON.stringify(newUser));
+
+        // logged.usersBlogs.map((usersBlog, index) => {
+        //     if (usersBlog.id === blog.id) {
+        //         let newUser = { ...logged };
+        //         newUser.usersBlogs[index].push(blog.authorsId);
+        //         changeLoggedUser(newUser);
+        //     }
+        // });
+        // }
+        console.log(12344321);
+        getBlogsData();
+        // getBlogDetails(blog.id);
+    };
+
     const value = {
         history,
         dispatch,
@@ -448,6 +512,7 @@ const BlogContextProvider = ({ children }) => {
         payingBlogs: state.payingBlogs,
         handlePayingBlogs,
         renderPromotionBlogs,
+        addLike,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

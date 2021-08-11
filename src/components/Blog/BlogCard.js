@@ -34,6 +34,7 @@ export default function BlogCard({ blog, showAuthor }) {
         edittingId,
         setEdittingId,
         addBlogToCart,
+        addLike,
     } = useBlog();
 
     const { logged } = useAutho();
@@ -45,7 +46,6 @@ export default function BlogCard({ blog, showAuthor }) {
     // };
 
     const handleDeleteBtn = (id, authorsId) => {
-        console.log(authorsId);
         deleteBlog(id, authorsId);
     };
 
@@ -58,9 +58,9 @@ export default function BlogCard({ blog, showAuthor }) {
         addBlogToCart(blog);
     };
 
-    useEffect(() => {
-        console.log(blog);
-    }, []);
+    const handleLikeBtn = () => {
+        addLike(blog);
+    };
 
     return (
         <Card className={classes.root}>
@@ -80,6 +80,9 @@ export default function BlogCard({ blog, showAuthor }) {
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {blog.title}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        Likes: {blog?.usersLikes?.length}
                     </Typography>
                     <Typography
                         variant="body2"
@@ -105,6 +108,17 @@ export default function BlogCard({ blog, showAuthor }) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
+                {logged.isLogged ? (
+                    <Button
+                        size="small"
+                        color="primary"
+                        onClick={() => handleLikeBtn()}
+                    >
+                        Like
+                    </Button>
+                ) : (
+                    ""
+                )}
                 {logged.email === blog.author || logged.isAdmin ? (
                     <>
                         <Button

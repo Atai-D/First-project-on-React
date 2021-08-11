@@ -56,6 +56,8 @@ export default function BlogDetails() {
         deleteBlogDetails,
         setEditModal,
         setEdittingId,
+        addLike,
+        history,
     } = useBlog();
 
     const { logged } = useAutho();
@@ -68,11 +70,17 @@ export default function BlogDetails() {
         console.log(authorsId);
         deleteBlog(id, authorsId);
         deleteBlogDetails();
+        history.push("/bloglist");
     };
 
     const handleEditBtn = (id) => {
         setEditModal(true);
         setEdittingId(id);
+    };
+
+    const handleLikeBtn = () => {
+        addLike(blogDetails);
+        getBlogDetails(id);
     };
 
     console.log(blogDetails);
@@ -90,6 +98,18 @@ export default function BlogDetails() {
                         title="Paella dish"
                     />
                     <CardActions>
+                        <h5>likes: {blogDetails?.usersLikes?.length}</h5>
+                        {logged.isLogged ? (
+                            <Button
+                                size="small"
+                                color="primary"
+                                onClick={() => handleLikeBtn()}
+                            >
+                                Like
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                         {logged.email === blogDetails.author ||
                         logged.isAdmin ? (
                             <>

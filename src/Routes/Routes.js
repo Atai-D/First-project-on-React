@@ -39,8 +39,8 @@ const Routes = () => {
                         component={MyPromotions}
                     />
                 </Switch>
-                <Footer/>
             </BlogContextProvider>
+                <Footer/>
         </BrowserRouter>
     );
 };

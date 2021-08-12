@@ -8,6 +8,7 @@ import {
     Radio,
     Button,
     InputBase,
+    CssBaseline,
     
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
@@ -64,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
         // },
     },
     blogListContainer:{
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/main4.jpeg'})`,
+
         // backgroundColor:"#ffecd4",
         // display:"flex"
     },
@@ -190,6 +193,7 @@ const BlogList = () => {
     return (
         <>
             <div className={classes.blogListContainer}>
+                <CssBaseline />
                 <div className={classes.sideBar}>
                     <FormControl
                         className={classes.blogListCategory}

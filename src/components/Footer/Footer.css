@@ -3,11 +3,11 @@
     background-color: #8ab584;
     padding-top: 3cm;
     position: relative;
-    bottom:0;
+    margin-bottom:0;
     width: 100%;
-    font-family: Nunito;
+    font-family: Nunito; 
     /* font-size: ; */
-}
+ } 
 .link{
     /* text-decoration: none; */
     color: #fff;

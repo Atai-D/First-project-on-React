@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { Grid } from "@material-ui/core";
+import { CssBaseline, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { JSON_API_BLOGS, JSON_API_USERS } from "../../helpers/consts";
 import axios from "axios";
@@ -100,6 +100,7 @@ export default function BlogCard({ blog, showAuthor }) {
 
     return (
         <Card className={classes.root}>
+            {/* <CssBaseline /> */}
             <CardActionArea
                 id={blog.id}
                 onClick={() => {

@@ -42,7 +42,7 @@ const PromotionCard = ({ blog }) => {
     const handleCountChange = (e) => {
         const res = eval(`${days}${e.target.innerText}`);
         setDays(res);
-        changeBlogCount(res, blog.item.id);
+        changeBlogCount(res, blog.id);
         console.log(blog);
     };
 
@@ -52,29 +52,29 @@ const PromotionCard = ({ blog }) => {
 
     const handlePriceChange = (e) => {
         const res = eval(`${price}${e.target.innerText}`);
-        changeBlogPrice(res, blog.item.id);
+        changeBlogPrice(res, blog.id);
         setPrice(res);
     };
 
     return (
-        <TableRow key={blog.item.id}>
+        <TableRow key={blog.id}>
             <TableCell>
                 <img
                     className={classes.tableCellImg}
-                    src={blog.item.image}
-                    alt={blog.item.title}
+                    src={blog.image}
+                    alt={blog.title}
                 />
             </TableCell>
             <TableCell align="right">
-                <Button onClick={() => addBlogToCart(blog.item)}>Remove</Button>
-                {blog.item.title}
+                <Button onClick={() => addBlogToCart(blog)}>Remove</Button>
+                {blog.title}
             </TableCell>
             <TableCell align="right">
                 {/* <input
                     type="number"
                     value={blog.count}
                     onChange={(e) =>
-                        handleCountChange(e.target.value, blog.item.id)
+                        handleCountChange(e.target.value, blog.id)
                     }
                 /> */}
                 <Button
@@ -110,7 +110,7 @@ const PromotionCard = ({ blog }) => {
                                                 onChange={(e) =>
                                                     handleCountChange(
                                                         e.target.value,
-                                                        blog.item.id
+                                                        blog.id
                                                     )
                                                 }
                                             /> */}

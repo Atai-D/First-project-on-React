@@ -4,9 +4,21 @@ export const JSON_API_BLOGS = "http://localhost:8000/blogs";
 export const BLOG_LIMIT = 6;
 
 export const CATEGORIES = [
-    { value: "art&culture", label: "Art & Culture" },
-    { value: "thingsToDo", label: "Things To Do" },
-    { value: "food&drinks", label: "Food & Dinks" },
+    {
+        value: "art&culture",
+        label: "Art & Culture",
+        to: `/bloglist?category=art&culture&_limit${BLOG_LIMIT}`,
+    },
+    {
+        value: "thingsToDo",
+        label: "Things To Do",
+        to: `/bloglist?category=thingsToDo&_limit${BLOG_LIMIT}`,
+    },
+    {
+        value: "food&drinks",
+        label: "Food & Dinks",
+        to: `/bloglist?category=food&drinks&_limit${BLOG_LIMIT}`,
+    },
 ];
 
 export const ACTIONS = {

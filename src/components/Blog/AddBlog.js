@@ -79,7 +79,11 @@ const AddBlog = () => {
                     <Typography
                         component="h1"
                         variant="h5"
-                        style={{ marginBottom: "10px", color: "#8ab584", fontFamily: "nunito" }}
+                        style={{
+                            marginBottom: "10px",
+                            color: "#8ab584",
+                            fontFamily: "nunito",
+                        }}
                     >
                         Add Blog
                     </Typography>
@@ -143,7 +147,7 @@ const AddBlog = () => {
                             value={blogCategory}
                             onChange={(e) => setBlogCategory(e.target.value)}
                             variant="outlined"
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
                         >
                             {CATEGORIES.map((option) => (
                                 <MenuItem
@@ -166,9 +170,9 @@ const AddBlog = () => {
                                     style={{color: "#8ab584", fontFamily: "nunito"}}
                                 />
                             }
-                            label="Promote"
-                        />
-                        {isPromoted ? (
+                            label="Promote" */}
+                        {/* /> */}
+                        {/* {isPromoted ? (
                             <TextField
                                 name="promote"
                                 variant="outlined"

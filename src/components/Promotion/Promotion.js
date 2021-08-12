@@ -33,12 +33,13 @@ const Promotion = () => {
     // promotionBlogs.map(blogsID => (
 
     // ))
-    useEffect(() => {
-        console.log(promotionBlogs);
-    }, []);
-
     const { cart, getCart, changeBlogCount } = useBlog();
     const [count, setCount] = useState([]);
+    useEffect(() => {
+        console.log(1);
+        console.log(promotionBlogs);
+        console.log(cart);
+    }, []);
 
     useEffect(() => {
         getCart();

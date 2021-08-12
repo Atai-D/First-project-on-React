@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         maxWidth: 300,
         margin: 15,
         backgroundColor: "#8ab584",
-        color: "white"
+        color: "white",
     },
     blogBtn: {
         color: "white"
@@ -37,20 +37,25 @@ const useStyles = makeStyles({
     },
     blogCardBtn: {
         // backgroundColor:""
-        width: "100%"
-        
+        width: "100%",
+    },
+    blogBtn: {
+        backgroundColor: "rgb(0,0,0,0.1)",
+        color: "white",
+        margin: "3px",
+        // minWidth: "100px",
+        width: "100%",
     },
     blogBtn:{
 // backgroundColor: non,
 color: "white", 
 margin: "3px",
 // minWidth: "100px",
-width: "100%"
+width: "100%"},
+    blogCardInf: {
+        display: "flex",
+        justifyContent: "row",
     },
-    blogCardInf:{
-        display:"flex",
-        justifyContent: "row"
-    }
 });
 
 export default function BlogCard({ blog, showAuthor }) {
@@ -65,6 +70,7 @@ export default function BlogCard({ blog, showAuthor }) {
         edittingId,
         setEdittingId,
         addBlogToCart,
+        addLike,
     } = useBlog();
 
     const { logged } = useAutho();
@@ -76,7 +82,6 @@ export default function BlogCard({ blog, showAuthor }) {
     // };
 
     const handleDeleteBtn = (id, authorsId) => {
-        console.log(authorsId);
         deleteBlog(id, authorsId);
     };
 
@@ -87,6 +92,10 @@ export default function BlogCard({ blog, showAuthor }) {
 
     const handlePromotionBtn = (blog, authorId) => {
         addBlogToCart(blog);
+    };
+
+    const handleLikeBtn = () => {
+        addLike(blog);
     };
 
     return (
@@ -107,6 +116,11 @@ export default function BlogCard({ blog, showAuthor }) {
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {blog.title}
+                    </Typography>
+                    <Typography gutterBottom variant="p" component="p">
+                        Likes: {blog?.usersLikes?.length}
+                        <br />
+                        Comments: {blog?.comments?.length}
                     </Typography>
                     <Typography
                         variant="body2"
@@ -135,7 +149,29 @@ export default function BlogCard({ blog, showAuthor }) {
                 {logged.email === blog.author || logged.isAdmin ? (
                     <div >
                         <DeleteOutlineIcon
-                        className={classes.blogBtn}
+                        className={classes.blogBtn}/>
+                    </div>) : '' }
+
+            </CardActions>
+            <CardActions>
+                {logged.isLogged ? (
+                    <Button
+                        size="small"
+                        color="primary"
+                        onClick={() => handleLikeBtn()}
+                    >
+                        Like
+                    </Button>
+                ) : (
+                    ""
+                )}
+            </CardActions>
+            <CardActions className={classes.blogCardInf}>
+                {/* <div className={classes.blogCardInf} > */}
+                {logged.email === blog.author || logged.isAdmin ? (
+                    <div>
+                        <DeleteOutlineIcon
+                            className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() =>
@@ -152,16 +188,20 @@ export default function BlogCard({ blog, showAuthor }) {
                         >
                             Edit
                         </EditOutlinedIcon>
-                        <Button
-                        className={classes.blogBtn}
-                            size="small"
-                            color="primary"
-                            onClick={() =>
-                                handlePromotionBtn(blog, blog.authorsId)
-                            }
-                        >
-                            Promote
-                        </Button>
+                        {blog.priority !== 3 ? (
+                            <Button
+                                className={classes.blogBtn}
+                                size="small"
+                                color="primary"
+                                onClick={() =>
+                                    handlePromotionBtn(blog, blog.authorsId)
+                                }
+                            >
+                                Promote
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                     </div>
                 ) : (
                     ""
@@ -169,8 +209,7 @@ export default function BlogCard({ blog, showAuthor }) {
 
                 <Typography variant="body2" color="textSecondary" component="p">
                     {
-                        <div className={classes.blogCardAuthor} >
-                    
+                        <div className={classes.blogCardAuthor}>
                             {showAuthor ? (
                                 blog.priority == 2 ? (
                                     <em style={{ color: "white" }}>
@@ -187,7 +226,10 @@ export default function BlogCard({ blog, showAuthor }) {
                                         </em>
                                     </>
                                 ) : (
-                                    <em style={{ color: "white" }}>  Author: {blog.author}</em>
+                                    <em style={{ color: "white" }}>
+                                        {" "}
+                                        Author: {blog.author}
+                                    </em>
                                 )
                             ) : (
                                 ""
@@ -195,7 +237,6 @@ export default function BlogCard({ blog, showAuthor }) {
                         </div>
                     }
                 </Typography>
-
 
                 {/* </div> */}
             </CardActions>

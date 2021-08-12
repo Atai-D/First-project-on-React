@@ -335,12 +335,20 @@
       "author": "rapaktalas1@gmail.com",
       "date": 1628772153793,
       "price": 13123,
-      "usersLikes": [],
+      "usersLikes": [
+        4
+      ],
       "comments": [
         {
           "authorsEmail": "rapaktalas1@gmail.com",
           "comment": "123123",
           "id": 1628772162296,
+          "blogId": 5
+        },
+        {
+          "authorsEmail": "rapaktalas2@gmail.com",
+          "comment": "1231313123",
+          "id": 1628786806954,
           "blogId": 5
         }
       ],
@@ -360,7 +368,9 @@
       "author": "rapakrapak123@gmail.com",
       "date": 1628774026952,
       "price": 132,
-      "usersLikes": [],
+      "usersLikes": [
+        4
+      ],
       "comments": [],
       "priority": 1,
       "isAdminWrote": false,

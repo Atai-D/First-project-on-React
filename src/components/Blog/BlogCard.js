@@ -20,7 +20,7 @@ import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfie
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 300,
+        width: 300,
         margin: 15,
         backgroundColor: "#8ab584",
         color: "white",

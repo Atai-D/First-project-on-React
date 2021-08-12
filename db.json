@@ -5,151 +5,40 @@
       "password": "123123",
       "isLogged": true,
       "isAdmin": false,
-      "liked": [],
       "usersBlogs": [
         {
-          "title": "test2234",
-          "usersLikes": [
-            3,
-            1
-          ],
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awawda dawd ad awd ",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628683728833,
-          "price": 123,
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 1,
-          "days": 5,
-          "promPrice": 20,
-          "subPrice": 100
-        },
-        {
-          "title": "1234asdasdas",
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awdawdawd wad aw dawd aw daw ",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628703639789,
-          "price": 123,
-          "usersLikes": [],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 6,
-          "days": 11,
-          "promPrice": 20,
-          "subPrice": 220
-        },
-        {
-          "title": "test",
-          "image": "1",
-          "text": "adawd awd awda wdawd ",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628716071091,
-          "price": 123123,
-          "usersLikes": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 8
-        }
-      ],
-      "favourites": [],
-      "promotionBlogs": [
-        {
-          "title": "test223",
-          "usersLikes": [
-            3
-          ],
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awawda dawd ad awd ",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628683728833,
-          "price": 123,
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 1,
-          "days": 5,
-          "promPrice": 20,
-          "subPrice": 100,
-          "promotionDate": 1628714713146
-        },
-        {
-          "title": "1234asdasdasdawd",
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awdawdawd wad aw dawd aw daw ",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628703639789,
-          "price": 123,
-          "usersLikes": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 6,
-          "days": 11,
-          "promPrice": 20,
-          "subPrice": 220,
-          "promotionDate": 1628714713147
-        }
-      ],
-      "id": 1,
-      "usersLikes": []
-    },
-    {
-      "email": "rapaktalas1@gmail.com",
-      "password": "123123",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [
-        {
-          "title": "test 2 ",
-          "usersLikes": [],
+          "title": "test 2 1231232123222",
           "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-          "text": "dada d ad gfd gy ky sesf tt h",
-          "category": "art&culture",
-          "author": "rapaktalas1@gmail.com",
-          "date": 1628685261390,
-          "price": 23,
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 3
-        },
-        {
-          "title": "test 9",
+          "text": "dawd  shsg sg jg hg s ttr drfhtawd awda",
+          "category": "thingsToDo",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628743369342,
+          "price": 2313,
+          "comments": [
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "123123",
+              "id": 1628768135860,
+              "blogId": 2
+            },
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "123123",
+              "id": 1628768231068,
+              "blogId": 2
+            },
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "123123",
+              "id": 1628768236060,
+              "blogId": 2
+            }
+          ],
           "usersLikes": [],
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "dad fe zg  shs  h yk i ki  te rhrt j j tjy",
-          "category": "food&drinks",
-          "author": "rapaktalas1@gmail.com",
-          "date": 1628685358018,
-          "price": 3231,
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 4
-        },
-        {
-          "title": "test 12",
-          "usersLikes": [],
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "ada a h  jylfg dsf a aw ad ",
-          "category": "food&drinks",
-          "author": "rapaktalas1@gmail.com",
-          "date": 1628685530973,
-          "price": 123,
           "priority": 3,
           "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 5,
+          "authorsId": 1,
+          "id": 2,
           "days": 15,
           "promPrice": 20,
           "subPrice": 300
@@ -158,69 +47,207 @@
       "favourites": [],
       "promotionBlogs": [
         {
-          "title": "test 12",
-          "usersLikes": [],
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "ada a h  jylfg dsf a aw ad ",
+          "title": "test",
+          "image": "123",
+          "text": "wdawda dawd awdawd awdawd awwd adawd adada wwd adw",
           "category": "food&drinks",
-          "author": "rapaktalas1@gmail.com",
-          "date": 1628685530973,
-          "price": 123,
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628761239296,
+          "price": 123123,
+          "usersLikes": [],
+          "comments": [],
           "priority": 1,
           "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 5,
+          "authorsId": 3,
+          "id": 4,
           "days": 15,
           "promPrice": 20,
           "subPrice": 300,
-          "promotionDate": 1628685543411
-        },
+          "promotionDate": 1628761363027
+        }
+      ],
+      "id": 1
+    },
+    {
+      "email": "ataydjirgalbaev@gmail.com",
+      "password": "123123",
+      "isLogged": true,
+      "isAdmin": true,
+      "usersBlogs": [
         {
-          "title": "test 9",
-          "usersLikes": [],
+          "title": "test11",
           "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "dad fe zg  shs  h yk i ki  te rhrt j j tjy",
-          "category": "food&drinks",
-          "author": "rapaktalas1@gmail.com",
-          "date": 1628685358018,
-          "price": 3231,
+          "text": "awdawd ag gg sgerf sf sergs erg",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628743286509,
+          "price": 123,
+          "comments": [],
+          "usersLikes": [
+            2
+          ],
           "priority": 1,
           "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 1
+        },
+        {
+          "title": "test 2 ",
+          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+          "text": "dawd  shsg sg jg hg s ttr drfht",
+          "category": "thingsToDo",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628743369342,
+          "price": 2313,
+          "comments": [],
+          "usersLikes": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 2
+        }
+      ],
+      "favourites": [],
+      "promotionBlogs": [
+        {
+          "title": "test 2",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "adawd ga fa dwad awd awd f ef ef ef ef ef ",
+          "category": "thingsToDo",
+          "author": "ataydjirgalbaev@gmail.com",
+          "date": 1628747786440,
+          "price": 3231,
+          "comments": [],
+          "usersLikes": [],
+          "priority": 2,
+          "isAdminWrote": true,
           "authorsId": 2,
-          "id": 4,
-          "days": 30,
+          "id": 3,
+          "days": 15,
           "promPrice": 20,
-          "subPrice": 600,
-          "promotionDate": 1628685374586
+          "subPrice": 300,
+          "promotionDate": 1628747813669
         }
       ],
       "id": 2
     },
     {
-      "email": "ataydjirgalbaev@gmail.com",
+      "email": "rapakrapak123@gmail.com",
       "password": "123123",
-      "isLogged": false,
-      "isAdmin": true,
-      "usersBlogs": [],
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [
+        {
+          "title": "test 2283123",
+          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+          "text": "awdawd ad a aw gfjygjgj fh  drg dgr",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628767856144,
+          "price": 123,
+          "usersLikes": [
+            3
+          ],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 4
+        }
+      ],
       "favourites": [],
-      "promotionBlogs": [],
+      "promotionBlogs": [
+        {
+          "title": "test",
+          "image": "123",
+          "text": "wdawda dawd awdawd awdawd awwd adawd adada wwd adw",
+          "category": "food&drinks",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628761239296,
+          "price": 123123,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 4,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300,
+          "promotionDate": 1628761363027
+        }
+      ],
       "id": 3
     }
   ],
   "blogs": [
     {
-      "title": "test 2 ",
+      "title": "test 2 1231232123222",
+      "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+      "text": "dawd  shsg sg jg hg s ttr drfhtawd awda",
+      "category": "thingsToDo",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628743369342,
+      "price": 2313,
+      "comments": [
+        {
+          "authorsEmail": "rapakrapak123@gmail.com",
+          "comment": "123123",
+          "id": 1628768135860,
+          "blogId": 2
+        },
+        {
+          "authorsEmail": "rapakrapak123@gmail.com",
+          "comment": "123123",
+          "id": 1628768231068,
+          "blogId": 2
+        },
+        {
+          "authorsEmail": "rapakrapak123@gmail.com",
+          "comment": "123123",
+          "id": 1628768236060,
+          "blogId": 2
+        }
+      ],
       "usersLikes": [
         3
       ],
-      "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-      "text": "dada d ad gfd gy ky sesf tt h",
-      "category": "art&culture",
-      "author": "rapaktalas1@gmail.com",
-      "date": 1628685261390,
-      "price": 23,
       "priority": 3,
       "isAdminWrote": false,
+      "authorsId": 1,
+      "id": 2,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
+    },
+    {
+      "title": "test 222",
+      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+      "text": "adawd ga fa dwad awd awd f ef ef ef ef ef ",
+      "category": "thingsToDo",
+      "author": "ataydjirgalbaev@gmail.com",
+      "date": 1628747786440,
+      "price": 3231,
+      "comments": [
+        {
+          "authorsEmail": "ataydjirgalbaev@gmail.com",
+          "id": 1628762992926,
+          "blogId": 3,
+          "comment": "12312312314123"
+        },
+        {
+          "authorsEmail": "ataydjirgalbaev@gmail.com",
+          "comment": "1231",
+          "id": 1628764243341,
+          "blogId": 3
+        }
+      ],
+      "usersLikes": [
+        2,
+        3
+      ],
+      "priority": 3,
+      "isAdminWrote": true,
       "authorsId": 2,
       "id": 3,
       "days": 15,
@@ -228,138 +255,28 @@
       "subPrice": 300
     },
     {
-      "title": "test 9",
+      "title": "test 2283123",
+      "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+      "text": "awdawd ad a aw gfjygjgj fh  drg dgr",
+      "category": "art&culture",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628767856144,
+      "price": 123,
       "usersLikes": [
         3
       ],
-      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-      "text": "dad fe zg  shs  h yk i ki  te rhrt j j tjy",
-      "category": "food&drinks",
-      "author": "rapaktalas1@gmail.com",
-      "date": 1628685358018,
-      "price": 3231,
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 2,
-      "id": 4,
-      "days": 30,
-      "promPrice": 20,
-      "subPrice": 600
-    },
-    {
-      "title": "test 12",
-      "usersLikes": [
-        1
+      "comments": [
+        {
+          "authorsEmail": "rapakrapak123@gmail.com",
+          "comment": "12312312awdawd2",
+          "id": 1628769940915,
+          "blogId": 4
+        }
       ],
-      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-      "text": "ada a h  jylfg dsf a aw ad ",
-      "category": "food&drinks",
-      "author": "rapaktalas1@gmail.com",
-      "date": 1628685530973,
-      "price": 123,
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 2,
-      "id": 5,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
-    },
-    {
-      "title": "1234asdasdas",
-      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-      "text": "awdawdawd wad aw dawd aw daw ",
-      "category": "art&culture",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628703639789,
-      "price": 123,
-      "usersLikes": [],
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 1,
-      "id": 6,
-      "days": 11,
-      "promPrice": 20,
-      "subPrice": 220
-    },
-    {
-      "title": "fbdhjbv",
-      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
-      "text": "emnvenvlenvlenvlefvnvfvfev",
-      "category": "art&culture",
-      "author": "gera010393@gmail.com",
-      "date": 1628686864964,
-      "price": "7",
       "priority": 1,
       "isAdminWrote": false,
-      "authorsId": 4,
-      "id": 3
-    },
-    {
-      "title": "kfmnlemfe",
-      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
-      "text": "vf jkf vej vf vlmv mf,v lv",
-      "category": "art&culture",
-      "author": "gera010393@gmail.com",
-      "date": 1628686875500,
-      "price": "43",
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 4,
+      "authorsId": 3,
       "id": 4
-    },
-    {
-      "title": "evnlekrnvlke nlv",
-      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
-      "text": "v kvkjfne jvnfkjvfn v",
-      "category": "art&culture",
-      "author": "gera010393@gmail.com",
-      "date": 1628686889366,
-      "price": "10",
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 4,
-      "id": 5
-    },
-    {
-      "title": "wfnerngklrnlgkenlknlg",
-      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
-      "text": "ern kjgngjknergnlerkngler",
-      "category": "art&culture",
-      "author": "gera010393@gmail.com",
-      "date": 1628686899867,
-      "price": "1",
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 4,
-      "id": 6
-    },
-    {
-      "title": "nfjkrnflnfklwenflkwe",
-      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
-      "text": "wjfn lnlknlkwf",
-      "category": "art&culture",
-      "author": "gera010393@gmail.com",
-      "date": 1628686908615,
-      "price": "4",
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 4,
-      "id": 7
-    },
-    {
-      "title": "test",
-      "image": "1",
-      "text": "adawd awd awda wdawd ",
-      "category": "art&culture",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628716071091,
-      "price": 123123,
-      "usersLikes": [],
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 1,
-      "id": 8
     }
   ]
 }

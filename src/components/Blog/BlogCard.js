@@ -109,8 +109,10 @@ export default function BlogCard({ blog, showAuthor }) {
                     <Typography gutterBottom variant="h5" component="h2">
                         {blog.title}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="p" component="p">
                         Likes: {blog?.usersLikes?.length}
+                        <br />
+                        Comments: {blog?.comments?.length}
                     </Typography>
                     <Typography
                         variant="body2"
@@ -170,16 +172,20 @@ export default function BlogCard({ blog, showAuthor }) {
                         >
                             Edit
                         </Button>
-                        <Button
-                            className={classes.blogBtn}
-                            size="small"
-                            color="primary"
-                            onClick={() =>
-                                handlePromotionBtn(blog, blog.authorsId)
-                            }
-                        >
-                            Promote
-                        </Button>
+                        {blog.priority !== 3 ? (
+                            <Button
+                                className={classes.blogBtn}
+                                size="small"
+                                color="primary"
+                                onClick={() =>
+                                    handlePromotionBtn(blog, blog.authorsId)
+                                }
+                            >
+                                Promote
+                            </Button>
+                        ) : (
+                            ""
+                        )}
                     </div>
                 ) : (
                     ""

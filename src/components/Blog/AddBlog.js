@@ -79,7 +79,11 @@ const AddBlog = () => {
                     <Typography
                         component="h1"
                         variant="h5"
-                        style={{ marginBottom: "10px", color: "#8ab584", fontFamily: "nunito" }}
+                        style={{
+                            marginBottom: "10px",
+                            color: "#8ab584",
+                            fontFamily: "nunito",
+                        }}
                     >
                         Add Blog
                     </Typography>
@@ -92,7 +96,7 @@ const AddBlog = () => {
                             type="text"
                             value={blogTitle}
                             onChange={(e) => setBlogTitle(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
                         />
                         <TextField
                             name="image"
@@ -102,7 +106,7 @@ const AddBlog = () => {
                             type="text"
                             value={blogImage}
                             onChange={(e) => setBlogImage(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
                         />
                         <TextField
                             name="price"
@@ -112,19 +116,7 @@ const AddBlog = () => {
                             type="number"
                             value={blogPrice}
                             onChange={(e) => setBlogPrice(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
-                        />
-
-                        <TextField
-                            name="text"
-                            label="Your text"
-                            multiline
-                            rows={5}
-                            cols={5}
-                            variant="outlined"
-                            value={blogText}
-                            onChange={(e) => setBlogText(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
                         />
                         <TextField
                             name="category"
@@ -134,9 +126,8 @@ const AddBlog = () => {
                             label="Select"
                             value={blogCategory}
                             onChange={(e) => setBlogCategory(e.target.value)}
-                            helperText="Please select your currency"
                             variant="outlined"
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
                         >
                             {CATEGORIES.map((option) => (
                                 <MenuItem
@@ -147,7 +138,19 @@ const AddBlog = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <FormControlLabel
+                        <TextField
+                            name="text"
+                            label="Your text"
+                            multiline
+                            rows={5}
+                            cols={5}
+                            variant="outlined"
+                            value={blogText}
+                            onChange={(e) => setBlogText(e.target.value)}
+                            style={{ color: "#8ab584", fontFamily: "nunito" }}
+                        />
+
+                        {/* <FormControlLabel
                             control={
                                 <Checkbox
                                     checked={isPromoted}
@@ -159,9 +162,9 @@ const AddBlog = () => {
                                     style={{color: "#8ab584", fontFamily: "nunito"}}
                                 />
                             }
-                            label="Promote"
-                        />
-                        {isPromoted ? (
+                            label="Promote" */}
+                        {/* /> */}
+                        {/* {isPromoted ? (
                             <TextField
                                 name="promote"
                                 variant="outlined"
@@ -173,9 +176,13 @@ const AddBlog = () => {
                             />
                         ) : (
                             ""
-                        )}
+                        )} */}
                     </Grid>
-                    <ButtonUI variant="contained" type="submit" style={{color: "#8ab584", fontFamily: "nunito"}}>
+                    <ButtonUI
+                        variant="contained"
+                        type="submit"
+                        style={{ color: "#8ab584", fontFamily: "nunito" }}
+                    >
                         Add
                     </ButtonUI>
                 </Grid>

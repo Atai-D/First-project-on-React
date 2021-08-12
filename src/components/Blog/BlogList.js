@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     search: {
         position: "relative",
         // float: "left",
-        margin:"10px",
+        margin: "10px",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
         "&:hover": {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
-    
+
         width: "100%",
         [theme.breakpoints.up("sm")]: {
             marginLeft: theme.spacing(3),
@@ -60,30 +60,29 @@ const useStyles = makeStyles((theme) => ({
             width: "20ch",
         },
     },
-    blogListContainer:{
-        backgroundColor:"#ffecd4",
-        display:"flex"
-    },
-    blogListCards:{
+    blogListContainer: {
+        backgroundColor: "#ffecd4",
         display: "flex",
-        justifyContent: "row"
     },
-    blogListCategory:{
+    blogListCards: {
+        display: "flex",
+        justifyContent: "row",
+    },
+    blogListCategory: {
         marginTop: "10px",
-        backgroundColor:"#8ab584",
+        backgroundColor: "#8ab584",
         borderRadius: "5px",
         color: "white",
-        minWidth: "20%"
-    }, 
-    sideBar:{
+        minWidth: "20%",
+    },
+    sideBar: {
         // display:"flex",
         // justifyContent: "column",
         height: "25%",
         // width: "25%",
         backgroundColor: "#8ab584",
         // minHeight: "100vh"
-
-    }
+    },
 }));
 
 const BlogList = () => {
@@ -185,106 +184,112 @@ const BlogList = () => {
 
     return (
         <>
-        <div className={classes.blogListContainer}>  
-         {/* <Grid item xs={3}> */}
-
-
-<div className={classes.sideBar}>
-
-
-
-            <FormControl className={classes.blogListCategory} component="fieldset">
-                <FormLabel component="legend">Category</FormLabel>
-                <RadioGroup value={type} onChange={handleChangeType}>
-                    {CATEGORIES.map((option) => (
-                        <FormControlLabel
-                        value={option.value}
-                        control={<Radio />}
-                        label={option.label}
-                        />
-                        ))}
-                    <FormControlLabel
-                        value="all"
-                        control={<Radio />}
-                        label="Reset category"
-                        />
-                </RadioGroup>
-            </FormControl>
-            {/* </Grid> */}
-            <Grid style={{ width: "290px" , backgroundColor: "#8ab584", color: "white", borderRadius:"5px", marginTop: "10px"}}>
-                <div>Price in KG(SOM)</div>
-                <Slider
-                    value={price}
-                    onChange={handleChangePrice}
-                    aria-labelledby="discrete-slider"
-                    valueLabelDisplay="auto"
-                    step={5}
-                    min={0}
-                    max={1000}
-                    />
-                <Button onClick={resetPrice} variant="outlined" color="primary">
-                    Reset price
-                </Button>
-
-
-
-            <div style={{  marginTop:"30px ", backgroundColor: "#8ab584", borderRadius: "5px"}}>
-
-            <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                    <SearchIcon />
-                </div>  
-                <InputBase
-                    placeholder="Search…"
-                    classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                    }}
-                    inputProps={{ "aria-label": "search" }}
-                    onChange={(e) => handleValue(e)}
-                    />
-            </div>
-
-            </div>
-            </Grid>
-             </div>
-
-
-
-
-            {blogs?.length > 0 ? (
-                <>
-                <div className={classes.blogListCards}>
-                    {adminsBlogs.map((blog) => (
-                        <BlogCard blog={blog} showAuthor={true} />
-                    ))}
-                    {usersBlogs.map((blog) => (
-                        <BlogCard blog={blog} showAuthor={true} />
-                    ))}
-                    <div>
-                        <EditBlog />
-                    </div>
-                </div>
-
-                    <div  className={classes.blogListPagination} 
-                    style={{ }}
+            <div className={classes.blogListContainer}>
+                <div className={classes.sideBar}>
+                    <FormControl
+                        className={classes.blogListCategory}
+                        component="fieldset"
                     >
-                        <Pagination style={{  display: "flex", justifyContent: "center"}}
-                            count={pages}
-                            color="primary"
-                            page={+page}
-                            onChange={handlePage}
+                        <FormLabel component="legend">Category</FormLabel>
+                        <RadioGroup value={type} onChange={handleChangeType}>
+                            {CATEGORIES.map((option) => (
+                                <FormControlLabel
+                                    value={option.value}
+                                    control={<Radio />}
+                                    label={option.label}
+                                />
+                            ))}
+                            <FormControlLabel
+                                value="all"
+                                control={<Radio />}
+                                label="Reset category"
                             />
-                    </div>
-                    </>
-                          
-            ) : (
-                <h1>Похоже здесь нет блогов</h1>
-                )}
-                </div>
-    
-    </>
+                        </RadioGroup>
+                    </FormControl>
+                    <Grid
+                        style={{
+                            width: "290px",
+                            backgroundColor: "#8ab584",
+                            color: "white",
+                            borderRadius: "5px",
+                            marginTop: "10px",
+                        }}
+                    >
+                        <div>Price in KG(SOM)</div>
+                        <Slider
+                            value={price}
+                            onChange={handleChangePrice}
+                            aria-labelledby="discrete-slider"
+                            valueLabelDisplay="auto"
+                            step={5}
+                            min={0}
+                            max={1000}
+                        />
+                        <Button
+                            onClick={resetPrice}
+                            variant="outlined"
+                            color="primary"
+                        >
+                            Reset price
+                        </Button>
 
+                        <div
+                            style={{
+                                marginTop: "30px ",
+                                backgroundColor: "#8ab584",
+                                borderRadius: "5px",
+                            }}
+                        >
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
+                                <InputBase
+                                    placeholder="Search…"
+                                    classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }}
+                                    inputProps={{ "aria-label": "search" }}
+                                    onChange={(e) => handleValue(e)}
+                                />
+                            </div>
+                        </div>
+                    </Grid>
+                </div>
+
+                {blogs?.length > 0 ? (
+                    <>
+                        <div className={classes.blogListCards}>
+                            {adminsBlogs.map((blog) => (
+                                <BlogCard blog={blog} showAuthor={true} />
+                            ))}
+                            {usersBlogs.map((blog) => (
+                                <BlogCard blog={blog} showAuthor={true} />
+                            ))}
+                            <div>
+                                <EditBlog />
+                            </div>
+                        </div>
+
+                        <div className={classes.blogListPagination} style={{}}>
+                            <Pagination
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                }}
+                                count={pages}
+                                color="primary"
+                                page={+page}
+                                onChange={handlePage}
+                            />
+                        </div>
+                    </>
+                ) : (
+                    <h1>Похоже здесь нет блогов</h1>
+                )}
+            </div>
+        </>
     );
 };
 

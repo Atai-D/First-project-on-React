@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { useBlog } from "../../contexts/BlogContext";
@@ -19,6 +20,10 @@ const MyBlog = () => {
     // }, [logged]);
 
     let user = JSON.parse(localStorage.getItem("user"));
+
+    // useEffect( async() => {
+    //     let {data} = await axios()
+    // },[])
     return (
         <>
             {user ? (
@@ -27,6 +32,7 @@ const MyBlog = () => {
                         {user?.usersBlogs.map((blog) => (
                             <BlogCard blog={blog} showAuthor={false} />
                         ))}
+                        <EditBlog />
                     </div>
                 ) : (
                     <h1 style={{ color: "#caedc5", fontFamily: "nunito" }}>

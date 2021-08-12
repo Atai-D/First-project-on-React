@@ -35,7 +35,7 @@ const BlogContextProvider = ({ children }) => {
 
     const history = useHistory();
 
-    const [edittingId, setEdittingId] = useState("");
+    const [edittingId, setEdittingId] = useState(3);
 
     const INIT_STATE = {
         blogs: [],
@@ -122,6 +122,7 @@ const BlogContextProvider = ({ children }) => {
                 date: date,
                 price: +price,
                 usersLikes: [],
+                comments: [],
                 priority: isPromoted ? 3 : logged.isAdmin ? 2 : 1,
                 isAdminWrote: logged.isAdmin,
                 authorsId: logged.id,
@@ -425,11 +426,11 @@ const BlogContextProvider = ({ children }) => {
 
         // if (logged.id === blog.authorsId) {
         //     console.log("asdasd");
-        //     const idToFind = logged.usersBlogs.filter(
-        //         (usersBlog) => usersBlog.id === logged.id
+        //     const idToFindInLogged = logged.usersBlogs.filter((usersBlog) =>
+        //         usersBlog.usersLikes.filter((likesId) => likesId === logged.id)
         //     );
-        //     console.log(idToFind);
-        //     if (idToFind.length === 0) {
+        //     if (idToFindInLogged.length === 0) {
+        //         console.log(idToFindInLogged);
         //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
         //             if (usersBlog.id === blog.id) {
         //                 let likes = [...usersBlog.usersLikes];
@@ -448,8 +449,35 @@ const BlogContextProvider = ({ children }) => {
         //             "user",
         //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
         //         );
+        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
+        //             ...logged,
+        //             usersBlogs: newBlogs,
+        //         });
         //     } else {
-        //         likes = likes.filter((usersId) => usersId !== logged.id);
+        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
+        //             if (usersBlog.id === blog.id) {
+        //                 let likes = [...usersBlog.usersLikes];
+        //                 likes = likes.filter(
+        //                     (usersId) => usersId !== logged.id
+        //                 );
+        //                 console.log(likes);
+        //                 const newBlog = { ...usersBlog, usersLikes: likes };
+
+        //                 return newBlog;
+        //             } else {
+        //                 return usersBlog;
+        //             }
+        //         });
+        //         console.log({ ...logged, usersBlogs: newBlogs });
+        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
+        //             ...logged,
+        //             usersBlogs: newBlogs,
+        //         });
+        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
+        //         localStorage.setItem(
+        //             "user",
+        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
+        //         );
         //     }
 
         // let newUser = { ...logged, usersLikes: likes };
@@ -465,9 +493,71 @@ const BlogContextProvider = ({ children }) => {
         //     }
         // });
         // }
+        // }
         console.log(12344321);
         getBlogsData();
-        // getBlogDetails(blog.id);
+        getBlogDetails(blog.id);
+    };
+
+    const addComment = async (comment, blog) => {
+        console.log(blog);
+        console.log(comment, blog);
+        let newComments = [...blog.comments];
+        newComments.push({
+            authorsEmail: logged.email,
+            comment: comment,
+            id: Date.now(),
+            blogId: blog.id,
+        });
+        let newBlog = { ...blog, comments: newComments };
+        const { data } = await axios.patch(
+            `${JSON_API_BLOGS}/${blog.id}`,
+            newBlog
+        );
+        // getBlogsData();
+        getBlogDetails(data.id);
+    };
+
+    const deleteComment = async (comment, blogDetails) => {
+        let commentsWithoutComment = blogDetails.comments.filter(
+            ({ id }) => id !== comment.id
+        );
+        console.log(comment.id, blogDetails);
+        let blogWithoutComment = {
+            ...blogDetails,
+            comments: commentsWithoutComment,
+        };
+        const asd = await axios.patch(
+            `${JSON_API_BLOGS}/${blogDetails.id}`,
+            blogWithoutComment
+        );
+        getBlogDetails(blogDetails.id);
+    };
+
+    const editComment = async (comment, blogDetails, newComment) => {
+        console.log(comment);
+        console.log(newComment);
+        console.log(blogDetails);
+        let editedComment = { ...comment, comment: newComment };
+        let commentsWithNewComment = blogDetails.comments.map(
+            (usersComment) => {
+                if (usersComment.id === comment.id) {
+                    return editedComment;
+                } else {
+                    return usersComment;
+                }
+            }
+        );
+        console.log(comment.id, blogDetails);
+        let blogWithEditedComment = {
+            ...blogDetails,
+            comments: commentsWithNewComment,
+        };
+        const asd = await axios.patch(
+            `${JSON_API_BLOGS}/${blogDetails.id}`,
+            blogWithEditedComment
+        );
+        getBlogDetails(blogDetails.id);
     };
 
     const value = {
@@ -513,6 +603,9 @@ const BlogContextProvider = ({ children }) => {
         handlePayingBlogs,
         renderPromotionBlogs,
         addLike,
+        addComment,
+        deleteComment,
+        editComment,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -20,6 +20,7 @@ import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { Button } from "@material-ui/core";
 import EditBlog from "./EditBlog";
+import CommentCard from "./CommentCard";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +48,10 @@ const useStyles = makeStyles((theme) => ({
 export default function BlogDetails() {
     const { id } = useParams();
     const classes = useStyles();
-
+    const [openInp, setOpenInp] = useState(false);
+    const [commentInp, setCommentInp] = useState("");
+    const [openEditInp, setOpenEditInp] = useState(false);
+    const [editInp, setEditInp] = useState("");
     const {
         blogDetails,
         getBlogDetails,
@@ -58,12 +62,18 @@ export default function BlogDetails() {
         setEdittingId,
         addLike,
         history,
+        addComment,
+        deleteComment,
+        editComment,
     } = useBlog();
 
     const { logged } = useAutho();
 
     useEffect(() => {
+        console.log(id);
+        setEdittingId(id);
         getBlogDetails(id);
+        console.log(blogDetails);
     }, []);
 
     const handleDeleteBtn = (id, authorsId) => {
@@ -71,6 +81,7 @@ export default function BlogDetails() {
         deleteBlog(id, authorsId);
         deleteBlogDetails();
         history.push("/bloglist");
+        getBlogsData();
     };
 
     const handleEditBtn = (id) => {
@@ -79,11 +90,31 @@ export default function BlogDetails() {
     };
 
     const handleLikeBtn = () => {
+        console.log(blogDetails);
         addLike(blogDetails);
         getBlogDetails(id);
     };
 
-    console.log(blogDetails);
+    const handleOpenComment = () => {
+        setOpenInp(true);
+    };
+    const handleSendComment = () => {
+        addComment(commentInp, blogDetails);
+        setOpenInp(false);
+        getBlogDetails(id);
+        setCommentInp("");
+    };
+
+    const handleDeleteComment = (comment, blogDetails) => {
+        deleteComment(comment, blogDetails);
+    };
+
+    const handleEditComment = (comment) => {
+        setEditInp(comment.comment);
+        setOpenEditInp(!openEditInp);
+        editComment(comment);
+    };
+
     return (
         <>
             {blogDetails ? (
@@ -188,6 +219,29 @@ export default function BlogDetails() {
                             )}
                         </Typography>
                     </CardContent>
+                    <Button onClick={handleOpenComment}>Add Comment</Button>
+                    {openInp ? (
+                        <>
+                            <input
+                                type="text"
+                                value={commentInp}
+                                onChange={(e) => setCommentInp(e.target.value)}
+                            />
+                            <Button onClick={handleSendComment}>
+                                Send Comment
+                            </Button>
+                        </>
+                    ) : (
+                        ""
+                    )}
+                    {blogDetails?.comments?.length > 0
+                        ? blogDetails.comments.map((comment) => (
+                              <CommentCard
+                                  comment={comment}
+                                  blogDetails={blogDetails}
+                              />
+                          ))
+                        : "Здесь нет комментариев"}
                 </Card>
             ) : (
                 ""

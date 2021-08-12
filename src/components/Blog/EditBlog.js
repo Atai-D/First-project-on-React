@@ -48,13 +48,13 @@ const EditBlog = () => {
 
     useEffect(() => {
         setBlog(blogDetails);
-        console.log(blogDetails);
     }, [blogDetails]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         saveEditBlog(blog);
         setEditModal(false);
+        // getBlogDetails(edittingId);
     };
 
     return (

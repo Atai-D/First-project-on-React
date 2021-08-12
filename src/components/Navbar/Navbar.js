@@ -17,7 +17,7 @@ import LogIn from "../Authorization/LogIn";
 import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
 import { AccountCircle } from "@material-ui/icons";
-import { BLOG_LIMIT } from "../../helpers/consts";
+import { BLOG_LIMIT, CATEGORIES } from "../../helpers/consts";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
         // borderColor: "gold",
 
         // fontFamily:"nunito",
-        
+
         "&:hover": {
             backgroundColor: "#d8f0df",
             color: "#4a825b",
@@ -78,13 +78,12 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         backgroundColor: "#bfe0c2",
         textDecoration: "none",
-        
     },
-    navLogoutBtn:{
+    navLogoutBtn: {
         borderWidth: "4px",
         borderColor: "gold",
         // color: "gold"
-    }
+    },
 }));
 
 export default function PrimarySearchAppBar() {
@@ -135,21 +134,41 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
+            {/* {CATEGORIES.map((option) => (
+                <NavLink
+                    style={{
+                        color: "#d8f0df",
+                    }}
+                    to={option.to}
+                >
+                    <MenuItem onClick={handleMenuClose}>
+                        {option.label}
+                    </MenuItem>
+                </NavLink>
+            ))} */}
             <NavLink
                 style={{
                     color: "#d8f0df",
                 }}
                 to={`/bloglist?category=art&culture&_limit${BLOG_LIMIT}`}
             >
-                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={handleMenuClose}>Art & Culture</MenuItem>
             </NavLink>
             <NavLink
                 style={{
                     color: "#d8f0df",
                 }}
-                to="/"
+                to={`/bloglist?category=thingsToDo&_limit${BLOG_LIMIT}`}
             >
-                <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+                <MenuItem onClick={handleMenuClose}>Thing To Do</MenuItem>
+            </NavLink>
+            <NavLink
+                style={{
+                    color: "#d8f0df",
+                }}
+                to={`/bloglist?category=food&drinks&_limit${BLOG_LIMIT}`}
+            >
+                <MenuItem onClick={handleMenuClose}>Food & Drinks</MenuItem>
             </NavLink>
         </Menu>
     );
@@ -176,7 +195,6 @@ export default function PrimarySearchAppBar() {
                         fontSize: "1.10rem",
                         marginBottom: "5px",
                         textDecoration: "none",
-                        
                     }}
                     to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                 >
@@ -242,13 +260,14 @@ export default function PrimarySearchAppBar() {
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         <NavLink
-                            style={{ color: "#fff", 
-                            fontSize: "1.5rem", 
-                            fontFamily: "nunito", 
-                            display: "flex",
-                            alignItems: "center",
-                            flexDirection: "row",
-                            textDecoration: "none"
+                            style={{
+                                color: "#fff",
+                                fontSize: "1.5rem",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none",
                             }}
                             to="/"
                         >
@@ -267,7 +286,7 @@ export default function PrimarySearchAppBar() {
                                         color: "#fff",
                                         fontSize: "1.25rem",
                                         marginRight: "15px",
-                                        paddingTop: "4px"
+                                        paddingTop: "4px",
                                     }}
                                     to="/promotion"
                                 >
@@ -278,7 +297,7 @@ export default function PrimarySearchAppBar() {
                                         color: "#fff",
                                         fontSize: "1.25rem",
                                         marginRight: "15px",
-                                        paddingTop: "4px"
+                                        paddingTop: "4px",
                                     }}
                                     to="/mypromotions"
                                 >
@@ -297,27 +316,31 @@ export default function PrimarySearchAppBar() {
                                 display: "flex",
                                 alignItems: "center",
                                 flexDirection: "row",
-                                textDecoration: "none"
+                                textDecoration: "none",
                             }}
                             to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                         >
                             All blogs
                         </NavLink>
-                        <NavLink
-                            style={{
-                                color: "#fff",
-                                fontSize: "1.25rem",
-                                marginRight: "15px",
-                                fontFamily: "nunito",
-                                display: "flex",
-                                alignItems: "center",
-                                flexDirection: "row",
-                                textDecoration: "none"
-                            }}
-                            to="/myblog"
-                        >
-                            My Blogs
-                        </NavLink>
+                        {logged.isLogged ? (
+                            <NavLink
+                                style={{
+                                    color: "#fff",
+                                    fontSize: "1.25rem",
+                                    marginRight: "15px",
+                                    fontFamily: "nunito",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    flexDirection: "row",
+                                    textDecoration: "none",
+                                }}
+                                to="/myblog"
+                            >
+                                My Blogs
+                            </NavLink>
+                        ) : (
+                            ""
+                        )}
 
                         <NavLink
                             edge="end"
@@ -332,7 +355,7 @@ export default function PrimarySearchAppBar() {
                                 display: "flex",
                                 alignItems: "center",
                                 flexDirection: "row",
-                                textDecoration: "none"
+                                textDecoration: "none",
                             }}
                             to={history}
                         >
@@ -347,7 +370,7 @@ export default function PrimarySearchAppBar() {
                                 display: "flex",
                                 alignItems: "center",
                                 flexDirection: "row",
-                                textDecoration: "none"
+                                textDecoration: "none",
                             }}
                             to="/addblog"
                         >
@@ -357,7 +380,7 @@ export default function PrimarySearchAppBar() {
                         {logged.isLogged ? (
                             <>
                                 <Button
-                                className={classes.navLogoutBtn}
+                                    className={classes.navLogoutBtn}
                                     onClick={() => {
                                         changeLoggedUser({
                                             ...logged,

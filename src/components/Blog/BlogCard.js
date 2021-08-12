@@ -134,7 +134,7 @@ export default function BlogCard({ blog, showAuthor }) {
                         color="textSecondary"
                         component="p"
                     >
-                        {blog.text}
+                        {blog.text.split("").slice(0, 20).join("") + "..."}
                     </Typography>
                     <Typography
                         variant="body2"

@@ -1,7 +1,7 @@
 export const JSON_API_USERS = "http://localhost:8000/users";
 export const JSON_API_BLOGS = "http://localhost:8000/blogs";
 
-export const BLOG_LIMIT = 3;
+export const BLOG_LIMIT = 6;
 
 export const CATEGORIES = [
     {

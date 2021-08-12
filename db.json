@@ -63,14 +63,16 @@
       "isAdmin": false,
       "usersBlogs": [
         {
-          "title": "cinema",
+          "title": "cinema1231",
           "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
           "text": "love it. go there and watch cinema adaw dggeuf iqwjef jwe fasjkdf;lasfk apwoefkas dflkasdfkndekdjakdjwekdeawlkf;sldkf afdaf adslfkaweadpsfladslkf asdfasdf aefasekfj asdfkasefkawefkaes faselkfale;fksaeflk ase;lfkasefkas f;laeskfase fkaesf aeskfaself esfae jd wakd aw djjawd akdaewl dpwadkasd fk kefd pawekd awd",
           "category": "art&culture",
           "author": "baha4592@mail.ru",
           "date": 1628789619139,
           "price": 300,
-          "usersLikes": [],
+          "usersLikes": [
+            2
+          ],
           "comments": [],
           "priority": 1,
           "isAdminWrote": false,
@@ -109,7 +111,29 @@
         }
       ],
       "favourites": [],
-      "promotionBlogs": [],
+      "promotionBlogs": [
+        {
+          "title": "cinema1231",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "love it. go there and watch cinema adaw dggeuf iqwjef jwe fasjkdf;lasfk apwoefkas dflkasdfkndekdjakdjwekdeawlkf;sldkf afdaf adslfkaweadpsfladslkf asdfasdf aefasekfj asdfkasefkawefkaes faselkfale;fksaeflk ase;lfkasefkas f;laeskfase fkaesf aeskfaself esfae jd wakd aw djjawd akdaewl dpwadkasd fk kefd pawekd awd",
+          "category": "art&culture",
+          "author": "baha4592@mail.ru",
+          "date": 1628789619139,
+          "price": 300,
+          "usersLikes": [
+            2
+          ],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 2,
+          "id": 4,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300,
+          "promotionDate": 1628790076498
+        }
+      ],
       "id": 2
     }
   ],
@@ -122,7 +146,9 @@
       "author": "rapakrapak123@gmail.com",
       "date": 1628789490406,
       "price": 400,
-      "usersLikes": [],
+      "usersLikes": [
+        2
+      ],
       "comments": [],
       "priority": 1,
       "isAdminWrote": false,
@@ -152,7 +178,9 @@
       "author": "rapakrapak123@gmail.com",
       "date": 1628789562127,
       "price": 123123123,
-      "usersLikes": [],
+      "usersLikes": [
+        2
+      ],
       "comments": [],
       "priority": 1,
       "isAdminWrote": false,
@@ -160,19 +188,24 @@
       "id": 3
     },
     {
-      "title": "cinema",
+      "title": "cinema1231",
       "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
       "text": "love it. go there and watch cinema adaw dggeuf iqwjef jwe fasjkdf;lasfk apwoefkas dflkasdfkndekdjakdjwekdeawlkf;sldkf afdaf adslfkaweadpsfladslkf asdfasdf aefasekfj asdfkasefkawefkaes faselkfale;fksaeflk ase;lfkasefkas f;laeskfase fkaesf aeskfaself esfae jd wakd aw djjawd akdaewl dpwadkasd fk kefd pawekd awd",
       "category": "art&culture",
       "author": "baha4592@mail.ru",
       "date": 1628789619139,
       "price": 300,
-      "usersLikes": [],
+      "usersLikes": [
+        2
+      ],
       "comments": [],
-      "priority": 1,
+      "priority": 3,
       "isAdminWrote": false,
       "authorsId": 2,
-      "id": 4
+      "id": 4,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
     },
     {
       "title": "test 22",

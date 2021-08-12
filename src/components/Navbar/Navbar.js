@@ -20,9 +20,13 @@ import { AccountCircle } from "@material-ui/icons";
 import { BLOG_LIMIT, CATEGORIES } from "../../helpers/consts";
 
 const useStyles = makeStyles((theme) => ({
+    navbar: {
+        flexGrow: 1,
+        minWidth: "100vw",
+    },
     grow: {
         flexGrow: 1,
-        maxWidth: "1500px"
+        maxWidth: "1500px",
     },
     title: {
         display: "none",
@@ -80,10 +84,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#bfe0c2",
         textDecoration: "none",
     },
-    navLogoutBtn:{
+    navLogoutBtn: {
         border: "1px solid white",
         color: "white",
-      
+
         // borderWidth: "4px",
         // borderColor: "gold",
         // color: "gold"
@@ -260,7 +264,7 @@ export default function PrimarySearchAppBar() {
     );
 
     return (
-        <div className={classes.grow}>
+        <div className={classes.navbar}>
             <AppBar style={{ backgroundColor: "#8ab584", position: "static" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>

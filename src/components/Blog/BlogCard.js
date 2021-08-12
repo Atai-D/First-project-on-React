@@ -14,8 +14,8 @@ import axios from "axios";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import EditBlog from "./EditBlog";
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 
 const useStyles = makeStyles({
     root: {
@@ -25,15 +25,14 @@ const useStyles = makeStyles({
         color: "white",
     },
     blogBtn: {
-        color: "white"
-    }, 
-    blogCardAuthor:{
+        color: "white",
+    },
+    blogCardAuthor: {
         // backgroundColor:"rgb(0,0,0,0.1)",
         // borderRadius: "5px",
         // display: "flex",
         // flexDirection: "column",
         // width: "100%",
-
     },
     blogCardBtn: {
         // backgroundColor:""
@@ -46,12 +45,13 @@ const useStyles = makeStyles({
         // minWidth: "100px",
         width: "100%",
     },
-    blogBtn:{
-// backgroundColor: non,
-color: "white", 
-margin: "3px",
-// minWidth: "100px",
-width: "100%"},
+    blogBtn: {
+        // backgroundColor: non,
+        color: "white",
+        margin: "3px",
+        // minWidth: "100px",
+        width: "100%",
+    },
     blogCardInf: {
         display: "flex",
         justifyContent: "row",
@@ -145,13 +145,14 @@ export default function BlogCard({ blog, showAuthor }) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions className={classes.blogCardInf} >
+            <CardActions className={classes.blogCardInf}>
                 {logged.email === blog.author || logged.isAdmin ? (
-                    <div >
-                        <DeleteOutlineIcon
-                        className={classes.blogBtn}/>
-                    </div>) : '' }
-
+                    <div>
+                        <DeleteOutlineIcon className={classes.blogBtn} />
+                    </div>
+                ) : (
+                    ""
+                )}
             </CardActions>
             <CardActions>
                 {logged.isLogged ? (
@@ -168,7 +169,7 @@ export default function BlogCard({ blog, showAuthor }) {
             </CardActions>
             <CardActions className={classes.blogCardInf}>
                 {/* <div className={classes.blogCardInf} > */}
-                {logged.email === blog.author || logged.isAdmin ? (
+                {logged.id === blog.authorsId || logged.isAdmin ? (
                     <div>
                         <DeleteOutlineIcon
                             className={classes.blogBtn}
@@ -181,7 +182,7 @@ export default function BlogCard({ blog, showAuthor }) {
                             Delete
                         </DeleteOutlineIcon>
                         <EditOutlinedIcon
-                        className={classes.blogBtn}
+                            className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() => handleEditBtn(blog.id)}

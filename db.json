@@ -1,69 +1,41 @@
 {
   "users": [
     {
-      "email": "rapakrapak123@gmail.com",
+      "email": "ataydjirgalbaev@gmail.com",
       "password": "123123",
       "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [
-        {
-          "title": "test 2 1231232123222",
-          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-          "text": "dawd  shsg sg jg hg s ttr drfhtawd awda",
-          "category": "thingsToDo",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628743369342,
-          "price": 2313,
-          "comments": [
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123",
-              "id": 1628768135860,
-              "blogId": 2
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123",
-              "id": 1628768231068,
-              "blogId": 2
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123",
-              "id": 1628768236060,
-              "blogId": 2
-            }
-          ],
-          "usersLikes": [],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 2,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300
-        }
-      ],
+      "isAdmin": true,
+      "usersBlogs": [],
       "favourites": [],
       "promotionBlogs": [
         {
-          "title": "test",
-          "image": "123",
-          "text": "wdawda dawd awdawd awdawd awwd adawd adada wwd adw",
-          "category": "food&drinks",
+          "title": "test 2283123",
+          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+          "text": "awdawd ad a aw gfjygjgj fh  drg dgr",
+          "category": "art&culture",
           "author": "rapakrapak123@gmail.com",
-          "date": 1628761239296,
-          "price": 123123,
-          "usersLikes": [],
-          "comments": [],
+          "date": 1628767856144,
+          "price": 123,
+          "usersLikes": [
+            3,
+            2
+          ],
+          "comments": [
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "12312312awdawd2",
+              "id": 1628769940915,
+              "blogId": 4
+            }
+          ],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 3,
           "id": 4,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628761363027
+          "days": 30,
+          "promPrice": 40,
+          "subPrice": 1200,
+          "promotionDate": 1628770818181
         }
       ],
       "id": 1
@@ -110,33 +82,78 @@
       "favourites": [],
       "promotionBlogs": [
         {
-          "title": "test 2",
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "adawd ga fa dwad awd awd f ef ef ef ef ef ",
-          "category": "thingsToDo",
-          "author": "ataydjirgalbaev@gmail.com",
-          "date": 1628747786440,
-          "price": 3231,
-          "comments": [],
-          "usersLikes": [],
-          "priority": 2,
-          "isAdminWrote": true,
-          "authorsId": 2,
-          "id": 3,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628747813669
+          "title": "test 2283123",
+          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+          "text": "awdawd ad a aw gfjygjgj fh  drg dgr",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628767856144,
+          "price": 123,
+          "usersLikes": [
+            3,
+            2
+          ],
+          "comments": [
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "12312312awdawd2",
+              "id": 1628769940915,
+              "blogId": 4
+            }
+          ],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 3,
+          "id": 4,
+          "days": 30,
+          "promPrice": 40,
+          "subPrice": 1200,
+          "promotionDate": 1628770818181
         }
       ],
       "id": 2
     },
     {
-      "email": "rapakrapak123@gmail.com",
+      "email": "ataydjirgalbaev@gmail.com",
       "password": "123123",
       "isLogged": true,
-      "isAdmin": false,
+      "isAdmin": true,
       "usersBlogs": [
+        {
+          "title": "test11",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "awdawd ag gg sgerf sf sergs erg",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628743286509,
+          "price": 123,
+          "comments": [],
+          "usersLikes": [
+            2
+          ],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 1
+        },
+        {
+          "title": "test 2 ",
+          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
+          "text": "dawd  shsg sg jg hg s ttr drfht",
+          "category": "thingsToDo",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628743369342,
+          "price": 2313,
+          "comments": [],
+          "usersLikes": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 2
+        }
+      ],
+      "favourites": [],
+      "promotionBlogs": [
         {
           "title": "test 2283123",
           "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
@@ -146,14 +163,21 @@
           "date": 1628767856144,
           "price": 123,
           "usersLikes": [
-            3
+            3,
+            2
           ],
-          "comments": [],
+          "comments": [
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "12312312awdawd2",
+              "id": 1628769940915,
+              "blogId": 4
+            }
+          ],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 3,
-          "id": 4
-<<<<<<< HEAD
+          "id": 
         },
         {
           "title": "evnlekrnvlke nlv",
@@ -232,33 +256,116 @@
           "isAdminWrote": false,
           "authorsId": 4,
           "id": 10
-=======
->>>>>>> main
+
+
+          "id": 4,
+          "days": 30,
+          "promPrice": 40,
+          "subPrice": 1200,
+          "promotionDate": 1628770818181
+        }
+      ],
+      "id": 3
+    },
+    {
+      "email": "baha4592@mail.ru",
+      "password": "123123",
+      "isLogged": false,
+      "isAdmin": false,
+      "usersBlogs": [],
+      "favourites": [],
+      "promotionBlogs": [],
+      "id": 4
+    },
+    {
+      "email": "rapakrapak123@gmail.com",
+      "password": "123123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [
+        {
+          "title": "Кинотеатр \"Манас\"",
+          "image": "123",
+          "text": "awdawda adawd awd awd ",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628774026952,
+          "price": 132,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 5,
+          "id": 6
+        }
+      ],
+      "favourites": [],
+      "promotionBlogs": [],
+      "id": 5
+    },
+    {
+      "email": "rapaktalas1@gmail.com",
+      "password": "123123",
+      "isLogged": true,
+      "isAdmin": false,
+      "usersBlogs": [
+        {
+          "title": "tets 31231231",
+          "image": "wadwad",
+          "text": "awd awdaw awd awd",
+          "category": "art&culture",
+          "author": "rapaktalas1@gmail.com",
+          "date": 1628772153793,
+          "price": 13123,
+          "usersLikes": [],
+          "comments": [
+            {
+              "authorsEmail": "rapaktalas1@gmail.com",
+              "comment": "123123",
+              "id": 1628772162296,
+              "blogId": 5
+            }
+          ],
+          "priority": 3,
+          "isAdminWrote": false,
+          "authorsId": 6,
+          "id": 5,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300
         }
       ],
       "favourites": [],
       "promotionBlogs": [
         {
-          "title": "test",
-          "image": "123",
-          "text": "wdawda dawd awdawd awdawd awwd adawd adada wwd adw",
-          "category": "food&drinks",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628761239296,
-          "price": 123123,
+          "title": "tets 31231231",
+          "image": "wadwad",
+          "text": "awd awdaw awd awd",
+          "category": "art&culture",
+          "author": "rapaktalas1@gmail.com",
+          "date": 1628772153793,
+          "price": 13123,
           "usersLikes": [],
-          "comments": [],
+          "comments": [
+            {
+              "authorsEmail": "rapaktalas1@gmail.com",
+              "comment": "123123",
+              "id": 1628772162296,
+              "blogId": 5
+            }
+          ],
           "priority": 1,
           "isAdminWrote": false,
-          "authorsId": 3,
-          "id": 4,
+          "authorsId": 6,
+          "id": 5,
           "days": 15,
           "promPrice": 20,
           "subPrice": 300,
-          "promotionDate": 1628761363027
+          "promotionDate": 1628774010465
         }
       ],
-<<<<<<< HEAD
+
+
       "id": 4
     },
     {
@@ -294,85 +401,14 @@
       "favourites": [],
       "promotionBlogs": [],
       "id": 6
-=======
+
       "id": 3
->>>>>>> main
+
+      "id": 6
+
     }
   ],
   "blogs": [
-    {
-      "title": "test 2 1231232123222",
-      "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-      "text": "dawd  shsg sg jg hg s ttr drfhtawd awda",
-      "category": "thingsToDo",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628743369342,
-      "price": 2313,
-      "comments": [
-        {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "123123",
-          "id": 1628768135860,
-          "blogId": 2
-        },
-        {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "123123",
-          "id": 1628768231068,
-          "blogId": 2
-        },
-        {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "123123",
-          "id": 1628768236060,
-          "blogId": 2
-        }
-      ],
-      "usersLikes": [
-        3
-      ],
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 1,
-      "id": 2,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
-    },
-    {
-      "title": "test 222",
-      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-      "text": "adawd ga fa dwad awd awd f ef ef ef ef ef ",
-      "category": "thingsToDo",
-      "author": "ataydjirgalbaev@gmail.com",
-      "date": 1628747786440,
-      "price": 3231,
-      "comments": [
-        {
-          "authorsEmail": "ataydjirgalbaev@gmail.com",
-          "id": 1628762992926,
-          "blogId": 3,
-          "comment": "12312312314123"
-        },
-        {
-          "authorsEmail": "ataydjirgalbaev@gmail.com",
-          "comment": "1231",
-          "id": 1628764243341,
-          "blogId": 3
-        }
-      ],
-      "usersLikes": [
-        2,
-        3
-      ],
-      "priority": 3,
-      "isAdminWrote": true,
-      "authorsId": 2,
-      "id": 3,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
-    },
     {
       "title": "test 2283123",
       "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
@@ -382,21 +418,78 @@
       "date": 1628767856144,
       "price": 123,
       "usersLikes": [
-        3
+        3,
+        2
       ],
       "comments": [
         {
           "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "12312312awdawd2",
+          "comment": "12312312awdawd2212",
           "id": 1628769940915,
+          "blogId": 4
+        },
+        {
+          "authorsEmail": "ataydjirgalbaev@gmail.com",
+          "comment": "hi !",
+          "id": 1628770912181,
+          "blogId": 4
+        },
+        {
+          "authorsEmail": "rapaktalas1@gmail.com",
+          "comment": "123123123",
+          "id": 1628772110864,
           "blogId": 4
         }
       ],
-      "priority": 1,
+      "priority": 3,
       "isAdminWrote": false,
       "authorsId": 3,
+      "id": 4,
+      "days": 30,
+      "promPrice": 40,
+      "subPrice": 1200
+    },
+    {
+      "title": "tets 31231231",
+      "image": "wadwad",
+      "text": "awd awdaw awd awd",
+      "category": "art&culture",
+      "author": "rapaktalas1@gmail.com",
+      "date": 1628772153793,
+      "price": 13123,
+      "usersLikes": [],
+      "comments": [
+        {
+          "authorsEmail": "rapaktalas1@gmail.com",
+          "comment": "123123",
+          "id": 1628772162296,
+          "blogId": 5
+        }
+      ],
+      "priority": 3,
+      "isAdminWrote": false,
+      "authorsId": 6,
+      "id": 5,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
+    },
+    {
+      "title": "Кинотеатр \"Манас\"",
+      "image": "123",
+      "text": "awdawda adawd awd awd ",
+      "category": "art&culture",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628774026952,
+      "price": 132,
+      "usersLikes": [],
+      "comments": [],
+      "priority": 1,
+      "isAdminWrote": false,
+
+      "authorsId": 3,
       "id": 4
-<<<<<<< HEAD
+
     },
     {
       "title": "evnlekrnvlke nlv",
@@ -488,8 +581,10 @@
       "isAdminWrote": false,
       "authorsId": 6,
       "id": 11
-=======
->>>>>>> main
+
+      "authorsId": 5,
+      "id": 6
+
     }
   ]
 }

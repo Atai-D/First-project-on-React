@@ -129,52 +129,53 @@ export default function PrimarySearchAppBar() {
 
     const menuId = "primary-search-account-menu";
     const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            {/* {CATEGORIES.map((option) => (
-                <NavLink
-                    style={{
-                        color: "#d8f0df",
-                    }}
-                    to={option.to}
-                >
-                    <MenuItem onClick={handleMenuClose}>
-                        {option.label}
-                    </MenuItem>
-                </NavLink>
-            ))} */}
-            <NavLink
-                style={{
-                    color: "#d8f0df",
-                }}
-                to={`/bloglist?category=art&culture&_limit${BLOG_LIMIT}`}
-            >
-                <MenuItem onClick={handleMenuClose}>Art & Culture</MenuItem>
-            </NavLink>
-            <NavLink
-                style={{
-                    color: "#d8f0df",
-                }}
-                to={`/bloglist?category=thingsToDo&_limit${BLOG_LIMIT}`}
-            >
-                <MenuItem onClick={handleMenuClose}>Thing To Do</MenuItem>
-            </NavLink>
-            <NavLink
-                style={{
-                    color: "#d8f0df",
-                }}
-                to={`/bloglist?category=food&drinks&_limit${BLOG_LIMIT}`}
-            >
-                <MenuItem onClick={handleMenuClose}>Food & Drinks</MenuItem>
-            </NavLink>
-        </Menu>
+        <></>
+        // <Menu
+        //     anchorEl={anchorEl}
+        //     anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        //     id={menuId}
+        //     keepMounted
+        //     transformOrigin={{ vertical: "top", horizontal: "right" }}
+        //     open={isMenuOpen}
+        //     onClose={handleMenuClose}
+        // >
+        //     {/* {CATEGORIES.map((option) => (
+        //         <NavLink
+        //             style={{
+        //                 color: "#d8f0df",
+        //             }}
+        //             to={option.to}
+        //         >
+        //             <MenuItem onClick={handleMenuClose}>
+        //                 {option.label}
+        //             </MenuItem>
+        //         </NavLink>
+        //     ))} */}
+        //     <NavLink
+        //         style={{
+        //             color: "#d8f0df",
+        //         }}
+        //         to={`/bloglist?category=art&culture&_limit${BLOG_LIMIT}`}
+        //     >
+        //         <MenuItem onClick={handleMenuClose}>Art & Culture</MenuItem>
+        //     </NavLink>
+        //     <NavLink
+        //         style={{
+        //             color: "#d8f0df",
+        //         }}
+        //         to={`/bloglist?category=thingsToDo&_limit${BLOG_LIMIT}`}
+        //     >
+        //         <MenuItem onClick={handleMenuClose}>Thing To Do</MenuItem>
+        //     </NavLink>
+        //     <NavLink
+        //         style={{
+        //             color: "#d8f0df",
+        //         }}
+        //         to={`/bloglist?category=food&drinks&_limit${BLOG_LIMIT}`}
+        //     >
+        //         <MenuItem onClick={handleMenuClose}>Food & Drinks</MenuItem>
+        //     </NavLink>
+        // </Menu>
     );
 
     const mobileMenuId = "primary-search-account-menu-mobile";
@@ -346,7 +347,7 @@ export default function PrimarySearchAppBar() {
                             ""
                         )}
 
-                        <NavLink
+                        {/* <NavLink
                             edge="end"
                             aria-label="account of current user"
                             aria-controls={menuId}
@@ -364,7 +365,7 @@ export default function PrimarySearchAppBar() {
                             to={history}
                         >
                             Categories
-                        </NavLink>
+                        </NavLink> */}
                         <NavLink
                             style={{
                                 color: "#fff",

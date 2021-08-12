@@ -141,23 +141,7 @@
       "password": "123456",
       "isLogged": true,
       "isAdmin": false,
-      "usersBlogs": [
-        {
-          "title": "Bishkek facts",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBayNJf19cjpliflqxuY8ZPIYUHLvCpfx3TXxficVGGPjHdh4jRWyWqh6zt4Upq7yQoXc&usqp=CAU",
-          "text": "hdhbhwbj",
-          "category": "thingsToDo",
-          "author": "b-blog@gmail.com",
-          "date": 1628791844547,
-          "price": 8888,
-          "usersLikes": [],
-          "comments": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 3,
-          "id": 9
-        }
-      ],
+      "usersBlogs": [],
       "favourites": [],
       "promotionBlogs": [],
       "id": 3
@@ -294,21 +278,6 @@
       "isAdminWrote": false,
       "authorsId": 6,
       "id": 8
-    },
-    {
-      "title": "Bishkek facts",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBayNJf19cjpliflqxuY8ZPIYUHLvCpfx3TXxficVGGPjHdh4jRWyWqh6zt4Upq7yQoXc&usqp=CAU",
-      "text": "hdhbhwbj",
-      "category": "thingsToDo",
-      "author": "b-blog@gmail.com",
-      "date": 1628791844547,
-      "price": 8888,
-      "usersLikes": [],
-      "comments": [],
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 3,
-      "id": 9
     }
   ]
 }

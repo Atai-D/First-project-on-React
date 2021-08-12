@@ -20,10 +20,10 @@ import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfie
 
 const useStyles = makeStyles({
     cardRoot: {
-        maxWidth: 300,
+        width: 300,
         margin: 15,
-        backgroundColor: "#8ab584",
-        color: "white",
+        backgroundColor: "#f0ed90",     
+        fontFamily: "nunito",      
     
     },
     blogBtn: {
@@ -101,7 +101,7 @@ export default function BlogCard({ blog, showAuthor }) {
     };
 
     return (
-        
+     <div>   
     <Grid container spacing={3}>
         <Grid item sx={3}>
         <Card className={classes.cardRoot} elevation={5}>
@@ -114,7 +114,7 @@ export default function BlogCard({ blog, showAuthor }) {
                 <CardMedia
                     component="img"
                     alt="asd"
-                    height="140"
+                    height="200"
                     image={blog.image}
                     title="Show more about this blog"
                 />
@@ -183,7 +183,7 @@ export default function BlogCard({ blog, showAuthor }) {
                             onClick={() =>
                                 handleDeleteBtn(blog.id, blog.authorsId)
                             }
-                            style={{display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginRight: "-15px"}}
+                            style={{display: 'flex'}}
 
                         >
                             Delete
@@ -250,5 +250,6 @@ export default function BlogCard({ blog, showAuthor }) {
         </Card>
         </Grid>
     </Grid> 
+    </div> 
     );
 }

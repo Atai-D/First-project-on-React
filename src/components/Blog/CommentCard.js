@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { useBlog } from "../../contexts/BlogContext";
+import { useAutho } from "../../contexts/AuthorizationContext";
 
 const CommentCard = ({ comment, blogDetails }) => {
     const [openInp, setOpenInp] = useState(false);
@@ -10,7 +11,7 @@ const CommentCard = ({ comment, blogDetails }) => {
     const { addComment, deleteComment, editComment, getBlogDetails } =
         useBlog();
 
-    // const { logged } = useAutho();
+    const { logged } = useAutho();
 
     const handleOpenComment = () => {
         setOpenInp(true);
@@ -62,13 +63,17 @@ const CommentCard = ({ comment, blogDetails }) => {
             ) : (
                 <div>{comment.comment}</div>
             )}
-            <Button onClick={() => handleDeleteComment(comment, blogDetails)}>
-                Delete
-            </Button>
-            {!openEditInp ? (
-                <>
-                    <Button onClick={handleOpenEditComment}>Edit</Button>
-                </>
+            {comment.authorsEmail === logged.email ? (
+                <Button
+                    onClick={() => handleDeleteComment(comment, blogDetails)}
+                >
+                    Delete
+                </Button>
+            ) : (
+                ""
+            )}
+            {!openEditInp && comment.authorsEmail === logged.email ? (
+                <Button onClick={handleOpenEditComment}>Edit</Button>
             ) : (
                 ""
             )}

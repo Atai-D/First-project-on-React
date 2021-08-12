@@ -10,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: "center",
         alignItems: "center",
-        [theme.breakpoints.down('mb')]:{
-            flexDirection:'column',
-        }
+        // [theme.breakpoints.down('mb')]:{
+        //     flexDirection:'column',
+        // }
 
         
     },

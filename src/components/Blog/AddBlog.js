@@ -73,7 +73,7 @@ const AddBlog = () => {
     };
 
     return (
-        <Container commponent="main" maxWidth="xs" >
+        <Container commponent="main" maxWidth="xs">
             <form action="" onSubmit={handleSubmit}>
                 <Grid container style={{margin:"100px 0px"}}>
                     <Typography

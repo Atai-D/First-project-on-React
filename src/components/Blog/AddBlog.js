@@ -73,9 +73,9 @@ const AddBlog = () => {
     };
 
     return (
-        <Container commponent="main" maxWidth="xs">
+        <Container commponent="main" maxWidth="xs" >
             <form action="" onSubmit={handleSubmit}>
-                <Grid container>
+                <Grid container style={{margin:"100px 0px"}}>
                     <Typography
                         component="h1"
                         variant="h5"
@@ -83,8 +83,9 @@ const AddBlog = () => {
                     >
                         Add Blog
                     </Typography>
-                    <Grid>
+                    <Grid >
                         <TextField
+                            fullWidth={720}
                             name="title"
                             variant="outlined"
                             required
@@ -92,9 +93,11 @@ const AddBlog = () => {
                             type="text"
                             value={blogTitle}
                             onChange={(e) => setBlogTitle(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{color: "#8ab584", fontFamily: "nunito", marginBottom: "10px"}}
                         />
+                        <br />
                         <TextField
+                        fullWidth={720}
                             name="image"
                             variant="outlined"
                             required
@@ -102,9 +105,11 @@ const AddBlog = () => {
                             type="text"
                             value={blogImage}
                             onChange={(e) => setBlogImage(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{color: "#8ab584", fontFamily: "nunito", marginBottom: "10px"}}
                         />
+                        <br />
                         <TextField
+                        fullWidth={720}
                             name="price"
                             variant="outlined"
                             required
@@ -112,10 +117,11 @@ const AddBlog = () => {
                             type="number"
                             value={blogPrice}
                             onChange={(e) => setBlogPrice(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{color: "#8ab584", fontFamily: "nunito", marginBottom: "10px"}}
                         />
 
                         <TextField
+                        fullWidth={720}
                             name="text"
                             label="Your text"
                             multiline
@@ -124,9 +130,11 @@ const AddBlog = () => {
                             variant="outlined"
                             value={blogText}
                             onChange={(e) => setBlogText(e.target.value)}
-                            style={{color: "#8ab584", fontFamily: "nunito"}}
+                            style={{color: "#8ab584", fontFamily: "nunito", marginBottom: "10px"}}
                         />
+                        <br />
                         <TextField
+                        fullWidth={720}
                             name="category"
                             id="outlined-select-currency"
                             select
@@ -134,7 +142,6 @@ const AddBlog = () => {
                             label="Select"
                             value={blogCategory}
                             onChange={(e) => setBlogCategory(e.target.value)}
-                            helperText="Please select your currency"
                             variant="outlined"
                             style={{color: "#8ab584", fontFamily: "nunito"}}
                         >
@@ -147,7 +154,7 @@ const AddBlog = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             control={
                                 <Checkbox
                                     checked={isPromoted}
@@ -173,9 +180,9 @@ const AddBlog = () => {
                             />
                         ) : (
                             ""
-                        )}
+                        )} */}
                     </Grid>
-                    <ButtonUI variant="contained" type="submit" style={{color: "#8ab584", fontFamily: "nunito"}}>
+                    <ButtonUI variant="contained" type="submit" style={{color: "#8ab584", fontFamily: "nunito", marginTop: "10px"}}>
                         Add
                     </ButtonUI>
                 </Grid>
@@ -185,3 +192,4 @@ const AddBlog = () => {
 };
 
 export default AddBlog;
+

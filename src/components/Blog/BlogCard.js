@@ -14,24 +14,26 @@ import axios from "axios";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import EditBlog from "./EditBlog";
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 350,
+        maxWidth: 300,
         margin: 15,
         backgroundColor: "#8ab584",
         color: "white"
     },
     blogBtn: {
-        // backgroundColor: "#8ab584",
         color: "white"
     }, 
     blogCardAuthor:{
-        backgroundColor:"rgb(0,0,0,0.1)",
-        borderRadius: "5px",
+        // backgroundColor:"rgb(0,0,0,0.1)",
+        // borderRadius: "5px",
         // display: "flex",
         // flexDirection: "column",
-        width: "100%"
+        // width: "100%",
+
     },
     blogCardBtn: {
         // backgroundColor:""
@@ -39,7 +41,7 @@ const useStyles = makeStyles({
         
     },
     blogBtn:{
-backgroundColor: "rgb(0,0,0,0.1)",
+// backgroundColor: non,
 color: "white", 
 margin: "3px",
 // minWidth: "100px",
@@ -130,10 +132,9 @@ export default function BlogCard({ blog, showAuthor }) {
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.blogCardInf} >
-                {/* <div className={classes.blogCardInf} > */}
                 {logged.email === blog.author || logged.isAdmin ? (
                     <div >
-                        <Button
+                        <DeleteOutlineIcon
                         className={classes.blogBtn}
                             size="small"
                             color="primary"
@@ -142,15 +143,15 @@ export default function BlogCard({ blog, showAuthor }) {
                             }
                         >
                             Delete
-                        </Button>
-                        <Button
+                        </DeleteOutlineIcon>
+                        <EditOutlinedIcon
                         className={classes.blogBtn}
                             size="small"
                             color="primary"
                             onClick={() => handleEditBtn(blog.id)}
                         >
                             Edit
-                        </Button>
+                        </EditOutlinedIcon>
                         <Button
                         className={classes.blogBtn}
                             size="small"

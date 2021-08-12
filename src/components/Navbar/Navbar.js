@@ -22,6 +22,7 @@ import { BLOG_LIMIT } from "../../helpers/consts";
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
+        maxWidth: "1500px"
     },
     title: {
         display: "none",
@@ -81,8 +82,11 @@ const useStyles = makeStyles((theme) => ({
         
     },
     navLogoutBtn:{
-        borderWidth: "4px",
-        borderColor: "gold",
+        border: "1px solid white",
+        color: "white",
+      
+        // borderWidth: "4px",
+        // borderColor: "gold",
         // color: "gold"
     }
 }));

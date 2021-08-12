@@ -8,6 +8,7 @@ import {
     Radio,
     Button,
     InputBase,
+    
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Pagination from "@material-ui/lab/Pagination";
@@ -18,6 +19,8 @@ import { CATEGORIES } from "../../helpers/consts";
 import BlogCard from "./BlogCard";
 import EditBlog from "./EditBlog";
 import { fade, makeStyles } from "@material-ui/core/styles";
+
+
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -51,36 +54,38 @@ const useStyles = makeStyles((theme) => ({
         color: "inherit",
     },
     inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create("width"),
-        width: "100%",
-        [theme.breakpoints.up("md")]: {
-            width: "20ch",
-        },
+        // padding: theme.spacing(1, 1, 1, 0),
+        // // vertical padding + font size from searchIcon
+        // paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        // transition: theme.transitions.create("width"),
+        // width: "100%",
+        // [theme.breakpoints.up("md")]: {
+        //     width: "20ch",
+        // },
     },
     blogListContainer:{
-        backgroundColor:"#ffecd4",
-        display:"flex"
+        // backgroundColor:"#ffecd4",
+        // display:"flex"
     },
     blogListCards:{
-        display: "flex",
-        justifyContent: "row"
+        // display: "flex",
+        // justifyContent: "row",
+        // alignItems:"center",
+        // flexWrap: "wrap"
     },
     blogListCategory:{
-        marginTop: "10px",
-        backgroundColor:"#8ab584",
-        borderRadius: "5px",
-        color: "white",
-        minWidth: "20%"
+        // marginTop: "10px",
+        // backgroundColor:"#8ab584",
+        // borderRadius: "5px",
+        // color: "white",
+        // minWidth: "20%"
     }, 
     sideBar:{
         // display:"flex",
         // justifyContent: "column",
-        height: "25%",
+        // height: "25%",
         // width: "25%",
-        backgroundColor: "#8ab584",
+        // backgroundColor: "#8ab584",
         // minHeight: "100vh"
 
     }
@@ -189,6 +194,11 @@ const BlogList = () => {
 
 <div className={classes.sideBar}>
 
+    
+
+
+    
+
 
 
             <FormControl className={classes.blogListCategory} component="fieldset">
@@ -209,7 +219,9 @@ const BlogList = () => {
                 </RadioGroup>
             </FormControl>
             {/* </Grid> */}
-            <Grid style={{ width: "290px" , backgroundColor: "#8ab584", color: "white", borderRadius:"5px", marginTop: "10px"}}>
+            <Grid 
+            style={{ width: "290px" , backgroundColor: "#8ab584", color: "white", borderRadius:"5px", marginTop: "10px"}}
+            >
                 <div>Price in KG(SOM)</div>
                 <Slider
                     value={price}
@@ -226,7 +238,9 @@ const BlogList = () => {
 
 
 
-            <div style={{  marginTop:"30px ", backgroundColor: "#8ab584", borderRadius: "5px"}}>
+            <div 
+            //  style={{  marginTop:"30px ", backgroundColor: "#8ab584", borderRadius: "5px"}}
+             >
 
             <div className={classes.search}>
                 <div className={classes.searchIcon}>
@@ -262,18 +276,20 @@ const BlogList = () => {
                     <div>
                         <EditBlog />
                     </div>
-                </div>
-
                     <div  className={classes.blogListPagination} 
-                    style={{ }}
+                    style={{width: "1000px", margin: "0 auto", marginLeft: '300px'}}
                     >
-                        <Pagination style={{  display: "flex", justifyContent: "center"}}
+                        <Pagination 
+                        style={{  display: "flex", justifyContent: "center"}}
+                        // style={{ bottom: 10,}}
                             count={pages}
-                            color="primary"
+                            color="green"
                             page={+page}
                             onChange={handlePage}
                             />
                     </div>
+                </div>
+
                     </>
                           
             ) : (
@@ -287,3 +303,5 @@ const BlogList = () => {
 };
 
 export default BlogList;
+
+

@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 .page-container{
     display: flex;
     flex-direction: column;

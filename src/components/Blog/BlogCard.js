@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { Grid } from "@material-ui/core";
+import { CssBaseline, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { JSON_API_BLOGS, JSON_API_USERS } from "../../helpers/consts";
 import axios from "axios";
@@ -16,6 +16,7 @@ import { useAutho } from "../../contexts/AuthorizationContext";
 import EditBlog from "./EditBlog";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 const useStyles = makeStyles({
     root: {
@@ -100,6 +101,7 @@ export default function BlogCard({ blog, showAuthor }) {
 
     return (
         <Card className={classes.root}>
+            {/* <CssBaseline /> */}
             <CardActionArea
                 id={blog.id}
                 onClick={() => {
@@ -148,7 +150,7 @@ export default function BlogCard({ blog, showAuthor }) {
             <CardActions className={classes.blogCardInf}>
                 {logged.email === blog.author || logged.isAdmin ? (
                     <div>
-                        <DeleteOutlineIcon className={classes.blogBtn} />
+                        {/* <DeleteOutlineIcon className={classes.blogBtn} /> */}
                     </div>
                 ) : (
                     ""
@@ -156,13 +158,13 @@ export default function BlogCard({ blog, showAuthor }) {
             </CardActions>
             <CardActions>
                 {logged.isLogged ? (
-                    <Button
-                        size="small"
-                        color="primary"
+                    <SentimentVerySatisfiedIcon 
+                        // size="small"
+                        color="#fff"
                         onClick={() => handleLikeBtn()}
                     >
                         Like
-                    </Button>
+                    </SentimentVerySatisfiedIcon>
                 ) : (
                     ""
                 )}

@@ -141,10 +141,10 @@ const SignUp = () => {
                     setSignModal(false);
                     setIsInUsers(false);
                 }}
-                style={{ color: "#bfe0c2", zIndex: "10000" }}
+                style={{ color: "#8ab584", fontFamily: "nunito", zIndex: "10000", backgroundColor: "rgb(0,0,0,0.2)" }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton style={{backgroundColor: "rgb(0,0,0,0.1)"}}>
                     <Modal.Title id="example-modal-sizes-title-lg">
                         Sign Up
                     </Modal.Title>
@@ -159,6 +159,8 @@ const SignUp = () => {
                                     style={{
                                         marginLeft: "-15px",
                                         marginRight: "15px",
+                                        // backgroundColor: "rgb(0,0,0,0.2)"
+                                        
                                     }}
                                 >
                                     Registration

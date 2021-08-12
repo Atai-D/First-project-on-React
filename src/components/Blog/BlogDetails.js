@@ -18,7 +18,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useParams } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
-import { Button } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import EditBlog from "./EditBlog";
 import CommentCard from "./CommentCard";
 
@@ -118,6 +118,7 @@ export default function BlogDetails() {
     return (
         <>
             {blogDetails ? (
+                <Grid container spacing={10}>
                 <Card className={classes.root}>
                     <CardHeader
                         title={blogDetails.title}
@@ -243,6 +244,7 @@ export default function BlogDetails() {
                           ))
                         : "Здесь нет комментариев"}
                 </Card>
+                </Grid>
             ) : (
                 ""
             )}

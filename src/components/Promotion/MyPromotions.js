@@ -13,20 +13,30 @@ const MyPromotions = () => {
         renderPromotionBlogs(logged.promotionBlogs);
         console.log(promotionBlogs);
     }, []);
+
     return (
         <>
-            {promotionBlogs.map((blog) => (
-                <h1>
-                    {blog.item.title}
-                    {new Date(Date.now()).getTime() -
-                        new Date(blog.date).getTime()}
-                    {console.log(
-                        new Date(Date.now()).getTime(),
-                        new Date(blog.date).getTime()
-                    )}
-                    {}
-                </h1>
-            ))}
+            {promotionBlogs.length > 0 ? (
+                promotionBlogs.map((blog) => (
+                    <h1>
+                        Title: {blog.title}
+                        {/* {new Date(Date.now()).getTime() -
+                        new Date(blog.date).getTime()} */}
+                        <br />
+                        Left:
+                        {Math.floor(
+                            (blog.days * 1000 * 3600 * 24 +
+                                blog.date -
+                                Date.now()) /
+                                86400000
+                        )}
+                        days
+                        {console.log(blog)}
+                    </h1>
+                ))
+            ) : (
+                <h1>Похоже у вас нет продвигаемых блогов</h1>
+            )}
         </>
     );
 };

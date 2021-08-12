@@ -35,7 +35,7 @@ const BlogContextProvider = ({ children }) => {
 
     const history = useHistory();
 
-    const [edittingId, setEdittingId] = useState("");
+    const [edittingId, setEdittingId] = useState(3);
 
     const INIT_STATE = {
         blogs: [],
@@ -120,7 +120,9 @@ const BlogContextProvider = ({ children }) => {
                 category: category,
                 author: logged.email,
                 date: date,
-                price: price,
+                price: +price,
+                usersLikes: [],
+                comments: [],
                 priority: isPromoted ? 3 : logged.isAdmin ? 2 : 1,
                 isAdminWrote: logged.isAdmin,
                 authorsId: logged.id,
@@ -198,10 +200,12 @@ const BlogContextProvider = ({ children }) => {
                 return blog;
             }
         });
+        let editedUser = { ...logged, usersBlogs: editedBlogs };
         const array = await axios.patch(
             `${JSON_API_USERS}/${editedBlog.authorsId}`,
-            editedBlogs
+            editedUser
         );
+        changeLoggedUser(editedUser);
         if (editedBlog.authorsId == logged.id) {
             let arr = logged.usersBlogs.map((blog) => {
                 if (editedBlog.id === blog.id) {
@@ -214,6 +218,7 @@ const BlogContextProvider = ({ children }) => {
             localStorage.setItem("user", JSON.stringify(user));
         }
         getBlogsData();
+        getBlogDetails(editedBlog.id);
     };
 
     // const addPromotionBlog = async (usersID, blog) => {
@@ -273,20 +278,15 @@ const BlogContextProvider = ({ children }) => {
                 totalPrice: 0,
             };
         }
-        let newblog = {
-            item: blog,
-            days: 15,
-            promPrice: 20,
-            subPrice: 15 * 20,
-        };
+        let newblog = { ...blog, days: 15, promPrice: 20, subPrice: 15 * 20 };
 
         console.log(newblog);
 
-        let blogToFind = cart.blogs.filter((item) => item.item.id === blog.id);
+        let blogToFind = cart.blogs.filter((item) => item.id === blog.id);
         if (blogToFind.length == 0) {
             cart.blogs.push(newblog);
         } else {
-            cart.blogs = cart.blogs.filter((item) => item.item.id !== blog.id);
+            cart.blogs = cart.blogs.filter((item) => item.id !== blog.id);
         }
         cart.totalPrice = calcTotalPrice(cart.blogs);
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -299,7 +299,7 @@ const BlogContextProvider = ({ children }) => {
     const changeBlogCount = (days, id) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.blogs = cart.blogs.map((blog) => {
-            if (blog.item.id === id) {
+            if (blog.id === id) {
                 blog.days = days;
                 blog.subPrice = calcSubPrice(blog);
             }
@@ -316,7 +316,7 @@ const BlogContextProvider = ({ children }) => {
     const changeBlogPrice = (promPrice, id) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.blogs = cart.blogs.map((blog) => {
-            if (blog.item.id === id) {
+            if (blog.id === id) {
                 blog.promPrice = promPrice;
                 blog.subPrice = calcSubPrice(blog);
             }
@@ -350,18 +350,20 @@ const BlogContextProvider = ({ children }) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
 
         const newBlogs = blogs?.map((blog) => {
-            return { ...blog, date: Date.now() };
+            console.log(blog);
+            return { ...blog, promotionDate: Date.now() };
         });
+        let tempBlogs = newBlogs.concat(state.promotionBlogs);
         dispatch({
             type: BLOG_ACTIONS.ADD_PROMOTION_BLOG,
-            payload: newBlogs,
+            payload: tempBlogs,
         });
-        const newLoggedUser = { ...logged, promotionBlogs: newBlogs };
+        const newLoggedUser = { ...logged, promotionBlogs: tempBlogs };
         changeLoggedUser(newLoggedUser);
         localStorage.setItem("user", JSON.stringify(newLoggedUser));
 
         const author = await axios.patch(
-            `${JSON_API_USERS}/${blogs[0].item.authorsId}`,
+            `${JSON_API_USERS}/${blogs[0].authorsId}`,
             newLoggedUser
         );
         console.log(author);
@@ -370,23 +372,23 @@ const BlogContextProvider = ({ children }) => {
             const changedBlog = { ...blog, priority: 3 };
 
             const { data } = await axios.patch(
-                `${JSON_API_BLOGS}/${blog.item.id}`,
+                `${JSON_API_BLOGS}/${blog.id}`,
                 changedBlog
             );
-            const res = await axios(`${JSON_API_USERS}/${blog.item.authorsId}`);
+            const res = await axios(`${JSON_API_USERS}/${blog.authorsId}`);
 
             const array = res.data.usersBlogs.map((usersBlog) => {
-                if (blog.item.id === usersBlog.id) {
+                if (blog.id === usersBlog.id) {
                     return changedBlog;
                 } else {
                     return usersBlog;
                 }
             });
-
+            console.log(array);
             const changedUser = { ...res.data, usersBlogs: array };
 
             const a = await axios.patch(
-                `${JSON_API_USERS}/${blog.item.authorsId}`,
+                `${JSON_API_USERS}/${blog.authorsId}`,
                 changedUser
             );
         });
@@ -405,6 +407,157 @@ const BlogContextProvider = ({ children }) => {
             type: BLOG_ACTIONS.GET_PROMOTIONS_DATA,
             payload: promotionBlogs,
         });
+    };
+
+    const addLike = async (blog) => {
+        const { data } = await axios(`${JSON_API_BLOGS}/${blog.id}`);
+
+        const idToFind = data.usersLikes.filter((like) => like === logged.id);
+        console.log(idToFind.length);
+        let likes = [...data.usersLikes];
+        if (idToFind.length === 0) {
+            likes.push(logged.id);
+        } else {
+            likes = likes.filter((usersId) => usersId !== logged.id);
+        }
+
+        const newBlog = { ...data, usersLikes: likes };
+        const arr = await axios.patch(`${JSON_API_BLOGS}/${blog.id}`, newBlog);
+
+        // if (logged.id === blog.authorsId) {
+        //     console.log("asdasd");
+        //     const idToFindInLogged = logged.usersBlogs.filter((usersBlog) =>
+        //         usersBlog.usersLikes.filter((likesId) => likesId === logged.id)
+        //     );
+        //     if (idToFindInLogged.length === 0) {
+        //         console.log(idToFindInLogged);
+        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
+        //             if (usersBlog.id === blog.id) {
+        //                 let likes = [...usersBlog.usersLikes];
+        //                 likes.push(logged.id);
+
+        //                 let newBlog = { ...usersBlog, usersLikes: likes };
+
+        //                 return newBlog;
+        //             } else {
+        //                 return usersBlog;
+        //             }
+        //         });
+
+        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
+        //         localStorage.setItem(
+        //             "user",
+        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
+        //         );
+        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
+        //             ...logged,
+        //             usersBlogs: newBlogs,
+        //         });
+        //     } else {
+        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
+        //             if (usersBlog.id === blog.id) {
+        //                 let likes = [...usersBlog.usersLikes];
+        //                 likes = likes.filter(
+        //                     (usersId) => usersId !== logged.id
+        //                 );
+        //                 console.log(likes);
+        //                 const newBlog = { ...usersBlog, usersLikes: likes };
+
+        //                 return newBlog;
+        //             } else {
+        //                 return usersBlog;
+        //             }
+        //         });
+        //         console.log({ ...logged, usersBlogs: newBlogs });
+        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
+        //             ...logged,
+        //             usersBlogs: newBlogs,
+        //         });
+        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
+        //         localStorage.setItem(
+        //             "user",
+        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
+        //         );
+        //     }
+
+        // let newUser = { ...logged, usersLikes: likes };
+        // changeLoggedUser(newUser.usersBlogs);
+        // console.log(newUser);
+        // localStorage.setItem("user", JSON.stringify(newUser));
+
+        // logged.usersBlogs.map((usersBlog, index) => {
+        //     if (usersBlog.id === blog.id) {
+        //         let newUser = { ...logged };
+        //         newUser.usersBlogs[index].push(blog.authorsId);
+        //         changeLoggedUser(newUser);
+        //     }
+        // });
+        // }
+        // }
+        console.log(12344321);
+        getBlogsData();
+        getBlogDetails(blog.id);
+    };
+
+    const addComment = async (comment, blog) => {
+        console.log(blog);
+        console.log(comment, blog);
+        let newComments = [...blog.comments];
+        newComments.push({
+            authorsEmail: logged.email,
+            comment: comment,
+            id: Date.now(),
+            blogId: blog.id,
+        });
+        let newBlog = { ...blog, comments: newComments };
+        const { data } = await axios.patch(
+            `${JSON_API_BLOGS}/${blog.id}`,
+            newBlog
+        );
+        // getBlogsData();
+        getBlogDetails(data.id);
+    };
+
+    const deleteComment = async (comment, blogDetails) => {
+        let commentsWithoutComment = blogDetails.comments.filter(
+            ({ id }) => id !== comment.id
+        );
+        console.log(comment.id, blogDetails);
+        let blogWithoutComment = {
+            ...blogDetails,
+            comments: commentsWithoutComment,
+        };
+        const asd = await axios.patch(
+            `${JSON_API_BLOGS}/${blogDetails.id}`,
+            blogWithoutComment
+        );
+        getBlogDetails(blogDetails.id);
+    };
+
+    const editComment = async (comment, blogDetails, newComment) => {
+        console.log(comment);
+        console.log(newComment);
+        console.log(blogDetails);
+        let editedComment = { ...comment, comment: newComment };
+        let commentsWithNewComment = blogDetails.comments.map(
+            (usersComment) => {
+                if (usersComment.id === comment.id) {
+                    return editedComment;
+                } else {
+                    return usersComment;
+                }
+            }
+        );
+        console.log(comment.id, blogDetails);
+        let blogWithEditedComment = {
+            ...blogDetails,
+            comments: commentsWithNewComment,
+        };
+        const asd = await axios.patch(
+            `${JSON_API_BLOGS}/${blogDetails.id}`,
+            blogWithEditedComment
+        );
+        getBlogDetails(blogDetails.id);
     };
 
     const value = {
@@ -449,6 +602,10 @@ const BlogContextProvider = ({ children }) => {
         payingBlogs: state.payingBlogs,
         handlePayingBlogs,
         renderPromotionBlogs,
+        addLike,
+        addComment,
+        deleteComment,
+        editComment,
     };
     return (
         <BlogContext.Provider value={value}>{children}</BlogContext.Provider>

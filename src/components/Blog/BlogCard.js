@@ -19,7 +19,7 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 300,
+        width: 300,
         margin: 15,
         backgroundColor: "#8ab584",
         color: "white",

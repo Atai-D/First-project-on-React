@@ -8,10 +8,11 @@ import {
     Radio,
     Button,
     InputBase,
-    
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { withStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
+import { green } from "@material-ui/core/colors";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
@@ -19,8 +20,6 @@ import { CATEGORIES } from "../../helpers/consts";
 import BlogCard from "./BlogCard";
 import EditBlog from "./EditBlog";
 import { fade, makeStyles } from "@material-ui/core/styles";
-
-
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -40,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(3),
             width: "auto",
         },
+
+        ///////////////////
+        marginLeft: "-15px !important",
     },
     searchIcon: {
         padding: theme.spacing(0, 2),
@@ -54,39 +56,45 @@ const useStyles = makeStyles((theme) => ({
         color: "inherit",
     },
     inputInput: {
-        // padding: theme.spacing(1, 1, 1, 0),
-        // // vertical padding + font size from searchIcon
-        // paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        // transition: theme.transitions.create("width"),
-        // width: "100%",
-        // [theme.breakpoints.up("md")]: {
-        //     width: "20ch",
-        // },
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("md")]: {
+            width: "20ch",
+        },
     },
-    blogListContainer:{
+    blogListContainer: {
         // backgroundColor:"#ffecd4",
         // display:"flex"
     },
-    blogListCards:{
+    blogListCards: {
         // display: "flex",
         // justifyContent: "row",
         // alignItems:"center",
         // flexWrap: "wrap"
     },
-    blogListCategory:{
+    blogListCategory: {
         // marginTop: "10px",
         // backgroundColor:"#8ab584",
         // borderRadius: "5px",
         // color: "white",
         // minWidth: "20%"
-    }, 
-    sideBar:{
+    },
+    sideBar: {
         // display:"flex",
         // justifyContent: "column",
         // height: "25%",
         // width: "25%",
         // backgroundColor: "#8ab584",
         // minHeight: "100vh"
+
+        paddingLeft: "20px",
+        position: "absolute",
+        zIndex: 100,
+        backgroundColor: "rgba(191, 224, 194,0.7)",
+        borderRadius: "20px",
     },
 }));
 
@@ -187,45 +195,92 @@ const BlogList = () => {
         getBlogsData();
     };
 
+    const GreenRadio = withStyles({
+        root: {
+            color: green[400],
+            "&$checked": {
+                color: green[600],
+            },
+        },
+        checked: {},
+    })((props) => <Radio color="default" {...props} />);
+
+    const [showCategories, setShowCategories] = useState(false);
+
+    const [selectedValue, setSelectedValue] = React.useState("a");
+
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
     return (
         <>
             <div className={classes.blogListContainer}>
-                <div className={classes.sideBar}>
-                    <FormControl
-                        className={classes.blogListCategory}
-                        component="fieldset"
-                    >
-                        <FormLabel component="legend">Category</FormLabel>
-                        <RadioGroup value={type} onChange={handleChangeType}>
-                            {CATEGORIES.map((option) => (
+                <Button onClick={() => setShowCategories(!showCategories)}>
+                    Categories
+                </Button>
+                {showCategories ? (
+                    <div className={classes.sideBar}>
+                        <FormControl
+                            className={classes.blogListCategory}
+                            component="fieldset"
+                        >
+                            <RadioGroup
+                                value={type}
+                                onChange={handleChangeType}
+                            >
+                                {CATEGORIES.map((option) => (
+                                    <FormControlLabel
+                                        value={option.value}
+                                        control={
+                                            <GreenRadio
+                                                checked={
+                                                    selectedValue ===
+                                                    option.value
+                                                }
+                                                onChange={handleChange}
+                                                value={option.value}
+                                                name="radio-button-demo"
+                                            />
+                                        }
+                                        label={option.label}
+                                    />
+                                ))}
+                                {/* <GreenRadio
+                                    checked={selectedValue === "c"}
+                                    onChange={handleChange}
+                                    value="c"
+                                    name="radio-button-demo"
+                                    inputProps={{ "aria-label": "C" }}
+                                /> */}
                                 <FormControlLabel
-                                    value={option.value}
-                                    control={<Radio />}
-                                    label={option.label}
+                                    value="all"
+                                    control={
+                                        <GreenRadio
+                                            checked={selectedValue === "all"}
+                                            onChange={handleChange}
+                                            value="all"
+                                            name="radio-button-demo"
+                                        />
+                                    }
+                                    label="Reset category"
                                 />
-                            ))}
-                            <FormControlLabel
-                                value="all"
-                                control={<Radio />}
-                                label="Reset category"
+                            </RadioGroup>
+                        </FormControl>
+                        <div className={classes.search}>
+                            <div className={classes.searchIcon}>
+                                <SearchIcon />
+                            </div>
+                            <InputBase
+                                placeholder="Search…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{ "aria-label": "search" }}
+                                onChange={(e) => handleValue(e)}
                             />
-                        </RadioGroup>
-                    </FormControl>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
                         </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ "aria-label": "search" }}
-                            onChange={(e) => handleValue(e)}
-                        />
-                    </div>
-                    {/* <Grid
+                        {/* <Grid
                         style={{
                             width: "290px",
                             backgroundColor: "#8ab584",
@@ -261,7 +316,10 @@ const BlogList = () => {
                         >
                         </div>
                     </Grid> */}
-                </div>
+                    </div>
+                ) : (
+                    ""
+                )}
 
                 {blogs?.length > 0 ? (
                     <>
@@ -299,5 +357,3 @@ const BlogList = () => {
 };
 
 export default BlogList;
-
-

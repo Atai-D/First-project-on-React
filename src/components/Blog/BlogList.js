@@ -68,10 +68,12 @@ const useStyles = makeStyles((theme) => ({
     },
 
     blogListContainer: {
+
+    },
         // backgroundColor:"#ffecd4",
 
     blogListContainer:{
-        // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/main4.jpeg'})`,
+        // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/rainbow.jpeg'})`,
 
         // backgroundColor:"#f",
 
@@ -223,7 +225,7 @@ const BlogList = () => {
     return (
         <>
             <div className={classes.blogListContainer}>
-                <Button onClick={() => setShowCategories(!showCategories)}>
+                <Button onClick={() => setShowCategories(!showCategories)} style={{color:"#8ab584", fontFamily: "nunito", fontWeight:"bold"}}>
                     Categories
                 </Button>
                 {showCategories ? (

@@ -19,11 +19,12 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 const useStyles = makeStyles({
-    root: {
+    cardRoot: {
         width: 300,
         margin: 15,
-        backgroundColor: "#8ab584",
-        color: "white",
+        backgroundColor: "#f0ed90",     
+        fontFamily: "nunito",      
+    
     },
     blogBtn: {
         color: "white",
@@ -54,8 +55,8 @@ const useStyles = makeStyles({
         width: "100%",
     },
     blogCardInf: {
-        display: "flex",
-        justifyContent: "row",
+        // display: "flex",
+        // justifyContent: "row",
     },
 });
 
@@ -100,8 +101,10 @@ export default function BlogCard({ blog, showAuthor }) {
     };
 
     return (
-        <Card className={classes.root}>
-            {/* <CssBaseline /> */}
+     <div>   
+    <Grid container spacing={3}>
+        <Grid item sx={3}>
+        <Card className={classes.cardRoot} elevation={5}>
             <CardActionArea
                 id={blog.id}
                 onClick={() => {
@@ -111,7 +114,7 @@ export default function BlogCard({ blog, showAuthor }) {
                 <CardMedia
                     component="img"
                     alt="asd"
-                    height="140"
+                    height="200"
                     image={blog.image}
                     title="Show more about this blog"
                 />
@@ -159,9 +162,9 @@ export default function BlogCard({ blog, showAuthor }) {
             <CardActions>
                 {logged.isLogged ? (
                     <SentimentVerySatisfiedIcon 
-                        // size="small"
                         color="#fff"
                         onClick={() => handleLikeBtn()}
+
                     >
                         Like
                     </SentimentVerySatisfiedIcon>
@@ -175,11 +178,13 @@ export default function BlogCard({ blog, showAuthor }) {
                     <div>
                         <DeleteOutlineIcon
                             className={classes.blogBtn}
-                            size="small"
+                            size="#fff"
                             color="primary"
                             onClick={() =>
                                 handleDeleteBtn(blog.id, blog.authorsId)
                             }
+                            style={{display: 'flex'}}
+
                         >
                             Delete
                         </DeleteOutlineIcon>
@@ -243,5 +248,8 @@ export default function BlogCard({ blog, showAuthor }) {
                 {/* </div> */}
             </CardActions>
         </Card>
+        </Grid>
+    </Grid> 
+    </div> 
     );
 }

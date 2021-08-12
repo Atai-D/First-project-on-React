@@ -1,17 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import SignUp from "../components/Authorization/SignUp";
 import AddBlog from "../components/Blog/AddBlog";
 import BlogDetails from "../components/Blog/BlogDetails";
 import BlogList from "../components/Blog/BlogList";
 import MyBlog from "../components/Blog/MyBlog";
-import Footer from "../components/Footer/Footer";
 import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
 import Payment from "../components/Payment/Payment";
 import MyPromotions from "../components/Promotion/MyPromotions";
 import Promotion from "../components/Promotion/Promotion";
-import AuthorizationContextProvider from "../contexts/AuthorizationContext";
 import BlogContextProvider from "../contexts/BlogContext";
 
 import ProdectedRoute from "./ProdectedRoute";
@@ -40,7 +37,6 @@ const Routes = () => {
                     />
                 </Switch>
             </BlogContextProvider>
-                <Footer/>
         </BrowserRouter>
     );
 };

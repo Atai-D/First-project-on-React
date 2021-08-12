@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import "./App.css";
 import { useAutho } from "./contexts/AuthorizationContext";
 import Routes from "./Routes/Routes";
-import "./components/Footer/Footer.css"
+import Footer from "./components/Footer/Footer";
+import "./components/Footer/Footer.css";
 
 function App() {
     const {
@@ -24,15 +25,12 @@ function App() {
     }, []);
 
     return (
-
         <div className="page-container">
             <div className="content-wrap">
-            <Routes />
+                <Routes />
             </div>
-            
-            
 
-
+            <Footer />
         </div>
     );
 }

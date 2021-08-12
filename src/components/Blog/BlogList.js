@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
         // },
     },
     blogListContainer:{
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/main4.jpeg'})`,
+        // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/main4.jpeg'})`,
 
-        // backgroundColor:"#ffecd4",
+        // backgroundColor:"#f",
         // display:"flex"
     },
     blogListCards:{
@@ -193,7 +193,6 @@ const BlogList = () => {
     return (
         <>
             <div className={classes.blogListContainer}>
-                <CssBaseline />
                 <div className={classes.sideBar}>
                     <FormControl
                         className={classes.blogListCategory}
@@ -215,7 +214,21 @@ const BlogList = () => {
                             />
                         </RadioGroup>
                     </FormControl>
-                    <Grid
+                    <div className={classes.search}>
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        <InputBase
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ "aria-label": "search" }}
+                            onChange={(e) => handleValue(e)}
+                        />
+                    </div>
+                    {/* <Grid
                         style={{
                             width: "290px",
                             backgroundColor: "#8ab584",
@@ -249,22 +262,8 @@ const BlogList = () => {
                                 borderRadius: "5px",
                             }}
                         >
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <SearchIcon />
-                                </div>
-                                <InputBase
-                                    placeholder="Search…"
-                                    classes={{
-                                        root: classes.inputRoot,
-                                        input: classes.inputInput,
-                                    }}
-                                    inputProps={{ "aria-label": "search" }}
-                                    onChange={(e) => handleValue(e)}
-                                />
-                            </div>
                         </div>
-                    </Grid>
+                    </Grid> */}
                 </div>
 
                 {blogs?.length > 0 ? (

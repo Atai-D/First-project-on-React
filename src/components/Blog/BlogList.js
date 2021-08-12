@@ -206,7 +206,21 @@ const BlogList = () => {
                             />
                         </RadioGroup>
                     </FormControl>
-                    <Grid
+                    <div className={classes.search}>
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        <InputBase
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ "aria-label": "search" }}
+                            onChange={(e) => handleValue(e)}
+                        />
+                    </div>
+                    {/* <Grid
                         style={{
                             width: "290px",
                             backgroundColor: "#8ab584",
@@ -240,22 +254,8 @@ const BlogList = () => {
                                 borderRadius: "5px",
                             }}
                         >
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <SearchIcon />
-                                </div>
-                                <InputBase
-                                    placeholder="Search…"
-                                    classes={{
-                                        root: classes.inputRoot,
-                                        input: classes.inputInput,
-                                    }}
-                                    inputProps={{ "aria-label": "search" }}
-                                    onChange={(e) => handleValue(e)}
-                                />
-                            </div>
                         </div>
-                    </Grid>
+                    </Grid> */}
                 </div>
 
                 {blogs?.length > 0 ? (

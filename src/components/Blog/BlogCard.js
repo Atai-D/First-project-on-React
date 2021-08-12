@@ -211,7 +211,6 @@ export default function BlogCard({ blog, showAuthor }) {
                                     </>
                                 ) : (
                                     <em style={{ color: "white" }}>
-                                        {" "}
                                         Author: {blog.author}
                                     </em>
                                 )

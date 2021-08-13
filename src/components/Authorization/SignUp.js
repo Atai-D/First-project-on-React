@@ -1,4 +1,4 @@
-import { Button, Container, Modal } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import React, { useState } from "react";
 import MuiAlert from "@material-ui/lab/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,16 +25,15 @@ const SignUp = () => {
         setSignPassword,
         signCheckPassword,
         setSignCheckPassword,
-        state,
         dispatch,
-        users,
         setLogName,
     } = useAutho();
 
+    // Нахождения пользователя в списке контактов
     const [isInUsers, setIsInUsers] = useState(false);
 
+    // state, handleClose, Alert из Material UI
     const [open, setOpen] = useState(false);
-
     const handleClose = (event, reason) => {
         if (reason === "clickaway") {
             return;
@@ -42,7 +41,6 @@ const SignUp = () => {
 
         setOpen(false);
     };
-
     function Alert(props) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
     }
@@ -63,7 +61,6 @@ const SignUp = () => {
 
         if (flag) {
             flag = false;
-            return;
         } else {
             if (
                 signPassword.length >= 6 &&

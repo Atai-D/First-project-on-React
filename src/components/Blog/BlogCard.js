@@ -171,7 +171,7 @@ export default function BlogCard({ blog, showAuthor }) {
                                             cursor: "pointer",
                                         }}
                                     >
-                                        Deletes
+                                        Delete
                                     </DeleteOutlineIcon>
                                     <EditOutlinedIcon
                                         className={classes.blogBtn}

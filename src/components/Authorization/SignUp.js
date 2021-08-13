@@ -151,28 +151,43 @@ const SignUp = () => {
             >
                 <Modal.Header
                     closeButton
-                    style={{ backgroundColor: "rgba(191, 224, 194,0.7)" }}
+                    style={{ 
+                    backgroundColor: "rgba(191, 224, 194,0.7)",
+                    display: "flex",
+                    // alignItems: "center",
+                    // justifyContent: "center"
+                 }}
                 >
-                    <Modal.Title id="example-modal-sizes-title-lg">
+                    <Modal.Title id="example-modal-sizes-title-lg"
+                    style={{
+                        // display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                    >
                         Sign Up
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body boxSizing="none">
                     <Container commponent="main" maxWidth="xs">
                         <form action="" onSubmit={handleSubmit}>
-                            <Grid container>
-                                <br />
+                            <Grid style={{display: "flex", flexDirection:'column'}}>
+                                
                                 <Typography
                                     component="h1"
                                     variant="h5"
                                     style={{
-                                        marginLeft: "-15px",
-                                        marginRight: "15px",
+                                        // display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        marginBottom:"5px"
+
                                     }}
+                    
                                 >
                                     Registration
                                 </Typography>
-                                <br />
+                                
                                 <Grid>
                                     <TextField
                                         name="email"
@@ -187,9 +202,10 @@ const SignUp = () => {
                                         style={{
                                             marginBottom: "10px",
                                             fontFamily: "nunito",
+                                            backgroundColor: "rgba(191, 224, 194,0.2)"
                                         }}
                                     />
-                                    <br />
+                                    
                                     <TextField
                                         // fullWidth={720}
                                         name="password"
@@ -208,7 +224,7 @@ const SignUp = () => {
                                             fontFamily: "nunito",
                                         }}
                                     />
-                                    <br />
+                                    
                                     <TextField
                                         // fullWidth={600}
                                         variant="outlined"
@@ -226,14 +242,20 @@ const SignUp = () => {
                                             fontFamily: "nunito",
                                         }}
                                     />
-                                    <br />
+                                    
                                 </Grid>
                                 <ButtonUI
-                                    variant="contained"
+                                    // variant="contained"
                                     type="submit"
                                     style={{
                                         backgroundColor: "#bfe0c2",
+                                        marginTop: "10px",
                                         color: "#fff",
+                                        // display: "flex",
+                                        // alignItems: "left",
+                                        // justifyContent: "center"
+                    
+                                        
                                     }}
                                 >
                                     Sign Up

@@ -129,7 +129,12 @@ const LogIn = () => {
                     setLogModal(false);
                     setIsInUsers(false);
                 }}
-                style={{ color: "#bfe0c2", zIndex: "10000" }}
+                style={{ 
+                    color: "rgb(191, 224, 194)", 
+                    zIndex: "10000", 
+                    fontFamily: "nunito", 
+                    backgroundColor: "rgba(191, 224, 194,0.2)"
+            }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>

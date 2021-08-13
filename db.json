@@ -39,7 +39,7 @@
           "id": 1
         },
         {
-          "title": "paintball",
+          "title": "paintball1",
           "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
           "text": "you have to play paintball. Very nice place to play with friends",
           "category": "thingsToDo",
@@ -47,8 +47,8 @@
           "date": 1628789547545,
           "price": 600,
           "usersLikes": [
-            1,
-            2
+            2,
+            1
           ],
           "comments": [],
           "priority": 3,
@@ -254,7 +254,7 @@
       "id": 1
     },
     {
-      "title": "paintball",
+      "title": "paintball1",
       "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
       "text": "you have to play paintball. Very nice place to play with friends",
       "category": "thingsToDo",
@@ -262,8 +262,8 @@
       "date": 1628789547545,
       "price": 600,
       "usersLikes": [
-        1,
-        2
+        2,
+        1
       ],
       "comments": [],
       "priority": 3,
@@ -302,14 +302,14 @@
       "price": 300,
       "usersLikes": [
         3,
-        1,
         2,
-        4
+        4,
+        1
       ],
       "comments": [
         {
           "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "12314123123",
+          "comment": "12314123123123123",
           "id": 1628831620536,
           "blogId": 4
         },

@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: "20px",
         position: "absolute",
         zIndex: 100,
-        backgroundColor: "rgba(191, 224, 194,0.7)",
+        backgroundColor: "rgba(191, 224, 194,0.9)",
         borderRadius: "20px",
     },
 }));

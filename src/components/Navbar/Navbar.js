@@ -309,6 +309,7 @@ export default function PrimarySearchAppBar() {
                                 deleteCart();
                                 alert("Вы вышли из аккаунта");
                                 getBlogsData();
+                                history.push("/");
                             }}
                         >
                             Log out

@@ -122,7 +122,7 @@ export default function BlogDetails() {
     };
 
     return (
-        <div>
+        <div style={{ overflowX: "hidden" }}>
             {blogDetails ? (
                 <Grid
                     container
@@ -153,7 +153,6 @@ export default function BlogDetails() {
                             {logged.isLogged ? (
                                 <Button
                                     size="small"
-                                    color="primary"
                                     onClick={() => handleLikeBtn()}
                                 >
                                     <FavoriteIcon />

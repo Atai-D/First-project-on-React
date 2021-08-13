@@ -9,20 +9,22 @@ import {
 
 const Footer = () => {
     return (
-        <div 
-        // style={{position: "fixed", left: 0, bottom: 0}} 
-        className="main-footer">
+        <div
+            // style={{position: "fixed", left: 0, bottom: 0}}
+            className="main-footer"
+        >
             <div className="container">
                 <div className="row">
                     {/* column1 */}
                     <div className="col">
-                        <h4>
-                            ABOUT US
-                        </h4>
+                        <h4>ABOUT US</h4>
                         <p className="list-unstyled">
-                        This blog puts together everyone's <br /> exploration of Bishkek, <br/> capital of Kyrgyzstan. 
-                        <br />
-                        Keep yourself up to date with us! </p>
+                            This blog puts together everyone's <br />{" "}
+                            exploration of Bishkek, <br /> capital of
+                            Kyrgyzstan.
+                            <br />
+                            Keep yourself up to date with us!{" "}
+                        </p>
                     </div>
                     {/* column2 */}
                     <div className="col">
@@ -47,14 +49,20 @@ const Footer = () => {
                         <h4>FOLLOW US</h4>
                         <ul className="icons">
                             <li>
-                                <a href="https://www.instagram.com/akashkarbek/">
+                                <a
+                                    href="https://www.instagram.com/akashkarbek/"
+                                    target="_blank"
+                                >
                                     <AiFillInstagram
                                         style={{ color: "#fff" }}
                                     />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/home?lang=en">
+                                <a
+                                    href="https://twitter.com/home?lang=en"
+                                    target="_blank"
+                                >
                                     <AiOutlineTwitter
                                         style={{ color: "#fff" }}
                                     />

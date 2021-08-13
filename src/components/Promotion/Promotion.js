@@ -31,39 +31,17 @@ const Promotion = () => {
     const classes = useStyles();
     const [value, setValue] = useState(30);
     const { promotionBlogs, history, handlePayingBlogs } = useBlog();
-    // promotionBlogs.map(blogsID => (
-
-    // ))
     const { cart, getCart, changeBlogCount } = useBlog();
     const [count, setCount] = useState([]);
-    // useEffect(() => {
-    //     console.log(1);
-    //     console.log(promotionBlogs);
-    //     console.log(cart);
-    // }, []);
 
     useEffect(() => {
         getCart();
     }, []);
 
-    const handleCountChange = (value, id) => {
-        changeBlogCount(value, id);
-        setValue(value === "" ? "" : Number(value));
-    };
-
     const handlePayBtn = () => {
         history.push("/payment");
         handlePayingBlogs(cart.blogs);
     };
-
-    // const handleCountPrice = (value, id) => {
-    //     setCount();
-    // };
-
-    // useEffect(() => {
-    //     console.log(cart);
-    // }, [cart]);
-
     return (
         <>
             {cart?.blogs?.length > 0 ? (

@@ -65,7 +65,7 @@
           "subPrice": 400
         },
         {
-          "title": "test1232",
+          "title": "test123211",
           "image": "123",
           "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
           "category": "food&drinks",
@@ -84,77 +84,35 @@
           "days": 15,
           "promPrice": 20,
           "subPrice": 300
+        },
+        {
+          "title": "123",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "awawd",
+          "category": "thingsToDo",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628846200804,
+          "price": 123,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 3,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 9,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300
         }
       ],
       "favourites": [],
       "promotionBlogs": [
         {
-          "title": "Bishkek park",
-          "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
-          "text": "very good place",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789490406,
-          "price": 400,
-          "usersLikes": [
-            3,
-            2,
-            4,
-            5,
-            1
-          ],
-          "comments": [
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123123123",
-              "id": 1628830437062,
-              "blogId": 1
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "12312312321323123",
-              "id": 1628830452638,
-              "blogId": 1
-            }
-          ],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 1,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628843460523
-        },
-        {
-          "title": "test123",
-          "image": "123",
-          "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
-          "category": "food&drinks",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789562127,
-          "price": 123123123,
-          "usersLikes": [
-            2,
-            4
-          ],
-          "comments": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 3,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628843059580
-        },
-        {
-          "title": "123123",
+          "title": "123",
           "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awdawdawd",
-          "category": "art&culture",
+          "text": "awawd",
+          "category": "thingsToDo",
           "author": "rapakrapak123@gmail.com",
-          "date": 1628843006563,
+          "date": 1628846200804,
           "price": 123,
           "usersLikes": [],
           "comments": [],
@@ -165,29 +123,7 @@
           "days": 15,
           "promPrice": 20,
           "subPrice": 300,
-          "promotionDate": 1628843059580
-        },
-        {
-          "title": "paintball",
-          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-          "text": "you have to play paintball. Very nice place to play with friends",
-          "category": "thingsToDo",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789547545,
-          "price": 600,
-          "usersLikes": [
-            1,
-            2
-          ],
-          "comments": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 2,
-          "days": 20,
-          "promPrice": 20,
-          "subPrice": 400,
-          "promotionDate": 1628836261681
+          "promotionDate": 1628846219754
         }
       ],
       "id": 1
@@ -366,7 +302,7 @@
       "subPrice": 400
     },
     {
-      "title": "test1232",
+      "title": "test123211",
       "image": "123",
       "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
       "category": "food&drinks",
@@ -491,6 +427,26 @@
       "isAdminWrote": false,
       "authorsId": 6,
       "id": 8
+    },
+    {
+      "title": "123",
+      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+      "text": "awawd",
+      "category": "thingsToDo",
+      "author": "rapakrapak123@gmail.com",
+      "date": 1628846200804,
+      "price": 123,
+      "usersLikes": [
+        1
+      ],
+      "comments": [],
+      "priority": 3,
+      "isAdminWrote": false,
+      "authorsId": 1,
+      "id": 9,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
     }
   ]
 }

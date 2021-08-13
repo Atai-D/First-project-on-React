@@ -6,10 +6,6 @@ import { useBlog } from "../../contexts/BlogContext";
 const MyPromotions = () => {
     const { logged } = useAutho();
     const { promotionBlogs, renderPromotionBlogs } = useBlog();
-    // const checkData = (date, days) => {
-    //     if(new Date(Date.now()).getTime() -
-    //     new Date(blog.date).getTime())
-    // }
     useEffect(() => {
         renderPromotionBlogs(logged.promotionBlogs);
     }, []);
@@ -21,8 +17,6 @@ const MyPromotions = () => {
                     <h1>
                         Blog Title:{" "}
                         <NavLink to={`/blog/${blog.id}`}>{blog.title}</NavLink>
-                        {/* {new Date(Date.now()).getTime() -
-                        new Date(blog.date).getTime()} */}
                         <br />
                         Days Left:{" "}
                         {Math.floor(

@@ -15,17 +15,6 @@ const CommentCard = ({ comment, blogDetails }) => {
 
     const { logged } = useAutho();
 
-    const handleOpenComment = () => {
-        setOpenInp(true);
-    };
-
-    const handleSendComment = () => {
-        addComment(commentInp, blogDetails);
-        setOpenInp(false);
-        getBlogDetails(blogDetails.id);
-        setCommentInp("");
-    };
-
     const handleDeleteComment = (comment, blogDetails) => {
         deleteComment(comment, blogDetails);
     };
@@ -43,16 +32,7 @@ const CommentCard = ({ comment, blogDetails }) => {
     return (
         <div style={{ marginBottom: "30px" }}>
             <div>
-                {/* {logged.id === blogDetails.authorsId ? (
-                                          <input
-                                              value={editInp}
-                                              onChange={(e) =>
-                                                  setEditInp(e.target.value)
-                                              }
-                                          /> */}
-                {/* ) : ( */}
                 <em>{comment.authorsEmail}</em>
-                {/* )} */}
             </div>
             {openEditInp ? (
                 <>

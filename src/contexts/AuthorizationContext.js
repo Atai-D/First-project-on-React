@@ -11,12 +11,6 @@ const AuthorizationContextProvider = ({ children }) => {
     const [signModal, setSignModal] = useState(false);
     const [logModal, setLogModal] = useState(false);
 
-    // let user = JSON.parse(localStorage.getItem("user"));
-    // const [logged, setLogged] = useState({
-    //     isLogged: false,
-    //     email: "",
-    // });
-
     const [loading, setLoading] = useState(false);
     const [signName, setSignName] = useState("");
     const [signPassword, setSignPassword] = useState("");
@@ -31,7 +25,6 @@ const AuthorizationContextProvider = ({ children }) => {
             isLogged: false,
             email: "",
         },
-        // loading: true,
     };
 
     const reducer = (state = INIT_STATE, action) => {
@@ -59,8 +52,6 @@ const AuthorizationContextProvider = ({ children }) => {
         setSignModal,
         logModal,
         setLogModal,
-        // logged,
-        // setLogged,
         signName,
         setSignName,
         signPassword,

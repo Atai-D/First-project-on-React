@@ -4,27 +4,22 @@ import Input from "@material-ui/core/Input";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
-import { ACTIONS, JSON_API_USERS } from "../../helpers/consts";
+import { JSON_API_USERS } from "../../helpers/consts";
 import {
     Grid,
     Typography,
     TextField,
     Button as ButtonUI,
-    Snackbar,
 } from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const LogIn = () => {
     const {
         setSignModal,
         logModal,
         setLogModal,
-        // setLogged,
         changeLoggedUser,
         setSignName,
-        users,
         logName,
         setLogName,
         logPassword,
@@ -32,27 +27,6 @@ const LogIn = () => {
     } = useAutho();
 
     const [isInUsers, setIsInUsers] = useState(false);
-
-    // const [open, setOpen] = useState({
-    //     open: false,
-    //     message: "",
-    // });
-
-    // const handleClick = () => {
-    //     setOpen({ ...open, open: true });
-    // };
-
-    // const handleClose = (event, reason) => {
-    //     if (reason === "clickaway") {
-    //         return;
-    //     }
-
-    //     setOpen({ ...open, open: false });
-    // };
-
-    // function Alert(props) {
-    //     return <MuiAlert elevation={6} variant="filled" {...props} />;
-    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -86,17 +60,8 @@ const LogIn = () => {
                     logPassword.toString().toLowerCase()
                 ) {
                     if (authUser.isAdmin) {
-                        // setOpen({
-                        //     ...open,
-                        //     message: "Добро пожаловать, админ",
-                        // });
                         alert("Добро пожаловать, админ");
                     } else {
-                        // setOpen({
-                        //     ...open,
-                        //     message: `Добро пожаловать, ${authUser.email}`,
-                        // });
-                        // console.log(open.message);
                         alert(`Добро пожаловать, ${authUser.email}`);
                     }
                     setLogName("");
@@ -113,15 +78,6 @@ const LogIn = () => {
 
     return (
         <>
-            {/* <Snackbar
-                open={open.open}
-                autoHideDuration={2000}
-                onClose={handleClose}
-            >
-                <Alert onClose={handleClose} severity="success">
-                    {open.message}
-                </Alert>
-            </Snackbar> */}
             <Modal
                 size="lg"
                 show={logModal}
@@ -129,12 +85,12 @@ const LogIn = () => {
                     setLogModal(false);
                     setIsInUsers(false);
                 }}
-                style={{ 
-                    color: "rgb(191, 224, 194)", 
-                    zIndex: "10000", 
-                    fontFamily: "nunito", 
-                    backgroundColor: "rgba(191, 224, 194,0.2)"
-            }}
+                style={{
+                    color: "rgb(191, 224, 194)",
+                    zIndex: "10000",
+                    fontFamily: "nunito",
+                    backgroundColor: "rgba(191, 224, 194,0.2)",
+                }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -207,9 +163,7 @@ const LogIn = () => {
                                         setSignName(logName);
                                     }}
                                 >
-                                    {/* <Link exact to="/"> */}
                                     Хотите зарегистрироваться?
-                                    {/* </Link> */}
                                 </ButtonUI>
                             </h5>
                         ) : (

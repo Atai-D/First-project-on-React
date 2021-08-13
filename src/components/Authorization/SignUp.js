@@ -1,6 +1,5 @@
 import { Button, Container, Modal } from "react-bootstrap";
 import React, { useState } from "react";
-// import Input from "@material-ui/core/Input";
 import MuiAlert from "@material-ui/lab/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAutho } from "../../contexts/AuthorizationContext";
@@ -13,18 +12,12 @@ import {
     Snackbar,
 } from "@material-ui/core";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 
 const SignUp = () => {
     const {
         signModal,
         setSignModal,
-        logModal,
         setLogModal,
-        user,
-        setUser,
-        logged,
-        // setLogged,
         changeLoggedUser,
         signName,
         setSignName,
@@ -41,10 +34,6 @@ const SignUp = () => {
     const [isInUsers, setIsInUsers] = useState(false);
 
     const [open, setOpen] = useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
 
     const handleClose = (event, reason) => {
         if (reason === "clickaway") {
@@ -65,7 +54,6 @@ const SignUp = () => {
 
         const { data } = await axios(JSON_API_USERS);
 
-        // console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i].email.toLowerCase() === signName.toLowerCase()) {
                 setIsInUsers(true);
@@ -74,7 +62,6 @@ const SignUp = () => {
         }
 
         if (flag) {
-            // console.log(users);
             flag = false;
             return;
         } else {
@@ -154,14 +141,11 @@ const SignUp = () => {
                     style={{
                         backgroundColor: "rgba(191, 224, 194,0.7)",
                         display: "flex",
-                        // alignItems: "center",
-                        // justifyContent: "center"
                     }}
                 >
                     <Modal.Title
                         id="example-modal-sizes-title-lg"
                         style={{
-                            // display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                         }}
@@ -182,7 +166,6 @@ const SignUp = () => {
                                     component="h1"
                                     variant="h5"
                                     style={{
-                                        // display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
                                         marginBottom: "5px",
@@ -211,7 +194,6 @@ const SignUp = () => {
                                     />
 
                                     <TextField
-                                        // fullWidth={720}
                                         name="password"
                                         variant="outlined"
                                         required
@@ -230,7 +212,6 @@ const SignUp = () => {
                                     />
 
                                     <TextField
-                                        // fullWidth={600}
                                         variant="outlined"
                                         required
                                         label="Password again"
@@ -248,15 +229,11 @@ const SignUp = () => {
                                     />
                                 </Grid>
                                 <ButtonUI
-                                    // variant="contained"
                                     type="submit"
                                     style={{
                                         backgroundColor: "#bfe0c2",
                                         marginTop: "10px",
                                         color: "#fff",
-                                        // display: "flex",
-                                        // alignItems: "left",
-                                        // justifyContent: "center"
                                     }}
                                 >
                                     Sign Up

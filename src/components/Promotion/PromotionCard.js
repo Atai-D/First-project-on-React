@@ -33,17 +33,11 @@ const PromotionCard = ({ blog }) => {
     const { cart, getCart, changeBlogCount, changeBlogPrice, addBlogToCart } =
         useBlog();
 
-    // changeBlogCount(value, id);
-    // handleCountChange
     const handleCountChange = (e) => {
         const res = eval(`${days}${e.target.innerText}`);
         setDays(res);
         changeBlogCount(res, blog.id);
     };
-
-    // useEffect(() => {
-    //     getCart();
-    // }, []);
 
     const handlePriceChange = (e) => {
         const res = eval(`${price}${e.target.innerText}`);
@@ -65,13 +59,6 @@ const PromotionCard = ({ blog }) => {
                 {blog.title}
             </TableCell>
             <TableCell align="right">
-                {/* <input
-                    type="number"
-                    value={blog.count}
-                    onChange={(e) =>
-                        handleCountChange(e.target.value, blog.id)
-                    }
-                /> */}
                 <Button
                     onClick={handlePriceChange}
                     disabled={price - 10 < 1 ? "disabled" : ""}
@@ -99,16 +86,6 @@ const PromotionCard = ({ blog }) => {
                 </Button>
             </TableCell>
             <TableCell align="right">
-                {/* <input
-                                                type="number"
-                                                value={blog.count}
-                                                onChange={(e) =>
-                                                    handleCountChange(
-                                                        e.target.value,
-                                                        blog.id
-                                                    )
-                                                }
-                                            /> */}
                 <Button
                     onClick={handleCountChange}
                     disabled={days - 5 < 1 ? "disabled" : ""}

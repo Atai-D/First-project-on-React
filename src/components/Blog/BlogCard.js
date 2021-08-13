@@ -27,27 +27,16 @@ const useStyles = makeStyles({
         backgroundColor: "#f0ed90",
         fontFamily: "nunito",
     },
-    blogCardAuthor: {
-        // backgroundColor:"rgb(0,0,0,0.1)",
-        // borderRadius: "5px",
-        // display: "flex",
-        // flexDirection: "column",
-        // width: "100%",
-    },
+    blogCardAuthor: {},
     blogCardBtn: {
-        // backgroundColor:""
         width: "100%",
     },
     blogBtn: {
         color: "black",
         margin: "3px",
-        // minWidth: "100px",
         width: "100%",
     },
-    blogCardInf: {
-        // display: "flex",
-        // justifyContent: "row",
-    },
+    blogCardInf: {},
 });
 
 export default function BlogCard({ blog, showAuthor }) {
@@ -66,12 +55,6 @@ export default function BlogCard({ blog, showAuthor }) {
     } = useBlog();
 
     const { logged } = useAutho();
-
-    // let { user } = JSON.parse(localStorage.getItem("user"));
-    // const findAdminAuthor = async () => {
-    //     const { data } = await axios(JSON_API_BLOGS);
-    //     console.log(data);
-    // };
 
     const handleDeleteBtn = (id, authorsId) => {
         deleteBlog(id, authorsId);
@@ -152,9 +135,7 @@ export default function BlogCard({ blog, showAuthor }) {
                         </CardActionArea>
                         <CardActions className={classes.blogCardInf}>
                             {logged.email === blog.author || logged.isAdmin ? (
-                                <div>
-                                    {/* <DeleteOutlineIcon className={classes.blogBtn} /> */}
-                                </div>
+                                <div></div>
                             ) : (
                                 ""
                             )}
@@ -171,7 +152,6 @@ export default function BlogCard({ blog, showAuthor }) {
                             )}
                         </CardActions>
                         <CardActions className={classes.blogCardInf}>
-                            {/* <div className={classes.blogCardInf} > */}
                             {(logged.id === blog.authorsId &&
                                 logged.isLogged) ||
                             logged.isAdmin ? (
@@ -265,8 +245,6 @@ export default function BlogCard({ blog, showAuthor }) {
                                     </div>
                                 }
                             </Typography>
-
-                            {/* </div> */}
                         </CardActions>
                     </Card>
                 </Grid>

@@ -1,14 +1,10 @@
 import {
     FormControl,
-    FormLabel,
-    Grid,
-    Slider,
     RadioGroup,
     FormControlLabel,
     Radio,
     Button,
     InputBase,
-    CssBaseline,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles } from "@material-ui/core/styles";
@@ -25,7 +21,6 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     search: {
         position: "relative",
-        // float: "left",
         margin: "10px",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -40,8 +35,6 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(3),
             width: "auto",
         },
-
-        ///////////////////
         marginLeft: "-15px !important",
     },
     searchIcon: {
@@ -58,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create("width"),
         width: "100%",
@@ -68,33 +60,16 @@ const useStyles = makeStyles((theme) => ({
     },
 
     blogListContainer: {
-        // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/rainbow.jpeg'})`,
-        // backgroundColor:"#f",
-        // display:"flex"
         backgroundColor: "#ffffe6",
         paddingBottom: "20px",
     },
     blogListCards: {
         display: "flex",
         justifyContent: "space-evenly",
-        // alignItems: "center",
         flexWrap: "wrap",
     },
-    blogListCategory: {
-        // marginTop: "10px",
-        // backgroundColor:"#8ab584",
-        // borderRadius: "5px",
-        // color: "white",
-        // minWidth: "20%"
-    },
+    blogListCategory: {},
     sideBar: {
-        // display:"flex",
-        // justifyContent: "column",
-        // height: "25%",
-        // width: "25%",
-        // backgroundColor: "#8ab584",
-        // minHeight: "100vh"
-
         paddingLeft: "20px",
         position: "absolute",
         zIndex: 100,
@@ -146,7 +121,6 @@ const BlogList = () => {
         if (e.target.value == "all") {
             const search = new URLSearchParams(history.location.search);
             search.delete("category");
-            // search.delete("page");
             search.set("_page", "1");
             setPage(1);
             history.push(`${history.location.pathname}?${search.toString()}}`);
@@ -161,25 +135,6 @@ const BlogList = () => {
         history.push(`${history.location.pathname}?${search.toString()}`);
         getBlogsData();
         setType(e.target.value);
-    };
-
-    const handleChangePrice = (e, value) => {
-        const search = new URLSearchParams(history.location.search);
-        search.set("price_lte", value);
-        search.set("_page", "1");
-        setPage(1);
-        history.push(`${history.location.pathname}?${search.toString()}`);
-        getBlogsData();
-        setPrice(value);
-    };
-
-    const resetPrice = () => {
-        const search = new URLSearchParams(history.location.search);
-        search.delete("price_lte");
-        search.delete("_page");
-        history.push(`${history.location.pathname}?${search.toString()}`);
-        getBlogsData();
-        setPrice(getPrice());
     };
 
     let adminsBlogs = [];
@@ -255,13 +210,6 @@ const BlogList = () => {
                                         label={option.label}
                                     />
                                 ))}
-                                {/* <GreenRadio
-                                    checked={selectedValue === "c"}
-                                    onChange={handleChange}
-                                    value="c"
-                                    name="radio-button-demo"
-                                    inputProps={{ "aria-label": "C" }}
-                                /> */}
                                 <FormControlLabel
                                     value="all"
                                     control={
@@ -290,42 +238,6 @@ const BlogList = () => {
                                 onChange={(e) => handleValue(e)}
                             />
                         </div>
-                        {/* <Grid
-                        style={{
-                            width: "290px",
-                            backgroundColor: "#8ab584",
-                            color: "white",
-                            borderRadius: "5px",
-                            marginTop: "10px",
-                        }}
-                    >
-                        <div>Price in KG(SOM)</div>
-                        <Slider
-                            value={price}
-                            onChange={handleChangePrice}
-                            aria-labelledby="discrete-slider"
-                            valueLabelDisplay="auto"
-                            step={5}
-                            min={0}
-                            max={1000}
-                        />
-                        <Button
-                            onClick={resetPrice}
-                            variant="outlined"
-                            color="primary"
-                        >
-                            Reset price
-                        </Button>
-
-                        <div
-                            style={{
-                                marginTop: "30px ",
-                                backgroundColor: "#8ab584",
-                                borderRadius: "5px",
-                            }}
-                        >
-                        </div>
-                    </Grid> */}
                     </div>
                 ) : (
                     ""

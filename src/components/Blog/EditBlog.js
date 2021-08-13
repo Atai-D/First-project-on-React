@@ -24,7 +24,6 @@ const EditBlog = () => {
         setEditModal,
         blogDetails,
         edittingId,
-        setEdittingId,
         getBlogDetails,
         saveEditBlog,
     } = useBlog();
@@ -52,7 +51,6 @@ const EditBlog = () => {
         e.preventDefault();
         saveEditBlog(blog);
         setEditModal(false);
-        // getBlogDetails(edittingId);
     };
 
     return (
@@ -110,28 +108,6 @@ const EditBlog = () => {
                                     value={blog.text}
                                     onChange={handleInp}
                                 />
-                                {/* <TextField
-                                    name="category"
-                                    id="outlined-select-currency"
-                                    select
-                                    required
-                                    label="Select"
-                                    value={editCategory}
-                                    onChange={(e) =>
-                                        setEditCategory(e.target.value)
-                                    }
-                                    helperText="Please select your currency"
-                                    variant="outlined"
-                                >
-                                    {CATEGORIES.map((option) => (
-                                        <MenuItem
-                                            key={option.value}
-                                            value={option.value}
-                                        >
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField> */}
                             </Grid>
                             <ButtonUI variant="contained" type="submit">
                                 Save

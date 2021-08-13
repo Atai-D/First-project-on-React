@@ -6,12 +6,7 @@ import Footer from "./components/Footer/Footer";
 import "./components/Footer/Footer.css";
 
 function App() {
-    const {
-        logged,
-        // setLogged,
-        // setLoading,
-        changeLoggedUser,
-    } = useAutho();
+    const { logged, changeLoggedUser } = useAutho();
 
     useEffect(() => {
         let user = JSON.parse(localStorage.getItem("user"));

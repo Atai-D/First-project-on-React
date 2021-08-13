@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useParams } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
@@ -56,8 +49,6 @@ export default function BlogDetails() {
     const classes = useStyles();
     const [openInp, setOpenInp] = useState(false);
     const [commentInp, setCommentInp] = useState("");
-    const [openEditInp, setOpenEditInp] = useState(false);
-    const [editInp, setEditInp] = useState("");
     const {
         blogDetails,
         getBlogDetails,
@@ -69,21 +60,16 @@ export default function BlogDetails() {
         addLike,
         history,
         addComment,
-        deleteComment,
-        editComment,
     } = useBlog();
 
     const { logged } = useAutho();
 
     useEffect(() => {
-        // console.log(id);
         setEdittingId(id);
         getBlogDetails(id);
-        // console.log(blogDetails);
     }, []);
 
     const handleDeleteBtn = (id, authorsId) => {
-        // console.log(authorsId);
         deleteBlog(id, authorsId);
         deleteBlogDetails();
         history.push("/bloglist");
@@ -96,7 +82,6 @@ export default function BlogDetails() {
     };
 
     const handleLikeBtn = () => {
-        // console.log(blogDetails);
         addLike(blogDetails);
         getBlogDetails(id);
     };
@@ -110,17 +95,6 @@ export default function BlogDetails() {
         getBlogDetails(id);
         setCommentInp("");
     };
-
-    const handleDeleteComment = (comment, blogDetails) => {
-        deleteComment(comment, blogDetails);
-    };
-
-    const handleEditComment = (comment) => {
-        setEditInp(comment.comment);
-        setOpenEditInp(!openEditInp);
-        editComment(comment);
-    };
-
     return (
         <div style={{ overflowX: "hidden" }}>
             {blogDetails ? (

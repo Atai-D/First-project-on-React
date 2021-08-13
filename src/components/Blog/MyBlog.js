@@ -1,29 +1,10 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useAutho } from "../../contexts/AuthorizationContext";
-import { useBlog } from "../../contexts/BlogContext";
+import React from "react";
 import BlogCard from "./BlogCard";
 import EditBlog from "./EditBlog";
 
 const MyBlog = () => {
-    const { logged, setLogged } = useAutho();
-
-    const { history } = useBlog();
-
-    // useEffect(() => {
-    //     let user = JSON.parse(localStorage.getItem("user"));
-    //     console.log(logged);
-    //     if (!user) {
-    //         alert("Зарегистрируйтесь, чтобы увидеть свои блоги");
-    //         history.push("/");
-    //     }
-    // }, [logged]);
-
     let user = JSON.parse(localStorage.getItem("user"));
 
-    // useEffect( async() => {
-    //     let {data} = await axios()
-    // },[])
     return (
         <>
             {user ? (

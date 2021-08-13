@@ -29,7 +29,6 @@ const BlogContextProvider = ({ children }) => {
     const [blogCategory, setBlogCategory] = useState(CATEGORIES[0].value);
     const [promoted, setPromoted] = useState("");
     const [isPromoted, setIsPromoted] = useState(false);
-    // const [newBlog, setNewBlog] = useState({});
 
     const [editModal, setEditModal] = useState(false);
 
@@ -100,15 +99,7 @@ const BlogContextProvider = ({ children }) => {
         });
     };
 
-    const addBlog = async (
-        title,
-        image,
-        text,
-        price,
-        category,
-        isPromoted,
-        promoted
-    ) => {
+    const addBlog = async (title, image, text, price, category, isPromoted) => {
         if (isPromoted) {
             history.push("/payment");
         } else {
@@ -214,34 +205,6 @@ const BlogContextProvider = ({ children }) => {
         getBlogsData();
         getBlogDetails(editedBlog.id);
     };
-
-    // const addPromotionBlog = async (usersID, blog) => {
-    //     console.log(usersID, blog);
-    //     const { data } = await axios(`${JSON_API_USERS}/${usersID}`);
-    //     console.log(data);
-    //     const updateUser = { ...data };
-    //     updateUser.promotionBlogs.push(blog);
-    //     const arr = await axios.patch(
-    //         `${JSON_API_USERS}/${usersID}`,
-    //         updateUser
-    //     );
-
-    //     dispatch({
-    //         type: BLOG_ACTIONS.ADD_PROMOTION_BLOG,
-    //         payload: blog,
-    //     });
-
-    //     let temp = { ...logged };
-    //     temp.promotionBlogs.push(blog);
-    //     localStorage.setItem("user", JSON.stringify(temp));
-    //     console.log(data);
-    // };
-
-    // const changeEdittingUser = async (id, authorsId) => {};
-
-    // const deleteBlogData = () => {
-    //     const
-    // }
 
     const getCart = () => {
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -412,74 +375,6 @@ const BlogContextProvider = ({ children }) => {
         const newBlog = { ...data, usersLikes: likes };
         const arr = await axios.patch(`${JSON_API_BLOGS}/${blog.id}`, newBlog);
 
-        // if (logged.id === blog.authorsId) {
-        //     console.log("asdasd");
-        //     const idToFindInLogged = logged.usersBlogs.filter((usersBlog) =>
-        //         usersBlog.usersLikes.filter((likesId) => likesId === logged.id)
-        //     );
-        //     if (idToFindInLogged.length === 0) {
-        //         console.log(idToFindInLogged);
-        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
-        //             if (usersBlog.id === blog.id) {
-        //                 let likes = [...usersBlog.usersLikes];
-        //                 likes.push(logged.id);
-
-        //                 let newBlog = { ...usersBlog, usersLikes: likes };
-
-        //                 return newBlog;
-        //             } else {
-        //                 return usersBlog;
-        //             }
-        //         });
-
-        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
-        //         localStorage.setItem(
-        //             "user",
-        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
-        //         );
-        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
-        //             ...logged,
-        //             usersBlogs: newBlogs,
-        //         });
-        //     } else {
-        //         const newBlogs = logged.usersBlogs.map((usersBlog) => {
-        //             if (usersBlog.id === blog.id) {
-        //                 let likes = [...usersBlog.usersLikes];
-        //                 likes = likes.filter(
-        //                     (usersId) => usersId !== logged.id
-        //                 );
-        //                 console.log(likes);
-        //                 const newBlog = { ...usersBlog, usersLikes: likes };
-
-        //                 return newBlog;
-        //             } else {
-        //                 return usersBlog;
-        //             }
-        //         });
-        //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
-        //             ...logged,
-        //             usersBlogs: newBlogs,
-        //         });
-        //         changeLoggedUser({ ...logged, usersBlogs: newBlogs });
-        //         localStorage.setItem(
-        //             "user",
-        //             JSON.stringify({ ...logged, usersBlogs: newBlogs })
-        //         );
-        //     }
-
-        // let newUser = { ...logged, usersLikes: likes };
-        // changeLoggedUser(newUser.usersBlogs);
-        // localStorage.setItem("user", JSON.stringify(newUser));
-
-        // logged.usersBlogs.map((usersBlog, index) => {
-        //     if (usersBlog.id === blog.id) {
-        //         let newUser = { ...logged };
-        //         newUser.usersBlogs[index].push(blog.authorsId);
-        //         changeLoggedUser(newUser);
-        //     }
-        // });
-        // }
-        // }
         getBlogsData();
         getBlogDetails(blog.id);
     };
@@ -497,7 +392,6 @@ const BlogContextProvider = ({ children }) => {
             `${JSON_API_BLOGS}/${blog.id}`,
             newBlog
         );
-        // getBlogsData();
         getBlogDetails(data.id);
     };
 

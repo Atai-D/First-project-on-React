@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from "react" 
-import { Route, Redirect } from "react-router-dom"; 
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 import { useAutho } from "../contexts/AuthorizationContext";
 
 const ProdectedRoute = ({ component: Component, ...rest }) => {
     const { logged, setLogModal } = useAutho();
-    // const [flag, setFlag] = useState(logged.isLogged);
-
-    // useEffect(() => {
-    //     const user = JSON.parse(localStorage.getItem("user"));
-    //     if (!user) {
-    //         setFlag(false);
-    //     } else {
-    //         setFlag(true);
-    //     }
-    // }, [logged]);
 
     return (
         <Route
@@ -33,6 +23,5 @@ const ProdectedRoute = ({ component: Component, ...rest }) => {
         />
     );
 };
-
 
 export default ProdectedRoute;

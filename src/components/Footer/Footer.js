@@ -1,5 +1,4 @@
 import React from "react";
-// import "./src/components/Footer/footer.css"
 import { NavLink } from "react-router-dom";
 import {
     AiFillInstagram,
@@ -9,13 +8,9 @@ import {
 
 const Footer = () => {
     return (
-        <div
-            // style={{position: "fixed", left: 0, bottom: 0}}
-            className="main-footer"
-        >
+        <div className="main-footer">
             <div className="container">
                 <div className="row">
-                    {/* column1 */}
                     <div className="col">
                         <h4>ABOUT US</h4>
                         <p className="list-unstyled">
@@ -26,7 +21,6 @@ const Footer = () => {
                             Keep yourself up to date with us!{" "}
                         </p>
                     </div>
-                    {/* column2 */}
                     <div className="col">
                         <h4>CONTACT US</h4>
                         <ul className="list-unstyled">
@@ -44,7 +38,6 @@ const Footer = () => {
                             <li>+996555776612</li>
                         </ul>
                     </div>
-                    {/* column3 */}
                     <div className="col">
                         <h4>FOLLOW US</h4>
                         <ul className="icons">

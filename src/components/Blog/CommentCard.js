@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { useBlog } from "../../contexts/BlogContext";
 import { useAutho } from "../../contexts/AuthorizationContext";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 
 const CommentCard = ({ comment, blogDetails }) => {
     const [openInp, setOpenInp] = useState(false);
@@ -39,7 +41,7 @@ const CommentCard = ({ comment, blogDetails }) => {
         setOpenEditInp(!openEditInp);
     };
     return (
-        <div style={{ marginBottom: "20px" }}>
+        <div style={{ marginBottom: "30px" }}>
             <div>
                 {/* {logged.id === blogDetails.authorsId ? (
                                           <input
@@ -57,8 +59,17 @@ const CommentCard = ({ comment, blogDetails }) => {
                     <input
                         value={editInp}
                         onChange={(e) => setEditInp(e.target.value)}
+                        style={{ backgroundColor: "#f0ed90" }}
                     />
-                    <Button onClick={handleEditComment}>Edit</Button> <br />
+                    <Button onClick={handleEditComment}>
+                        <EditIcon
+                            style={{
+                                width: "20px",
+                                height: "20px",
+                            }}
+                        />
+                    </Button>
+                    <br />
                 </>
             ) : (
                 <div>{comment.comment}</div>
@@ -67,13 +78,25 @@ const CommentCard = ({ comment, blogDetails }) => {
                 <Button
                     onClick={() => handleDeleteComment(comment, blogDetails)}
                 >
-                    Delete
+                    <DeleteIcon
+                        style={{
+                            width: "20px",
+                            height: "20px",
+                        }}
+                    />
                 </Button>
             ) : (
                 ""
             )}
             {!openEditInp && comment.authorsEmail === logged.email ? (
-                <Button onClick={handleOpenEditComment}>Edit</Button>
+                <Button onClick={handleOpenEditComment}>
+                    <EditIcon
+                        style={{
+                            width: "20px",
+                            height: "20px",
+                        }}
+                    />
+                </Button>
             ) : (
                 ""
             )}

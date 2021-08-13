@@ -17,10 +17,8 @@ function App() {
         let user = JSON.parse(localStorage.getItem("user"));
         if (user) {
             changeLoggedUser(user);
-            console.log(user);
         } else {
             changeLoggedUser({ ...logged, isLogged: false });
-            console.log(user);
         }
     }, []);
 

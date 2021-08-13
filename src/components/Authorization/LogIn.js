@@ -68,7 +68,6 @@ const LogIn = () => {
         }
 
         if (!flag) {
-            console.log(users);
             flag = false;
             setIsInUsers(true);
             return;
@@ -80,11 +79,8 @@ const LogIn = () => {
                         authUser = user;
                         authUser.isLogged = true;
                         localStorage.setItem("user", JSON.stringify(authUser));
-                        console.log(user);
                     }
                 });
-                console.log(authUser);
-                console.log(logPassword);
                 if (
                     authUser.password.toLowerCase() ===
                     logPassword.toString().toLowerCase()
@@ -166,6 +162,7 @@ const LogIn = () => {
                                         onChange={(e) =>
                                             setLogName(e.target.value)
                                         }
+                                        style={{ margin: "10px 0" }}
                                     />
                                     <TextField
                                         name="password"
@@ -177,6 +174,7 @@ const LogIn = () => {
                                         onChange={(e) =>
                                             setLogPassword(e.target.value)
                                         }
+                                        style={{ margin: "10px 0" }}
                                     />
                                 </Grid>
                                 <ButtonUI
@@ -187,6 +185,7 @@ const LogIn = () => {
                                         backgroundColor: "#bfe0c2",
                                         color: "#fff",
                                         marginRight: "-15",
+                                        marginTop: "10px",
                                     }}
                                 >
                                     Log In

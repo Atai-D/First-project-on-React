@@ -65,7 +65,7 @@ const SignUp = () => {
 
         const { data } = await axios(JSON_API_USERS);
 
-        console.log(data);
+        // console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i].email.toLowerCase() === signName.toLowerCase()) {
                 setIsInUsers(true);
@@ -74,7 +74,7 @@ const SignUp = () => {
         }
 
         if (flag) {
-            console.log(users);
+            // console.log(users);
             flag = false;
             return;
         } else {
@@ -141,11 +141,18 @@ const SignUp = () => {
                     setSignModal(false);
                     setIsInUsers(false);
                 }}
-                style={{ color: "#8ab584", fontFamily: "nunito", zIndex: "10000", backgroundColor: "rgba(191, 224, 194,0.2)"}}
+                style={{
+                    color: "#8ab584",
+                    fontFamily: "nunito",
+                    zIndex: "10000",
+                    backgroundColor: "rgba(191, 224, 194,0.2)",
+                }}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
-                
-                <Modal.Header closeButton style={{backgroundColor: "rgba(191, 224, 194,0.7)"}}>
+                <Modal.Header
+                    closeButton
+                    style={{ backgroundColor: "rgba(191, 224, 194,0.7)" }}
+                >
                     <Modal.Title id="example-modal-sizes-title-lg">
                         Sign Up
                     </Modal.Title>
@@ -154,14 +161,13 @@ const SignUp = () => {
                     <Container commponent="main" maxWidth="xs">
                         <form action="" onSubmit={handleSubmit}>
                             <Grid container>
-                                <br/>
+                                <br />
                                 <Typography
                                     component="h1"
                                     variant="h5"
                                     style={{
                                         marginLeft: "-15px",
                                         marginRight: "15px",
-                                        
                                     }}
                                 >
                                     Registration
@@ -178,11 +184,14 @@ const SignUp = () => {
                                         onChange={(e) =>
                                             setSignName(e.target.value)
                                         }
-                                        style={{ marginBottom: "10px",fontFamily:"nunito"}}
+                                        style={{
+                                            marginBottom: "10px",
+                                            fontFamily: "nunito",
+                                        }}
                                     />
-                                    <br/>
+                                    <br />
                                     <TextField
-                                    // fullWidth={720}
+                                        // fullWidth={720}
                                         name="password"
                                         variant="outlined"
                                         required
@@ -192,9 +201,14 @@ const SignUp = () => {
                                         onChange={(e) =>
                                             setSignPassword(e.target.value)
                                         }
-                                        style={{backgroundColor: "rgba(191, 224, 194,0.2)", marginBottom: "10px",fontFamily:"nunito"}}
+                                        style={{
+                                            backgroundColor:
+                                                "rgba(191, 224, 194,0.2)",
+                                            marginBottom: "10px",
+                                            fontFamily: "nunito",
+                                        }}
                                     />
-                                    <br/>
+                                    <br />
                                     <TextField
                                         // fullWidth={600}
                                         variant="outlined"
@@ -205,9 +219,14 @@ const SignUp = () => {
                                         onChange={(e) =>
                                             setSignCheckPassword(e.target.value)
                                         }
-                                        style={{backgroundColor: "rgba(191, 224, 194,0.2)", marginBottom: "10px",fontFamily:"nunito"}}
+                                        style={{
+                                            backgroundColor:
+                                                "rgba(191, 224, 194,0.2)",
+                                            marginBottom: "10px",
+                                            fontFamily: "nunito",
+                                        }}
                                     />
-                                    <br/>
+                                    <br />
                                 </Grid>
                                 <ButtonUI
                                     variant="contained"
@@ -245,7 +264,6 @@ const SignUp = () => {
                     </Container>
                 </Modal.Body>
             </Modal>
-            
         </>
     );
 };

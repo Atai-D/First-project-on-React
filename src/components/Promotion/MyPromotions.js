@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useAutho } from "../../contexts/AuthorizationContext";
 import { useBlog } from "../../contexts/BlogContext";
 
@@ -11,7 +12,6 @@ const MyPromotions = () => {
     // }
     useEffect(() => {
         renderPromotionBlogs(logged.promotionBlogs);
-        console.log(promotionBlogs);
     }, []);
 
     return (
@@ -19,11 +19,12 @@ const MyPromotions = () => {
             {promotionBlogs.length > 0 ? (
                 promotionBlogs.map((blog) => (
                     <h1>
-                        Title: {blog.title}
+                        Blog Title:{" "}
+                        <NavLink to={`/blog/${blog.id}`}>{blog.title}</NavLink>
                         {/* {new Date(Date.now()).getTime() -
                         new Date(blog.date).getTime()} */}
                         <br />
-                        Left:
+                        Days Left:{" "}
                         {Math.floor(
                             (blog.days * 1000 * 3600 * 24 +
                                 blog.date -
@@ -31,7 +32,6 @@ const MyPromotions = () => {
                                 86400000
                         )}
                         days
-                        {console.log(blog)}
                     </h1>
                 ))
             ) : (

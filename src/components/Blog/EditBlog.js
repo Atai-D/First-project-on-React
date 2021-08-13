@@ -33,7 +33,6 @@ const EditBlog = () => {
     const [editCategory, setEditCategory] = useState(CATEGORIES[0].value);
 
     const handleInp = (e) => {
-        console.log(blog);
         let obj = {
             ...blog,
             [e.target.name]: e.target.value,
@@ -43,7 +42,6 @@ const EditBlog = () => {
 
     useEffect(() => {
         getBlogDetails(edittingId);
-        console.log(edittingId);
     }, [edittingId]);
 
     useEffect(() => {

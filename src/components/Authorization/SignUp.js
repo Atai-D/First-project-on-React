@@ -151,19 +151,20 @@ const SignUp = () => {
             >
                 <Modal.Header
                     closeButton
-                    style={{ 
-                    backgroundColor: "rgba(191, 224, 194,0.7)",
-                    display: "flex",
-                    // alignItems: "center",
-                    // justifyContent: "center"
-                 }}
-                >
-                    <Modal.Title id="example-modal-sizes-title-lg"
                     style={{
-                        // display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
+                        backgroundColor: "rgba(191, 224, 194,0.7)",
+                        display: "flex",
+                        // alignItems: "center",
+                        // justifyContent: "center"
                     }}
+                >
+                    <Modal.Title
+                        id="example-modal-sizes-title-lg"
+                        style={{
+                            // display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }}
                     >
                         Sign Up
                     </Modal.Title>
@@ -171,8 +172,12 @@ const SignUp = () => {
                 <Modal.Body boxSizing="none">
                     <Container commponent="main" maxWidth="xs">
                         <form action="" onSubmit={handleSubmit}>
-                            <Grid style={{display: "flex", flexDirection:'column'}}>
-                                
+                            <Grid
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                }}
+                            >
                                 <Typography
                                     component="h1"
                                     variant="h5"
@@ -180,14 +185,12 @@ const SignUp = () => {
                                         // display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        marginBottom:"5px"
-
+                                        marginBottom: "5px",
                                     }}
-                    
                                 >
                                     Registration
                                 </Typography>
-                                
+
                                 <Grid>
                                     <TextField
                                         name="email"
@@ -202,10 +205,11 @@ const SignUp = () => {
                                         style={{
                                             marginBottom: "10px",
                                             fontFamily: "nunito",
-                                            backgroundColor: "rgba(191, 224, 194,0.2)"
+                                            backgroundColor:
+                                                "rgba(191, 224, 194,0.2)",
                                         }}
                                     />
-                                    
+
                                     <TextField
                                         // fullWidth={720}
                                         name="password"
@@ -224,7 +228,7 @@ const SignUp = () => {
                                             fontFamily: "nunito",
                                         }}
                                     />
-                                    
+
                                     <TextField
                                         // fullWidth={600}
                                         variant="outlined"
@@ -242,7 +246,6 @@ const SignUp = () => {
                                             fontFamily: "nunito",
                                         }}
                                     />
-                                    
                                 </Grid>
                                 <ButtonUI
                                     // variant="contained"
@@ -254,8 +257,6 @@ const SignUp = () => {
                                         // display: "flex",
                                         // alignItems: "left",
                                         // justifyContent: "center"
-                    
-                                        
                                     }}
                                 >
                                     Sign Up
@@ -275,9 +276,7 @@ const SignUp = () => {
                                         setSignCheckPassword("");
                                     }}
                                 >
-                                    {/* <Link exact to="/"> */}
                                     Хотите войти?
-                                    {/* </Link> */}
                                 </ButtonUI>
                             </h5>
                         ) : (

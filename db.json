@@ -7,7 +7,7 @@
       "isAdmin": false,
       "usersBlogs": [
         {
-          "title": "Bishkek park123",
+          "title": "Bishkek park",
           "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
           "text": "very good place",
           "category": "art&culture",
@@ -15,8 +15,10 @@
           "date": 1628789490406,
           "price": 400,
           "usersLikes": [
-            2,
             3,
+            2,
+            4,
+            5,
             1
           ],
           "comments": [
@@ -33,10 +35,13 @@
               "blogId": 1
             }
           ],
-          "priority": 1,
+          "priority": 3,
           "isAdminWrote": false,
           "authorsId": 1,
-          "id": 1
+          "id": 1,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300
         },
         {
           "title": "paintball1",
@@ -60,6 +65,68 @@
           "subPrice": 400
         },
         {
+          "title": "test1232",
+          "image": "123",
+          "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
+          "category": "food&drinks",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628789562127,
+          "price": 123123123,
+          "usersLikes": [
+            2,
+            4
+          ],
+          "comments": [],
+          "priority": 3,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 3,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300
+        }
+      ],
+      "favourites": [],
+      "promotionBlogs": [
+        {
+          "title": "Bishkek park",
+          "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
+          "text": "very good place",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628789490406,
+          "price": 400,
+          "usersLikes": [
+            3,
+            2,
+            4,
+            5,
+            1
+          ],
+          "comments": [
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "123123123123",
+              "id": 1628830437062,
+              "blogId": 1
+            },
+            {
+              "authorsEmail": "rapakrapak123@gmail.com",
+              "comment": "12312312321323123",
+              "id": 1628830452638,
+              "blogId": 1
+            }
+          ],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 1,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300,
+          "promotionDate": 1628843460523
+        },
+        {
           "title": "test123",
           "image": "123",
           "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
@@ -68,17 +135,38 @@
           "date": 1628789562127,
           "price": 123123123,
           "usersLikes": [
-            2
+            2,
+            4
           ],
           "comments": [],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 1,
-          "id": 3
-        }
-      ],
-      "favourites": [],
-      "promotionBlogs": [
+          "id": 3,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300,
+          "promotionDate": 1628843059580
+        },
+        {
+          "title": "123123",
+          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
+          "text": "awdawdawd",
+          "category": "art&culture",
+          "author": "rapakrapak123@gmail.com",
+          "date": 1628843006563,
+          "price": 123,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 9,
+          "days": 15,
+          "promPrice": 20,
+          "subPrice": 300,
+          "promotionDate": 1628843059580
+        },
         {
           "title": "paintball",
           "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
@@ -220,7 +308,7 @@
   ],
   "blogs": [
     {
-      "title": "Bishkek park123",
+      "title": "Bishkek park",
       "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
       "text": "very good place",
       "category": "art&culture",
@@ -248,10 +336,13 @@
           "blogId": 1
         }
       ],
-      "priority": 1,
+      "priority": 3,
       "isAdminWrote": false,
       "authorsId": 1,
-      "id": 1
+      "id": 1,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
     },
     {
       "title": "paintball1",
@@ -275,7 +366,7 @@
       "subPrice": 400
     },
     {
-      "title": "test123",
+      "title": "test1232",
       "image": "123",
       "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
       "category": "food&drinks",
@@ -287,10 +378,13 @@
         4
       ],
       "comments": [],
-      "priority": 1,
+      "priority": 3,
       "isAdminWrote": false,
       "authorsId": 1,
-      "id": 3
+      "id": 3,
+      "days": 15,
+      "promPrice": 20,
+      "subPrice": 300
     },
     {
       "title": "cinema1231123123",
@@ -309,14 +403,8 @@
       "comments": [
         {
           "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "12314123123123123",
+          "comment": "1231423",
           "id": 1628831620536,
-          "blogId": 4
-        },
-        {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "123dawda123",
-          "id": 1628831628488,
           "blogId": 4
         },
         {
@@ -350,7 +438,8 @@
       "price": 1234123123,
       "usersLikes": [
         4,
-        5
+        5,
+        1
       ],
       "comments": [
         {

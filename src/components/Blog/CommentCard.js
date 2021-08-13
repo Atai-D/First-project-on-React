@@ -74,7 +74,7 @@ const CommentCard = ({ comment, blogDetails }) => {
             ) : (
                 <div>{comment.comment}</div>
             )}
-            {comment.authorsEmail === logged.email ? (
+            {comment.authorsEmail === logged.email && logged.isLogged ? (
                 <Button
                     onClick={() => handleDeleteComment(comment, blogDetails)}
                 >
@@ -88,7 +88,9 @@ const CommentCard = ({ comment, blogDetails }) => {
             ) : (
                 ""
             )}
-            {!openEditInp && comment.authorsEmail === logged.email ? (
+            {!openEditInp &&
+            comment.authorsEmail === logged.email &&
+            logged.isLogged ? (
                 <Button onClick={handleOpenEditComment}>
                     <EditIcon
                         style={{

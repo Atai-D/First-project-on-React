@@ -160,7 +160,8 @@ export default function BlogDetails() {
                             ) : (
                                 ""
                             )}
-                            {logged.email === blogDetails.author ||
+                            {(logged.email === blogDetails.author &&
+                                logged.isLogged) ||
                             logged.isAdmin ? (
                                 <>
                                     <Button

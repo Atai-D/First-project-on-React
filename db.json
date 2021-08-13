@@ -1,496 +1,240 @@
 {
   "users": [
     {
-      "email": "rapakrapak123@gmail.com",
+      "email": "atay@gmail.com",
       "password": "123123",
       "isLogged": true,
       "isAdmin": false,
       "usersBlogs": [
         {
-          "title": "Bishkek park",
-          "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
-          "text": "very good place",
+          "title": "test1",
+          "image": "https://www.filmstories.co.uk/wp-content/uploads/2019/09/family-cinema-850x600.jpg",
+          "text": "ejfkfjesfswd adw awda dj aldj kjfkdawd awdkj awda awdj ajdwa lwdawdk aad",
           "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789490406,
+          "author": "atay@gmail.com",
+          "date": 1628845182527,
           "price": 400,
-          "usersLikes": [
-            3,
-            2,
-            4,
-            5,
-            1
-          ],
-          "comments": [
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123123123",
-              "id": 1628830437062,
-              "blogId": 1
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "12312312321323123",
-              "id": 1628830452638,
-              "blogId": 1
-            }
-          ],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 1,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300
-        },
-        {
-          "title": "paintball1",
-          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-          "text": "you have to play paintball. Very nice place to play with friends",
-          "category": "thingsToDo",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789547545,
-          "price": 600,
-          "usersLikes": [
-            2,
-            1
-          ],
-          "comments": [],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 2,
-          "days": 20,
-          "promPrice": 20,
-          "subPrice": 400
-        },
-        {
-          "title": "test1232",
-          "image": "123",
-          "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
-          "category": "food&drinks",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789562127,
-          "price": 123123123,
-          "usersLikes": [
-            2,
-            4
-          ],
-          "comments": [],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 3,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300
-        }
-      ],
-      "favourites": [],
-      "promotionBlogs": [
-        {
-          "title": "Bishkek park",
-          "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
-          "text": "very good place",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789490406,
-          "price": 400,
-          "usersLikes": [
-            3,
-            2,
-            4,
-            5,
-            1
-          ],
-          "comments": [
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123123123123",
-              "id": 1628830437062,
-              "blogId": 1
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "12312312321323123",
-              "id": 1628830452638,
-              "blogId": 1
-            }
-          ],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 1,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628843460523
-        },
-        {
-          "title": "test123",
-          "image": "123",
-          "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
-          "category": "food&drinks",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789562127,
-          "price": 123123123,
-          "usersLikes": [
-            2,
-            4
-          ],
-          "comments": [],
-          "priority": 1,
-          "isAdminWrote": false,
-          "authorsId": 1,
-          "id": 3,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628843059580
-        },
-        {
-          "title": "123123",
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "awdawdawd",
-          "category": "art&culture",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628843006563,
-          "price": 123,
           "usersLikes": [],
           "comments": [],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 1,
-          "id": 9,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628843059580
+          "id": 1
         },
         {
-          "title": "paintball",
-          "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-          "text": "you have to play paintball. Very nice place to play with friends",
+          "title": "Bishkek facts",
+          "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+          "text": "adj jdkawdj nawjdawdj adad aldjaj eid alksjd awdjasdj kwdaod askdawid akdj slf sodc wdjwodawd ada kd fi awd awd",
           "category": "thingsToDo",
-          "author": "rapakrapak123@gmail.com",
-          "date": 1628789547545,
-          "price": 600,
-          "usersLikes": [
-            1,
-            2
-          ],
+          "author": "atay@gmail.com",
+          "date": 1628845292876,
+          "price": 123123,
+          "usersLikes": [],
           "comments": [],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 1,
-          "id": 2,
-          "days": 20,
-          "promPrice": 20,
-          "subPrice": 400,
-          "promotionDate": 1628836261681
+          "id": 2
+        },
+        {
+          "title": "About us",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBayNJf19cjpliflqxuY8ZPIYUHLvCpfx3TXxficVGGPjHdh4jRWyWqh6zt4Upq7yQoXc&usqp=CAU",
+          "text": "jkddad awd awaw da da asd awd lsfdk edad. fhasdf akjd ejdad kjawod asd",
+          "category": "food&drinks",
+          "author": "atay@gmail.com",
+          "date": 1628845327951,
+          "price": 400,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 1,
+          "id": 3
         }
       ],
+      "favourites": [],
+      "promotionBlogs": [],
       "id": 1
     },
     {
-      "email": "baha4592@mail.ru",
+      "email": "atay228@gmail.com",
       "password": "123123",
       "isLogged": true,
       "isAdmin": false,
       "usersBlogs": [
         {
-          "title": "cinema1231123123",
-          "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-          "text": "love it. go there and watch cinema adaw dggeuf iqwjef jwe fasjkdf;lasfk apwoefkas dflkasdfkndekdjakdjwekdeawlkf;sldkf afdaf adslfkaweadpsfladslkf asdfasdf aefasekfj asdfkasefkawefkaes faselkfale;fksaeflk ase;lfkasefkas f;laeskfase fkaesf aeskfaself esfae jd wakd aw djjawd akdaewl dpwadkasd fk kefd pawekd awd",
+          "title": "test 228",
+          "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+          "text": " ad awdl df;l wlakda kdjs dowdckod wdj adjkwadj osakd awkd",
           "category": "art&culture",
-          "author": "baha4592@mail.ru",
-          "date": 1628789619139,
-          "price": 300,
-          "usersLikes": [
-            3,
-            1,
-            2
-          ],
-          "comments": [
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "12314123123",
-              "id": 1628831620536,
-              "blogId": 4
-            },
-            {
-              "authorsEmail": "rapakrapak123@gmail.com",
-              "comment": "123dawda123",
-              "id": 1628831628488,
-              "blogId": 4
-            },
-            {
-              "authorsEmail": "baha4592@mail.ru",
-              "comment": "12312313",
-              "id": 1628832282458,
-              "blogId": 4
-            },
-            {
-              "authorsEmail": "baha4592@mail.ru",
-              "comment": "3212312312123",
-              "id": 1628832354540,
-              "blogId": 4
-            }
-          ],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 4,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300
-        },
-        {
-          "title": "test 22123",
-          "image": "123123123",
-          "text": "awdawda wd ag daw dawd awd",
-          "category": "thingsToDo",
-          "author": "baha4592@mail.ru",
-          "date": 1628789629429,
-          "price": 1234123123,
-          "usersLikes": [],
-          "comments": [
-            {
-              "authorsEmail": "baha4592@mail.ru",
-              "comment": "123123123123",
-              "id": 1628834176943,
-              "blogId": 5
-            }
-          ],
-          "priority": 3,
-          "isAdminWrote": false,
-          "authorsId": 2,
-          "id": 5,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300
-        }
-      ],
-      "favourites": [],
-      "promotionBlogs": [
-        {
-          "title": "test 22",
-          "image": "123123123",
-          "text": "awdawda wd ag daw dawd awd",
-          "category": "thingsToDo",
-          "author": "baha4592@mail.ru",
-          "date": 1628789629429,
-          "price": 1234123123,
+          "author": "atay228@gmail.com",
+          "date": 1628845422538,
+          "price": 600,
           "usersLikes": [],
           "comments": [],
           "priority": 1,
           "isAdminWrote": false,
           "authorsId": 2,
-          "id": 5,
-          "days": 15,
-          "promPrice": 20,
-          "subPrice": 300,
-          "promotionDate": 1628833975494
+          "id": 4
+        },
+        {
+          "title": "bishkek park",
+          "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+          "text": "adwjaw djadl kadka esfkpd la;dw",
+          "category": "thingsToDo",
+          "author": "atay228@gmail.com",
+          "date": 1628845443520,
+          "price": 555,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 2,
+          "id": 5
+        },
+        {
+          "title": "noice",
+          "image": "https://www.filmstories.co.uk/wp-content/uploads/2019/09/family-cinema-850x600.jpg",
+          "text": "awdawd adk fkasf lskdlad akwd;awldk adawd",
+          "category": "food&drinks",
+          "author": "atay228@gmail.com",
+          "date": 1628845476424,
+          "price": 12313,
+          "usersLikes": [],
+          "comments": [],
+          "priority": 1,
+          "isAdminWrote": false,
+          "authorsId": 2,
+          "id": 6
         }
       ],
-      "id": 2
-    },
-    {
-      "email": "b-blog@gmail.com",
-      "password": "123456",
-      "isLogged": true,
-      "isAdmin": false,
-      "usersBlogs": [],
       "favourites": [],
       "promotionBlogs": [],
-      "id": 3
+      "id": 2
     }
   ],
   "blogs": [
     {
-      "title": "Bishkek park",
-      "image": "https://st-1.akipress.org/st_gallery/79/978479.5d5651f819e3a06104d9608477a3d41e.jpg",
-      "text": "very good place",
+      "title": "test1",
+      "image": "https://www.filmstories.co.uk/wp-content/uploads/2019/09/family-cinema-850x600.jpg",
+      "text": "ejfkfjesfswd adw awda dj aldj kjfkdawd awdkj awda awdj ajdwa lwdawdk aad",
       "category": "art&culture",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628789490406,
+      "author": "atay@gmail.com",
+      "date": 1628845182527,
       "price": 400,
-      "usersLikes": [
-        3,
-        2,
-        4,
-        5,
-        1
-      ],
+      "usersLikes": [],
       "comments": [
         {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "123123123123",
-          "id": 1628830437062,
-          "blogId": 1
-        },
-        {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "12312312321323123",
-          "id": 1628830452638,
+          "authorsEmail": "atay228@gmail.com",
+          "comment": "interesting",
+          "id": 1628845380776,
           "blogId": 1
         }
       ],
-      "priority": 3,
+      "priority": 1,
       "isAdminWrote": false,
       "authorsId": 1,
-      "id": 1,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
+      "id": 1
     },
     {
-      "title": "paintball1",
-      "image": "https://www.hatkosport.com/wp-content/uploads/2020/07/What-is-Paintball-Game.jpg",
-      "text": "you have to play paintball. Very nice place to play with friends",
+      "title": "Bishkek facts",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "adj jdkawdj nawjdawdj adad aldjaj eid alksjd awdjasdj kwdaod askdawid akdj slf sodc wdjwodawd ada kd fi awd awd",
       "category": "thingsToDo",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628789547545,
-      "price": 600,
+      "author": "atay@gmail.com",
+      "date": 1628845292876,
+      "price": 123123,
       "usersLikes": [
         2,
-        1
-      ],
-      "comments": [],
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 1,
-      "id": 2,
-      "days": 20,
-      "promPrice": 20,
-      "subPrice": 400
-    },
-    {
-      "title": "test1232",
-      "image": "123",
-      "text": "awdawd adawda d gw tsg sfad ad adh th rthr tgdgdtrg drgdergdrgd rgdr",
-      "category": "food&drinks",
-      "author": "rapakrapak123@gmail.com",
-      "date": 1628789562127,
-      "price": 123123123,
-      "usersLikes": [
-        2,
-        4
-      ],
-      "comments": [],
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 1,
-      "id": 3,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
-    },
-    {
-      "title": "cinema1231123123",
-      "image": "https://cdn.britannica.com/44/192744-050-72A54B96/Ala-Too-Square-Bishkek-Kyrgyzstan.jpg",
-      "text": "love it. go there and watch cinema adaw dggeuf iqwjef jwe fasjkdf;lasfk apwoefkas dflkasdfkndekdjakdjwekdeawlkf;sldkf afdaf adslfkaweadpsfladslkf asdfasdf aefasekfj asdfkasefkawefkaes faselkfale;fksaeflk ase;lfkasefkas f;laeskfase fkaesf aeskfaself esfae jd wakd aw djjawd akdaewl dpwadkasd fk kefd pawekd awd",
-      "category": "art&culture",
-      "author": "baha4592@mail.ru",
-      "date": 1628789619139,
-      "price": 300,
-      "usersLikes": [
-        3,
-        2,
-        4,
         1
       ],
       "comments": [
         {
-          "authorsEmail": "rapakrapak123@gmail.com",
-          "comment": "1231423",
-          "id": 1628831620536,
-          "blogId": 4
-        },
-        {
-          "authorsEmail": "baha4592@mail.ru",
-          "comment": "12312313",
-          "id": 1628832282458,
-          "blogId": 4
-        },
-        {
-          "authorsEmail": "baha4592@mail.ru",
-          "comment": "3212312312123",
-          "id": 1628832354540,
-          "blogId": 4
+          "authorsEmail": "atay228@gmail.com",
+          "comment": "very nice!!",
+          "id": 1628845368133,
+          "blogId": 2
         }
       ],
-      "priority": 3,
+      "priority": 1,
       "isAdminWrote": false,
-      "authorsId": 2,
-      "id": 4,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
-    },
-    {
-      "title": "test 22123",
-      "image": "123123123",
-      "text": "awdawda wd ag daw dawd awd",
-      "category": "thingsToDo",
-      "author": "baha4592@mail.ru",
-      "date": 1628789629429,
-      "price": 1234123123,
-      "usersLikes": [
-        4,
-        5,
-        1
-      ],
-      "comments": [
-        {
-          "authorsEmail": "baha4592@mail.ru",
-          "comment": "123123123123",
-          "id": 1628834176943,
-          "blogId": 5
-        }
-      ],
-      "priority": 3,
-      "isAdminWrote": false,
-      "authorsId": 2,
-      "id": 5,
-      "days": 15,
-      "promPrice": 20,
-      "subPrice": 300
+      "authorsId": 1,
+      "id": 2
     },
     {
       "title": "About us",
-      "image": "https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.m-vector.com%2Fnews%2Findeks-gorodskogo-protsvetaniya-goroda-bishkek&psig=AOvVaw1zIarchWsv8ja16wB8aAoq&ust=1628751630170000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOjNgeeyqPICFQAAAAAdAAAAABAJ",
-      "text": "hjjojmlk",
-      "category": "art&culture",
-      "author": "b-blog@gmail.com",
-      "date": 1628790766853,
-      "price": 666,
-      "usersLikes": [
-        4
-      ],
-      "comments": [],
-      "priority": 1,
-      "isAdminWrote": false,
-      "authorsId": 6,
-      "id": 7
-    },
-    {
-      "title": "dhsgdja",
-      "image": "https://www.filmstories.co.uk/wp-content/uploads/2019/09/family-cinema-850x600.jpg",
-      "text": "jdbsjhfuwhrjancsyruweihjn",
-      "category": "art&culture",
-      "author": "b-blog@gmail.com",
-      "date": 1628790845977,
-      "price": 999,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBayNJf19cjpliflqxuY8ZPIYUHLvCpfx3TXxficVGGPjHdh4jRWyWqh6zt4Upq7yQoXc&usqp=CAU",
+      "text": "jkddad awd awaw da da asd awd lsfdk edad. fhasdf akjd ejdad kjawod asd",
+      "category": "food&drinks",
+      "author": "atay@gmail.com",
+      "date": 1628845327951,
+      "price": 400,
       "usersLikes": [
         2,
-        4
+        1
       ],
       "comments": [],
       "priority": 1,
       "isAdminWrote": false,
-      "authorsId": 6,
-      "id": 8
+      "authorsId": 1,
+      "id": 3
+    },
+    {
+      "title": "test 228",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": " ad awdl df;l wlakda kdjs dowdckod wdj adjkwadj osakd awkd",
+      "category": "art&culture",
+      "author": "atay228@gmail.com",
+      "date": 1628845422538,
+      "price": 600,
+      "usersLikes": [],
+      "comments": [],
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 2,
+      "id": 4
+    },
+    {
+      "title": "bishkek park",
+      "image": "https://colorpalettes.net/wp-content/uploads/2014/08/cvetovaya-palitra-479.jpg",
+      "text": "adwjaw djadl kadka esfkpd la;dw",
+      "category": "thingsToDo",
+      "author": "atay228@gmail.com",
+      "date": 1628845443520,
+      "price": 555,
+      "usersLikes": [
+        2
+      ],
+      "comments": [],
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 2,
+      "id": 5
+    },
+    {
+      "title": "noice",
+      "image": "https://www.filmstories.co.uk/wp-content/uploads/2019/09/family-cinema-850x600.jpg",
+      "text": "awdawd adk fkasf lskdlad akwd;awldk adawd",
+      "category": "food&drinks",
+      "author": "atay228@gmail.com",
+      "date": 1628845476424,
+      "price": 12313,
+      "usersLikes": [
+        2,
+        1
+      ],
+      "comments": [
+        {
+          "authorsEmail": "atay@gmail.com",
+          "comment": "okey",
+          "id": 1628845532265,
+          "blogId": 6
+        }
+      ],
+      "priority": 1,
+      "isAdminWrote": false,
+      "authorsId": 2,
+      "id": 6
     }
   ]
 }

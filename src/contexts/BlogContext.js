@@ -142,31 +142,25 @@ const BlogContextProvider = ({ children }) => {
 
             localStorage.setItem("user", JSON.stringify(userWithBlog));
             changeLoggedUser(userWithBlog);
-            console.log(logged.usersBlogs);
-            console.log(logged);
             let { data } = await axios.patch(
                 `${JSON_API_USERS}/${logged.id}`,
                 userWithBlog
             );
 
-            console.log(data);
             alert("Ваш блог успешно опубликован");
         }
     };
 
     const deleteBlog = async (id, authorsId) => {
-        console.log(authorsId);
         const res = await axios.delete(`${JSON_API_BLOGS}/${id}`);
 
         const { data } = await axios(`${JSON_API_USERS}/${authorsId}`);
-        console.log(data, `${JSON_API_USERS}/${authorsId}`);
 
         let filteredBlogs = data?.usersBlogs?.filter((blog) => {
             return blog.id !== id;
         });
 
         const userWithoutBlog = { ...data, usersBlogs: filteredBlogs };
-        console.log(userWithoutBlog);
         const array = await axios.patch(
             `${JSON_API_USERS}/${authorsId}`,
             userWithoutBlog
@@ -280,8 +274,6 @@ const BlogContextProvider = ({ children }) => {
         }
         let newblog = { ...blog, days: 15, promPrice: 20, subPrice: 15 * 20 };
 
-        console.log(newblog);
-
         let blogToFind = cart.blogs.filter((item) => item.id === blog.id);
         if (blogToFind.length == 0) {
             cart.blogs.push(newblog);
@@ -350,7 +342,6 @@ const BlogContextProvider = ({ children }) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
 
         const newBlogs = blogs?.map((blog) => {
-            console.log(blog);
             return { ...blog, promotionDate: Date.now() };
         });
         let tempBlogs = newBlogs.concat(state.promotionBlogs);
@@ -366,7 +357,6 @@ const BlogContextProvider = ({ children }) => {
             `${JSON_API_USERS}/${blogs[0].authorsId}`,
             newLoggedUser
         );
-        console.log(author);
 
         blogs.map(async (blog) => {
             const changedBlog = { ...blog, priority: 3 };
@@ -384,7 +374,6 @@ const BlogContextProvider = ({ children }) => {
                     return usersBlog;
                 }
             });
-            console.log(array);
             const changedUser = { ...res.data, usersBlogs: array };
 
             const a = await axios.patch(
@@ -413,7 +402,6 @@ const BlogContextProvider = ({ children }) => {
         const { data } = await axios(`${JSON_API_BLOGS}/${blog.id}`);
 
         const idToFind = data.usersLikes.filter((like) => like === logged.id);
-        console.log(idToFind.length);
         let likes = [...data.usersLikes];
         if (idToFind.length === 0) {
             likes.push(logged.id);
@@ -468,7 +456,6 @@ const BlogContextProvider = ({ children }) => {
         //                 return usersBlog;
         //             }
         //         });
-        //         console.log({ ...logged, usersBlogs: newBlogs });
         //         const p = axios.patch(`${JSON_API_USERS}/${blog.authorsId}`, {
         //             ...logged,
         //             usersBlogs: newBlogs,
@@ -482,7 +469,6 @@ const BlogContextProvider = ({ children }) => {
 
         // let newUser = { ...logged, usersLikes: likes };
         // changeLoggedUser(newUser.usersBlogs);
-        // console.log(newUser);
         // localStorage.setItem("user", JSON.stringify(newUser));
 
         // logged.usersBlogs.map((usersBlog, index) => {
@@ -494,14 +480,11 @@ const BlogContextProvider = ({ children }) => {
         // });
         // }
         // }
-        console.log(12344321);
         getBlogsData();
         getBlogDetails(blog.id);
     };
 
     const addComment = async (comment, blog) => {
-        console.log(blog);
-        console.log(comment, blog);
         let newComments = [...blog.comments];
         newComments.push({
             authorsEmail: logged.email,
@@ -522,7 +505,6 @@ const BlogContextProvider = ({ children }) => {
         let commentsWithoutComment = blogDetails.comments.filter(
             ({ id }) => id !== comment.id
         );
-        console.log(comment.id, blogDetails);
         let blogWithoutComment = {
             ...blogDetails,
             comments: commentsWithoutComment,
@@ -535,9 +517,6 @@ const BlogContextProvider = ({ children }) => {
     };
 
     const editComment = async (comment, blogDetails, newComment) => {
-        console.log(comment);
-        console.log(newComment);
-        console.log(blogDetails);
         let editedComment = { ...comment, comment: newComment };
         let commentsWithNewComment = blogDetails.comments.map(
             (usersComment) => {
@@ -548,7 +527,6 @@ const BlogContextProvider = ({ children }) => {
                 }
             }
         );
-        console.log(comment.id, blogDetails);
         let blogWithEditedComment = {
             ...blogDetails,
             comments: commentsWithNewComment,

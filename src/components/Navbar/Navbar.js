@@ -198,67 +198,141 @@ export default function PrimarySearchAppBar() {
                 className={classes.mbMenu}
                 onClick={handleProfileMenuOpen}
             >
+                {logged.isLogged ? (
+                    <>
+                        <NavLink
+                            style={{
+                                color: "#fff",
+                                fontSize: "1.25rem",
+                                marginRight: "15px",
+                                paddingTop: "4px",
+                            }}
+                            to="/promotion"
+                        >
+                            Promotion
+                        </NavLink>
+                        <NavLink
+                            style={{
+                                color: "#fff",
+                                fontSize: "1.25rem",
+                                marginRight: "15px",
+                                paddingTop: "4px",
+                            }}
+                            to="/mypromotions"
+                        >
+                            My Promotions
+                        </NavLink>
+                    </>
+                ) : (
+                    ""
+                )}
                 <NavLink
                     style={{
-                        color: "#bfe0c2",
-                        fontSize: "1.10rem",
-                        marginBottom: "5px",
+                        color: "#fff",
+                        fontSize: "1.25rem",
+                        marginRight: "15px",
+                        fontFamily: "nunito",
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "row",
                         textDecoration: "none",
                     }}
                     to={`/bloglist?_limit=${BLOG_LIMIT}&_sort=priority&_order=desc`}
                 >
                     All blogs
                 </NavLink>
+                {logged.isLogged ? (
+                    <NavLink
+                        style={{
+                            color: "#fff",
+                            fontSize: "1.25rem",
+                            marginRight: "15px",
+                            fontFamily: "nunito",
+                            display: "flex",
+                            alignItems: "center",
+                            flexDirection: "row",
+                            textDecoration: "none",
+                        }}
+                        to="/myblog"
+                    >
+                        My Blogs
+                    </NavLink>
+                ) : (
+                    ""
+                )}
+
+                {/* <NavLink
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            onClick={handleProfileMenuOpen}
+                            style={{
+                                color: "#fff",
+                                fontSize: "1.25rem",
+                                marginRight: "15px",
+                                fontFamily: "nunito",
+                                display: "flex",
+                                alignItems: "center",
+                                flexDirection: "row",
+                                textDecoration: "none",
+                            }}
+                            to={history}
+                        >
+                            Categories
+                        </NavLink> */}
                 <NavLink
                     style={{
-                        color: "#bfe0c2",
-                        fontSize: "1.10rem",
-                        marginBottom: "5px",
-                    }}
-                    to="/myblog"
-                >
-                    My Blogs
-                </NavLink>
-                <NavLink
-                    style={{
-                        color: "#bfe0c2",
-                        fontSize: "1.10rem",
-                        marginBottom: "5px",
-                    }}
-                    to="/"
-                >
-                    Categories
-                </NavLink>
-                <NavLink
-                    style={{
-                        color: "#bfe0c2",
-                        fontSize: "1.10rem",
-                        marginBottom: "5px",
+                        color: "#fff",
+                        fontSize: "1.25rem",
+                        marginRight: "15px",
+                        fontFamily: "nunito",
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "row",
+                        textDecoration: "none",
                     }}
                     to="/addblog"
                 >
                     Add Blog
                 </NavLink>
-                <Button
-                    style={{
-                        backgroundColor: "#bfe0c2",
-                        color: "#fff",
-                        marginBottom: "5px",
-                    }}
-                    onClick={() => setSignModal(true)}
-                >
-                    Sign Up
-                </Button>
-                <Button
-                    style={{
-                        backgroundColor: "#bfe0c2",
-                        color: "#fff",
-                        marginBottom: "5px",
-                    }}
-                    onClick={() => setLogModal(true)}
-                >
-                    Log in
-                </Button>
+
+                {logged.isLogged ? (
+                    <>
+                        <Button
+                            className={classes.navLogoutBtn}
+                            onClick={() => {
+                                changeLoggedUser({
+                                    ...logged,
+                                    isLogged: false,
+                                });
+                                localStorage.removeItem("user");
+                                deleteCart();
+                                alert("Вы вышли из аккаунта");
+                                getBlogsData();
+                            }}
+                        >
+                            Log out
+                        </Button>
+                        <Typography variant="p">{logged.email}</Typography>
+                    </>
+                ) : (
+                    <div>
+                        <ButtonUI
+                            className={classes.btn}
+                            onClick={() => setSignModal(true)}
+                        >
+                            Sign Up
+                        </ButtonUI>
+                        <ButtonUI
+                            color="inherit"
+                            focusVisible={false}
+                            className={classes.btn}
+                            onClick={() => setLogModal(true)}
+                        >
+                            Log in
+                        </ButtonUI>
+                    </div>
+                )}
             </MenuItem>
         </Menu>
     );
@@ -399,6 +473,7 @@ export default function PrimarySearchAppBar() {
                                         deleteCart();
                                         alert("Вы вышли из аккаунта");
                                         getBlogsData();
+                                        history.push("/");
                                     }}
                                 >
                                     Log out

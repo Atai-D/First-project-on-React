@@ -33,17 +33,12 @@ const PromotionCard = ({ blog }) => {
     const { cart, getCart, changeBlogCount, changeBlogPrice, addBlogToCart } =
         useBlog();
 
-    useEffect(() => {
-        console.log(promotionBlogs);
-    }, []);
-
     // changeBlogCount(value, id);
     // handleCountChange
     const handleCountChange = (e) => {
         const res = eval(`${days}${e.target.innerText}`);
         setDays(res);
         changeBlogCount(res, blog.id);
-        console.log(blog);
     };
 
     // useEffect(() => {

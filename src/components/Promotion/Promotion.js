@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { useBlog } from "../../contexts/BlogContext";
 import PromotionCard from "./PromotionCard";
+import PaymentIcon from "@material-ui/icons/Payment";
 
 const useStyles = makeStyles({
     table: {
@@ -35,11 +36,11 @@ const Promotion = () => {
     // ))
     const { cart, getCart, changeBlogCount } = useBlog();
     const [count, setCount] = useState([]);
-    useEffect(() => {
-        console.log(1);
-        console.log(promotionBlogs);
-        console.log(cart);
-    }, []);
+    // useEffect(() => {
+    //     console.log(1);
+    //     console.log(promotionBlogs);
+    //     console.log(cart);
+    // }, []);
 
     useEffect(() => {
         getCart();
@@ -94,16 +95,26 @@ const Promotion = () => {
                                 </TableCell>
                                 <TableCell align="right">
                                     <Typography variant="h5">
-                                        {cart.totalPrice}
+                                        {cart.totalPrice} KGS
+                                        <br />
+                                        <Button onClick={handlePayBtn}>
+                                            <PaymentIcon
+                                                style={{
+                                                    width: "50px",
+                                                    height: "50px",
+                                                }}
+                                            />
+                                        </Button>
                                     </Typography>
                                 </TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
-                    <Button onClick={handlePayBtn}>Оплатить</Button>
                 </TableContainer>
             ) : (
-                <h1 style={{color: "#caedc5", fontFamily: "nunito"}}>Похоже здесь нет блогов</h1>
+                <h1 style={{ color: "#caedc5", fontFamily: "nunito" }}>
+                    Похоже здесь нет блогов
+                </h1>
             )}
         </>
     );

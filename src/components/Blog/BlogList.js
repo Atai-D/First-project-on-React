@@ -67,23 +67,19 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 
+    blogListContainer: {},
+    // backgroundColor:"#ffecd4",
+
     blogListContainer: {
-
-    },
-        // backgroundColor:"#ffecd4",
-
-    blogListContainer:{
         // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/rainbow.jpeg'})`,
-
         // backgroundColor:"#f",
-
         // display:"flex"
     },
     blogListCards: {
-        // display: "flex",
-        // justifyContent: "row",
-        // alignItems:"center",
-        // flexWrap: "wrap"
+        display: "flex",
+        justifyContent: "space-evenly",
+        // alignItems: "center",
+        flexWrap: "wrap",
     },
     blogListCategory: {
         // marginTop: "10px",
@@ -169,10 +165,8 @@ const BlogList = () => {
     };
 
     const handleChangePrice = (e, value) => {
-        console.log(value);
         const search = new URLSearchParams(history.location.search);
         search.set("price_lte", value);
-        console.log(search);
         search.set("_page", "1");
         setPage(1);
         history.push(`${history.location.pathname}?${search.toString()}`);
@@ -225,7 +219,14 @@ const BlogList = () => {
     return (
         <>
             <div className={classes.blogListContainer}>
-                <Button onClick={() => setShowCategories(!showCategories)} style={{color:"#8ab584", fontFamily: "nunito", fontWeight:"bold"}}>
+                <Button
+                    onClick={() => setShowCategories(!showCategories)}
+                    style={{
+                        color: "#8ab584",
+                        fontFamily: "nunito",
+                        fontWeight: "bold",
+                    }}
+                >
                     Categories
                 </Button>
                 {showCategories ? (
@@ -345,7 +346,10 @@ const BlogList = () => {
                             </div>
                         </div>
 
-                        <div className={classes.blogListPagination} style={{}}>
+                        <div
+                            className={classes.blogListPagination}
+                            style={{ margin: "20px auto" }}
+                        >
                             <Pagination
                                 style={{
                                     display: "flex",
@@ -354,6 +358,8 @@ const BlogList = () => {
                                 count={pages}
                                 color="primary"
                                 page={+page}
+                                variant="outlined"
+                                size="large"
                                 onChange={handlePage}
                             />
                         </div>

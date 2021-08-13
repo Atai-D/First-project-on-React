@@ -172,7 +172,9 @@ export default function BlogCard({ blog, showAuthor }) {
                         </CardActions>
                         <CardActions className={classes.blogCardInf}>
                             {/* <div className={classes.blogCardInf} > */}
-                            {logged.id === blog.authorsId || logged.isAdmin ? (
+                            {(logged.id === blog.authorsId &&
+                                logged.isLogged) ||
+                            logged.isAdmin ? (
                                 <div>
                                     <DeleteOutlineIcon
                                         className={classes.blogBtn}

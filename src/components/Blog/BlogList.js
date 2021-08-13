@@ -67,13 +67,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 
-    blogListContainer: {},
-    // backgroundColor:"#ffecd4",
-
     blogListContainer: {
         // backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/rainbow.jpeg'})`,
         // backgroundColor:"#f",
         // display:"flex"
+        backgroundColor: "#ffffe6",
+        paddingBottom: "20px",
     },
     blogListCards: {
         display: "flex",
@@ -348,7 +347,7 @@ const BlogList = () => {
 
                         <div
                             className={classes.blogListPagination}
-                            style={{ margin: "20px auto" }}
+                            style={{ marginTop: "20px" }}
                         >
                             <Pagination
                                 style={{

@@ -239,9 +239,13 @@ export default function BlogDetails() {
                             </Typography>
                         </CardContent>
                         <div style={{ marginLeft: "40px" }}>
-                            <Button onClick={handleOpenComment}>
-                                Add Comment
-                            </Button>
+                            {logged.isLogged ? (
+                                <Button onClick={handleOpenComment}>
+                                    Add Comment
+                                </Button>
+                            ) : (
+                                ""
+                            )}
                             <br />
                             {openInp ? (
                                 <>
